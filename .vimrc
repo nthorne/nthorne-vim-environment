@@ -5,6 +5,10 @@
 " initialise pathogen
 call pathogen#infect()
 
+" turn on syntax highlighting (with a stylish color scheme)
+syntax on
+colorscheme nthorne
+
 
 """
 """ keybindings
