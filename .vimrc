@@ -24,10 +24,30 @@ set wildchar=<Tab>
 " turn on incremental searches
 set incsearch
 
+" turn on highlighting of last search
+set hlsearch
+
+" when vsplitting, put the new window to the right of current
+set splitright
+
+" when hsplitting, put the new window above current
+set nosplitbelow
+
+" enable mouse support, if available
+if has('mouse')
+  set mouse=a
+endif
+
+" reduce the updatecount a bit, so that the swap file is written to a bit more
+" often
+set updatecount=20
+
 
 """
 """ appearance
 """
+
+set shortmess+=I
 " color settings
 " TODO: what does this one do? (and where did i get it from?)
 if &term =~ "xterm"
@@ -62,27 +82,42 @@ set diffopt=filler,iwhite
 
 
 """
-""" filetype settings
+""" autocommands
 """
 
-" make vim recognise cpp file types, and set the appropriate folding method
-au BufRead,BufNewFile *.hpp set filetype=cpp
-au BufRead,BufNewFile *.?pp set foldmethod=syntax
-au BufRead,BufNewFile *.cc set filetype=cpp
-au BufRead,BufNewFile *.cc set foldmethod=syntax
+if has('autocmd') && !exists('autocommands_loaded')
 
-" make sure all files are unfolded by default
-au BufRead,BufNewFile * normal zR
+  let autocommands_loaded = 1
 
-" this provides a simple template file system - for any file, if a file named
-" template.<extension> exists in the skel dir, it is read into the new buffer
-au BufNewFile Makefile silent! 0r $HOME/.vim/skel/Makefile
-au BufNewFile * silent! 0r $HOME/.vim/skel/template.%:e
+  " When editing a file, always jump to the last known cursor
+  " position. Don't do it when the position is invalid or when inside
+  " an event handler (happens when dropping a file on gvim).
+  " 
+  " (from Bill Odom's vim environment)
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \ exe "normal g`\"" |
+    \ endif
 
-" mark characters beyond the 80th (since lines longer than 80 chars is a no-no)
-au BufWinEnter * match ErrorMsg '\%>80v.\+'
+  " make vim recognise cpp file types, and set the appropriate folding method
+  au BufRead,BufNewFile *.hpp set filetype=cpp
+  au BufRead,BufNewFile *.?pp set foldmethod=syntax
+  au BufRead,BufNewFile *.cc set filetype=cpp
+  au BufRead,BufNewFile *.cc set foldmethod=syntax
 
-filetype plugin on
+  " make sure all files are unfolded by default
+  au BufRead,BufNewFile * normal zR
+
+  " this provides a simple template file system - for any file, if a file named
+  " template.<extension> exists in the skel dir, it is read into the new buffer
+  au BufNewFile Makefile silent! 0r $HOME/.vim/skel/Makefile
+  au BufNewFile * silent! 0r $HOME/.vim/skel/template.%:e
+
+  " mark characters beyond the 80th (since lines longer than 80 chars is a no-no)
+  au BufWinEnter * match ErrorMsg '\%>80v.\+'
+
+  filetype plugin on
+endif
 
 
 """
@@ -108,6 +143,12 @@ nnoremap ä <C-]>
 
 " on <Leader>f Search for pattern, and gather the result in a new scratch buffer
 nnoremap <silent> <Leader>f :call Gather(input("Pattern: "))<CR>
+
+
+" Toggle wrapping the display of long lines (and display the current 'wrap'
+" state once it's been toggled).
+" (from Bill Odom's vim environment)
+nnoremap \w  :set invwrap<BAR>set wrap?<CR>
 
 """
 """ abbreviations
