@@ -145,8 +145,7 @@ endfunction
 """
 
 " if at one of the work servers, expand the path for usefule file motions
-"if hostname() =~ 'gbguxs\d\+'
-if hostname() =~ 'slaptopen'
+if hostname() =~ 'gbguxs\d\+'
 	source $HOME/.vim/work_profile.vim
 endif
 
