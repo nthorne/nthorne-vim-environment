@@ -79,6 +79,9 @@ au BufRead,BufNewFile * normal zR
 au BufNewFile Makefile silent! 0r $HOME/.vim/skel/Makefile
 au BufNewFile * silent! 0r $HOME/.vim/skel/template.%:e
 
+" mark characters beyond the 80th (since lines longer than 80 chars is a no-no)
+au BufWinEnter * match ErrorMsg '\%>80v.\+'
+
 filetype plugin on
 
 
@@ -146,7 +149,7 @@ endfunction
 
 " if at one of the work servers, expand the path for usefule file motions
 if hostname() =~ 'gbguxs\d\+'
-	source $HOME/.vim/work_profile.vim
+  source $HOME/.vim/work_profile.vim
 endif
 
 
