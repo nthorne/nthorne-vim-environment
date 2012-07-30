@@ -1,0 +1,49 @@
+# Unary functor definition (work related)
+snippet unaryfun
+	/**
+	 * @justification (`system("date +%Y-%m-%d")`/nthorne) QACPP 2116: STL standard conformant predicate
+	 */
+	// PRQA S 2116 ++
+	class ${1:`Filename('$1', 'name')`} : public std::unary_function<
+										${2:int},
+										${3:bool}>
+	{
+	// PRQA S 2116 --
+	public:
+		~$1()
+		{
+		}
+
+		$3 operator()(const $2& arg) const
+		{
+			$3 l_result;
+
+			return l_result;
+		}
+	};
+
+# Binary functor definition (work related)
+snippet binaryfun
+	/**
+	 * @justification (`system("date +%Y-%m-%d")`/nthorne) QACPP 2116: STL standard conformant predicate
+	 */
+	// PRQA S 2116 ++
+	class ${1:`Filename('$1', 'name')`} : public std::binary_function<
+										${2:int},
+										${3:long},
+										${4:bool}>
+	{
+	// PRQA S 2116 --
+	public:
+		~$1()
+		{
+		}
+
+		$4 operator()(const $2& fst, const $3& snd) const
+		{
+			$4 l_result;
+
+			return l_result;
+		}
+	};
+
