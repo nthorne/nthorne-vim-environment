@@ -119,7 +119,10 @@ if has('autocmd') && !exists('autocommands_loaded')
   " for python files, set the makeprg to pylint, so that we can utilize
   " a compiler plugin with an errorformat
   au FileType python set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
-  " map <F5> to pylint for coherent work flow
+
+  " for python, map the usual compile/lint/whatnot function keys for a
+  " coherent workflow
+  au FileType python nnoremap <silent> <F3> :!/usr/bin/env python %<CR>
   au FileType python nnoremap <silent> <F5> :make<CR>
 
   filetype plugin on
