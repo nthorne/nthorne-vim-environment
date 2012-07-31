@@ -142,6 +142,7 @@ nnoremap <silent> <F12> :cn<CR>
 nnoremap ä <C-]>
 
 " on <Leader>f Search for pattern, and gather the result in a new scratch buffer
+runtime functions/gather.vim
 nnoremap <silent> <Leader>f :call Gather(input("Pattern: "))<CR>
 
 
@@ -156,32 +157,6 @@ nnoremap \w  :set invwrap<BAR>set wrap?<CR>
 
 " nifty abbreviation for lcd-ing to the path in which the current file resides
 cabbrev lcc lcd %:p:h
-
-
-"""
-""" user defined functions
-"""
-
-" Gather search hits, and display in a new scratch buffer.
-function! Gather(pattern)
-  if !empty(a:pattern)
-    let save_cursor = getpos(".")
-    let orig_ft = &ft
-    " append search hits to results list
-    let results = []
-    execute "g/" . a:pattern . "/call add(results, getline('.'))"
-    call setpos('.', save_cursor)
-    if !empty(results)
-      " put list in new scratch buffer
-      new
-      setlocal buftype=nofile bufhidden=hide noswapfile
-      execute "setlocal filetype=".orig_ft
-      call append(1, results)
-      1d  " delete initial blank line
-    endif
-  endif
-endfunction
-
 
 
 """
