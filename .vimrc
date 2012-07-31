@@ -188,6 +188,3 @@ let g:C_CFlags="-g"
 let g:C_LFlags="-g"
 let g:C_Comments='no'
 
-" setup options for the pylint compiler plugin
-let g:pylint_onwrite = 0
-
