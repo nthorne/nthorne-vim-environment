@@ -116,6 +116,12 @@ if has('autocmd') && !exists('autocommands_loaded')
   " mark characters beyond the 80th (since lines longer than 80 chars is a no-no)
   au BufWinEnter * match ErrorMsg '\%>80v.\+'
 
+  " for python files, set the makeprg to pylint, so that we can utilize
+  " a compiler plugin with an errorformat
+  au FileType python set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
+  " map <F5> to pylint for coherent work flow
+  au FileType python nnoremap <silent> <F5> :make<CR>
+
   filetype plugin on
 endif
 
