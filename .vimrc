@@ -133,6 +133,8 @@ endif
 """ keybindings
 """
 
+" <F1> toggles NERDTree
+nnoremap <silent> <F1> :NERDTreeToggle<CR>
 " <F2> toggles taglist
 nnoremap <silent> <F2> :TlistToggle<CR>
 
@@ -188,3 +190,6 @@ let g:C_CFlags="-g"
 let g:C_LFlags="-g"
 let g:C_Comments='no'
 
+
+" setup taglist
+let g:Tlist_Use_Right_Window=1
