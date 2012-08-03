@@ -3,84 +3,84 @@
 "
 
 
-" function for linting a specific file
-" NOTE: this one is not needed atm, but i'll keep it around if we switch
-"   back to not using the lint host (i.e. use a proper lint tool)
-"
-"function! s:LintFile(file)
-"  botright lwindow
-"  let ignores = system('find . -type f -name "*.cpp" ! -name "*Test.cpp" ! -name '.escape(a:file,'%#'))
-"  let files = substitute(ignores, "\./", "", "g")
-"  let files = substitute(files, "\n", " ", "g")
-"  cexpr system('gmake LINTIGNORE="'.escape(files,'%#').'" lint')
-"  cope
-"  1
-"endfunction
-"command! -complete=file -nargs=+ Lif call s:LintFile(<q-args>)
-
-
-" determine if the current file is ready for checkin
+" determine if the current file is ready for checkin (i.e. grep the file for
+" debug log statements, todo statements and lint it)it).
 function! work#CanCheckin()
-  let remoteFullName = substitute(expand('%:p'), '/solhome', '', 'g')
-  let remotePath = substitute(system('dirname '.remoteFullName), '\n', '', 'g')
-  let filename = substitute(system('basename '.remoteFullName), '\n', '', 'g')
-  let lintFile = '.lint/'.filename.'.err'
+  if !filereadable(@%)
+    return
+  endif
 
-  let result=system('rsh gbguxs03 "source /etc/profile; cd '.remotePath.'; pwd; gmake -k '.lintFile.'"')
+  " store this one for later on
+  let l:full_path=expand('%:p')
 
-  let scratch = 'Debug logs: '.system('fgrep "\"666\"" '.expand('%:p').' | wc -l')
-  let scratch = scratch.'TODO count: '.system('fgrep TODO '.expand('%:p').' | wc -l')."\n"
-  let scratch = scratch."QACPP remarks:\n"
-  let scratch = scratch.system('cat '.substitute(lintFile, '.err', '.log', '').'| sed "1d"')
-  vimgrep '"666"' %
-  vimgrep TODO %
+  " vimgrep for the debug logs and TODO:s so that we can navigate them via
+  " the error list.
+  vimgrep /"666"\|TODO/ %
 
-  " put todo tag count in a new scratch buffer
-  below 15new
-  setlocal buftype=nofile bufhidden=hide noswapfile
-  put = scratch
+  " run lint on the unit (this will setup the workbuffer buffer as well)
+  call work#LintUnit()
+
+  let l:analysis = ''
+
+  let l:analysis = l:analysis."---------------\n"
+  let l:analysis = l:analysis.'Debug logs: '.system(
+    \'fgrep "\"666\"" '.l:full_path.' | wc -l')
+  let l:analysis = l:analysis.'TODO count: '.system(
+    \'fgrep TODO '.l:full_path.' | wc -l')
+  let l:analysis = l:analysis."---------------\n"
+  let l:analysis = l:analysis."QACPP remarks:\n"
+
+  " goto the first line, and put the analysis output there
+  execute bufwinnr('workbuffer') . "wincmd w"
+  1g
+  put = l:analysis
   1d
-  resize 15
-  wincmd j
-
 endfunction
 
-" run the unit test of the current unit, or the unit test if one is currently active
+
+" run the unit test of the current unit, or the currently open unit test
 function! work#TestUnit()
   if !filereadable(@%)
     return
   endif
 
-  let filename = @%
-
   if @% =~ 'Test\.[ch]pp$'
-    let pathname = system('dirname '.filename)
-    let testpath = substitute(pathname, '\n', '', 'g')
-    let unitTestBaseName = substitute(substitute(system('basename '.filename), '\n', '', 'g'), '\.[ch]pp', '', 'g')
+    " if the current file is a unit test, grab names and paths
+    let l:testpath = substitute(expand("%:p:h"), '\n', '', 'g')
+    let l:test_base_name = substitute(
+      \substitute(expand("%:p:t"), '\n', '', 'g'), '\.[ch]pp', '', 'g')
   else
-    let pathname = system('dirname '.filename)
-    let testpath = substitute(pathname, '\n', '', 'g').'/test'
-
-    let unitTestBaseName = substitute(substitute(system('basename '.filename), '\n', '', 'g'), '\.[ch]pp', 'Test', 'g')
+    " else, if not a unit test, append /test to the unit path, and construct 
+    " a proper Makefile recipe target (i.e. <UnitName>Test)
+    let l:testpath = substitute(expand("%:p:h"), '\n', '', 'g').'/test'
+    let l:test_base_name = substitute(
+      \substitute(expand("%:p:t"), '\n', '', 'g'), '\.[ch]pp', 'Test', 'g')
   endif
 
-  let tbinpath = testpath.'/.out'
-  let testBinary = tbinpath.'/'.unitTestBaseName
+  " the test binaries are stored under test/.out
+  let l:test_bin = l:testpath.'/.out/'.l:test_base_name
 
-  " set up a new buffer (for debugging)
-  below 15new
-  setlocal buftype=nofile bufhidden=hide noswapfile
+  " open a new workbuffer, and clear it
+  call work#OpenWorkBuffer()
+  %d
 
-  if filereadable(testBinary)
-    exe 'silent !rm '.testBinary
+  " if the test binary exists..
+  if filereadable(l:test_bin)
+    " .. remove it to force a test rebuild
+    exe 'silent !rm '.l:test_bin
   endif
 
-  exe 'make NO_OPTIMIZATION=y 'testBinary
+  exe 'make NO_OPTIMIZATION=y '.l:test_bin
 
-  if filereadable(testBinary)
-    let runString = 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/nthorne/TCC_SW/Distribution/SunOS_i86pc/lib:$XERCES_ROOT/lib '.testBinary
-    put = system(runString)
+  " if the test did build..
+  if filereadable(l:test_bin)
+    " .. run it, with a sane LD_LIBRARY_PATH and XERCES path
+    let l:run_string = 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'
+    let l:run_string = l:run_string.'/home/nthorne/TCC_SW/Distribution/SunOS_i86pc/lib:'
+    let l:run_string = l:run_string.'$XERCES_ROOT/lib '.l:test_bin
+    put = system(l:run_string)
   else
+    " .. otherwise, close the workbuffer, and return
     close
     return
   endif
@@ -93,9 +93,8 @@ function! work#TestUnit()
 
   " drop any pool destructor log statements
   exec 'silent g/\~pool/ d'
-
-"  exec 'silent G'
 endfunction
+
 
 " lint the current unit
 function! work#LintUnit()
@@ -103,27 +102,39 @@ function! work#LintUnit()
     return
   endif
 
-  let filename = substitute(@%, 'hpp', 'cpp', 'g')
-
-  let fullpath = expand("%:p:h")
-
-  let errFile = '.lint/'.filename.'.err'
-  let logFile = '.lint/'.filename.'.log'
-
-  " set up a new buffer (for debugging)
-  below 15new
-  setlocal buftype=nofile bufhidden=hide noswapfile
-
-  if filereadable(errFile)
-    exe 'silent !rm '.errFile
+  " the cpp file is the target for the Makefile recipe, so we'll go ahead
+  " and construct that name, if we're editing a header file
+  let l:filename = substitute(@%, 'hpp', 'cpp', 'g')
+  if !filereadable(l:filename)
+    return
   endif
 
-  let out = system('ssh linthost "source /etc/zprofile ; cd /host/'.fullpath.' ; make NO_OPTIMIZATION=y '.errFile.'"')
-  put = errFile
-  put = out
+  let l:full_path = expand("%:p:h")
 
-  put = logFile
-  exec 'r '.logFile
+  let l:error_file = '.lint/'.l:filename.'.err'
+  let l:log_file = '.lint/'.l:filename.'.log'
+
+  call work#OpenWorkBuffer()
+  " clear the buffer
+  %d
+
+  if filereadable(l:error_file)
+    " if the error-file already existed, remove it to force lintage
+    exe 'silent !rm '.l:error_file
+  endif
+
+  " open an ssh-session to the lint host, and Make the lint error-file
+  let l:ssh_command ='ssh linthost "source /etc/zprofile ; cd /host/'
+  let l:ssh_command = l:ssh_command.l:full_path 
+  let l:ssh_command = l:ssh_command.' ;make NO_OPTIMIZATION=y '.l:error_file.'"'
+  let l:output = substitute(system(l:ssh_command), '', '', 'g')
+
+  put = l:error_file.':'
+  put = l:output
+
+  " read the log file input into the buffer
+  put = l:log_file.':'
+  silent! exec 'r '.l:log_file
 
   " drop the 'unknown error'
   exec 'silent g/Unknown error$/ d'
@@ -133,5 +144,23 @@ function! work#LintUnit()
 
   " drop empty lines
   exec 'silent g/^[ \t]*$/ d'
+endfunction
+
+
+" helper function for opening a buffer named workbuffer 
+function work#OpenWorkBuffer()
+  if !bufexists('workbuffer')
+    " if the workbuffer buffer does not exist, create
+    below 15split workbuffer
+    setlocal buftype=nofile bufhidden=hide noswapfile
+  else
+    if -1 == bufwinnr('workbuffer')
+      " if the workbuffer exists, but isn't visible, split it shown
+      below 15split workbuffer
+    endif
+
+    " switch to the workbuffer
+    execute bufwinnr('workbuffer')."wincmd w"
+  endif
 endfunction
 

@@ -1,19 +1,30 @@
 " Gather search hits, and display in a new scratch buffer.
 function! Gather(pattern)
   if !empty(a:pattern)
+    " save the cursor position
     let save_cursor = getpos(".")
+    " save the file type of the original file
     let orig_ft = &ft
-    " append search hits to results list
+
     let results = []
+    " append search hits to results list
     execute "g/" . a:pattern . "/call add(results, getline('.'))"
+
+    " position the cursor att the stored position
     call setpos('.', save_cursor)
+
     if !empty(results)
-      " put list in new scratch buffer
+      " if we had any results, put them in a new scratch buffer
       botright 10new
       setlocal buftype=nofile bufhidden=hide noswapfile
+
+      " set the buffer filetype to match that of the original file
       execute "setlocal filetype=".orig_ft
+
+      " append the results to the new buffer..
       call append(1, results)
-      1d  " delete initial blank line
+      " .. and deelte the initial blank line
+      1d 
     endif
   endif
 endfunction
