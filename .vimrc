@@ -160,7 +160,10 @@ nnoremap <silent> <Leader>f :call Gather(input("Pattern: "))<CR>
 " Toggle wrapping the display of long lines (and display the current 'wrap'
 " state once it's been toggled).
 " (from Bill Odom's vim environment)
-nnoremap \w  :set invwrap<BAR>set wrap?<CR>
+nnoremap <leader>w  :set invwrap<BAR>set wrap?<CR>
+
+" Handy shortcut for editing my .vimrc
+nnoremap <leader>ev :split $MYVIMRC<CR>
 
 """
 """ abbreviations
