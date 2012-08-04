@@ -101,9 +101,8 @@ if has('autocmd') && !exists('autocommands_loaded')
 
   " make vim recognise cpp file types, and set the appropriate folding method
   au BufRead,BufNewFile *.hpp set filetype=cpp
-  au BufRead,BufNewFile *.?pp set foldmethod=syntax
   au BufRead,BufNewFile *.cc set filetype=cpp
-  au BufRead,BufNewFile *.cc set foldmethod=syntax
+  au Filetype cpp set foldmethod=syntax
 
   " make sure all files are unfolded by default
   au BufRead,BufNewFile * normal zR
