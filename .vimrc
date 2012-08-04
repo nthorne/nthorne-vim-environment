@@ -145,6 +145,9 @@ nnoremap <silent> <F2> :TlistToggle<CR>
 " <F3> shows the Gstatus window
 nnoremap <silent> <F3> :Gstatus<CR>
 
+" <F4> shows the Buffer Explorer window
+nnoremap <silent> <F4> :BufExplorer<CR>
+
 " <F5> shows the Hiswin window
 nnoremap <silent> <F5> :Histwin<CR>
 
