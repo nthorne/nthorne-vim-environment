@@ -85,44 +85,45 @@ set diffopt=filler,iwhite
 """ autocommands
 """
 
-if has('autocmd') && !exists('autocommands_loaded')
+if has('autocmd')
+  augroup nthorne_augroup
+    au!
 
-  let autocommands_loaded = 1
+    " When editing a file, always jump to the last known cursor
+    " position. Don't do it when the position is invalid or when inside
+    " an event handler (happens when dropping a file on gvim).
+    " 
+    " (from Bill Odom's vim environment)
+    au BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \ exe "normal g`\"" |
+      \ endif
 
-  " When editing a file, always jump to the last known cursor
-  " position. Don't do it when the position is invalid or when inside
-  " an event handler (happens when dropping a file on gvim).
-  " 
-  " (from Bill Odom's vim environment)
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \ exe "normal g`\"" |
-    \ endif
+    " make vim recognise cpp file types, and set the appropriate folding method
+    au BufRead,BufNewFile *.hpp set filetype=cpp
+    au BufRead,BufNewFile *.cc set filetype=cpp
+    au Filetype cpp set foldmethod=syntax
 
-  " make vim recognise cpp file types, and set the appropriate folding method
-  au BufRead,BufNewFile *.hpp set filetype=cpp
-  au BufRead,BufNewFile *.cc set filetype=cpp
-  au Filetype cpp set foldmethod=syntax
+    " make sure all files are unfolded by default
+    au BufRead,BufNewFile * normal zR
 
-  " make sure all files are unfolded by default
-  au BufRead,BufNewFile * normal zR
+    " this provides a simple template file system - for any file, if a file named
+    " template.<extension> exists in the skel dir, it is read into the new buffer
+    au BufNewFile Makefile silent! 0r $HOME/.vim/skel/Makefile
+    au BufNewFile * silent! 0r $HOME/.vim/skel/template.%:e
 
-  " this provides a simple template file system - for any file, if a file named
-  " template.<extension> exists in the skel dir, it is read into the new buffer
-  au BufNewFile Makefile silent! 0r $HOME/.vim/skel/Makefile
-  au BufNewFile * silent! 0r $HOME/.vim/skel/template.%:e
+    " mark characters beyond the 80th (since lines longer than 80 chars is a no-no)
+    au BufWinEnter * match ErrorMsg '\%>80v.\+'
 
-  " mark characters beyond the 80th (since lines longer than 80 chars is a no-no)
-  au BufWinEnter * match ErrorMsg '\%>80v.\+'
+    " for python files, set the makeprg to pylint, so that we can utilize
+    " a compiler plugin with an errorformat
+    au FileType python set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
 
-  " for python files, set the makeprg to pylint, so that we can utilize
-  " a compiler plugin with an errorformat
-  au FileType python set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
-
-  " for python, map the usual compile/lint/whatnot function keys for a
-  " coherent workflow
-  au FileType python nnoremap <silent> <localleader><F3> :!/usr/bin/env python %<CR>
-  au FileType python nnoremap <silent> <localleader><F5> :make<CR>
+    " for python, map the usual compile/lint/whatnot function keys for a
+    " coherent workflow
+    au FileType python nnoremap <silent> <localleader><F3> :!/usr/bin/env python %<CR>
+    au FileType python nnoremap <silent> <localleader><F5> :make<CR>
+  augroup END
 
   filetype plugin on
 endif

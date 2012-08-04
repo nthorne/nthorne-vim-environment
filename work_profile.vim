@@ -21,21 +21,24 @@ set path+=~/CBI3/Distribution/include,~/ILA_LKAB/Import/include
 """ filetype settins
 """
 
-if has('autocmd') && !exists('work_autocommands_loaded')
+if has('autocmd')
+  augroup nthorne_work_augroup
+    au!
 
-  " set the appropriate filetype for tcc log files
-  au BufRead,BufNewFile *.[0-9]*.log set filetype=tcclog
+    " set the appropriate filetype for tcc log files
+    au BufRead,BufNewFile *.[0-9]*.log set filetype=tcclog
 
-  " use the como compiler plugin where appropriate,
-  " otherwise sun_cc
-  if hostname() == "gbguxs04"
-    au FileType cpp compiler como
-  else
-    au FileType cpp compiler sun_cc
-  endif
+    " use the como compiler plugin where appropriate,
+    " otherwise sun_cc
+    if hostname() == "gbguxs04"
+      au FileType cpp compiler como
+    else
+      au FileType cpp compiler sun_cc
+    endif
 
-  " set the appropriate filetype for the QACPP log files
-  au BufRead,BufNewFile *.cpp.log set filetype=qacpplog
+    " set the appropriate filetype for the QACPP log files
+    au BufRead,BufNewFile *.cpp.log set filetype=qacpplog
+  augroup END
 endif
 
 
@@ -46,19 +49,19 @@ endif
 " contains the functions called by the keybindings defined below
 runtime functions/work.vim
 
-if has('autocmd') && !exists('work_autocommands_loaded')
-  let work_autocommands_loaded = 1
+if has('autocmd')
+  augroup nthorne_work_augroup
+    " <localleader><F3> simply does a non-optimized recursive build
+    au FileType cpp nnoremap <silent> <localleader><F3> :make NO_OPTIMIZATION=y<CR>
+    " <localleader><F4> runs the current unit test, or the unit test for the current unit
+    au FileType cpp nnoremap <silent> <localleader><F4> :call work#TestUnit()<CR>
+    " <localleader><F5> runs QACPP on the lint host, for the current unit
+    au FileType cpp nnoremap <silent> <localleader><F5> :call work#LintUnit()<CR>
 
-  " <localleader><F3> simply does a non-optimized recursive build
-  au FileType cpp nnoremap <silent> <localleader><F3> :make NO_OPTIMIZATION=y<CR>
-  " <localleader><F4> runs the current unit test, or the unit test for the current unit
-  au FileType cpp nnoremap <silent> <localleader><F4> :call work#TestUnit()<CR>
-  " <localleader><F5> runs QACPP on the lint host, for the current unit
-  au FileType cpp nnoremap <silent> <localleader><F5> :call work#LintUnit()<CR>
-
-  " <localleader>cci does a sanity check of the unit (todos, debug statements
-  " and lint)
-  au FileType cpp nnoremap <silent> <localleader>cci <ESC>:call work#CanCheckin()<CR>
+    " <localleader>cci does a sanity check of the unit (todos, debug statements
+    " and lint)
+    au FileType cpp nnoremap <silent> <localleader>cci <ESC>:call work#CanCheckin()<CR>
+  augroup END
 endif
 
 
