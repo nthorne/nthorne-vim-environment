@@ -44,13 +44,15 @@ au BufRead,BufNewFile *.cpp.log set filetype=qacpplog
 runtime functions/work.vim
 
 " <F3> simply does a non-optimized recursive build
-nnoremap <silent> <F3> :make NO_OPTIMIZATION=y<CR>
+nnoremap <silent> <localleader><F3> :make NO_OPTIMIZATION=y<CR>
 " <F4> runs the current unit test, or the unit test for the current unit
-nnoremap <silent> <F4> :call work#TestUnit()<CR>
+nnoremap <silent> <localleader><F4> :call work#TestUnit()<CR>
 " <F5> runs QACPP on the lint host, for the current unit
-nnoremap <silent> <F5> :call work#LintUnit()<CR>
-" <C-C> does a sanity check of the unit, making sure it is ok for checking in
-nnoremap <silent> <C-C> <ESC>:call work#CanCheckin()<CR>
+nnoremap <silent> <localleader><F5> :call work#LintUnit()<CR>
+
+" <localleader>cci does a sanity check of the unit (todos, debug statements
+" and lint)
+nnoremap <silent> <localleader>cci <ESC>:call work#CanCheckin()<CR>
 
 
 """

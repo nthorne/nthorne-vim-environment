@@ -122,8 +122,8 @@ if has('autocmd') && !exists('autocommands_loaded')
 
   " for python, map the usual compile/lint/whatnot function keys for a
   " coherent workflow
-  au FileType python nnoremap <silent> <F3> :!/usr/bin/env python %<CR>
-  au FileType python nnoremap <silent> <F5> :make<CR>
+  au FileType python nnoremap <silent> <localleader><F3> :!/usr/bin/env python %<CR>
+  au FileType python nnoremap <silent> <localleader><F5> :make<CR>
 
   filetype plugin on
 endif
