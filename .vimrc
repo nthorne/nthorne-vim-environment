@@ -138,8 +138,12 @@ let maplocalleader = '\\'
 
 " <F1> toggles NERDTree
 nnoremap <silent> <F1> :NERDTreeToggle<CR>
+
 " <F2> toggles taglist
 nnoremap <silent> <F2> :TlistToggle<CR>
+
+" <F3> shows the Gstatus window
+nnoremap <silent> <F3> :Gstatus<CR>
 
 " <F6> and <F7> is for navigating between files
 nnoremap <silent> <F6> :prev<CR>
