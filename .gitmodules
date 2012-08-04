@@ -31,3 +31,6 @@
 [submodule "bundle/a"]
 	path = bundle/a
 	url = git://github.com/vim-scripts/a.vim.git
+[submodule "bundle/histwin"]
+	path = bundle/histwin
+	url = git://github.com/chrisbra/histwin.vim.git
