@@ -43,11 +43,11 @@ au BufRead,BufNewFile *.cpp.log set filetype=qacpplog
 " contains the functions called by the keybindings defined below
 runtime functions/work.vim
 
-" <F3> simply does a non-optimized recursive build
+" <localleader><F3> simply does a non-optimized recursive build
 nnoremap <silent> <localleader><F3> :make NO_OPTIMIZATION=y<CR>
-" <F4> runs the current unit test, or the unit test for the current unit
+" <localleader><F4> runs the current unit test, or the unit test for the current unit
 nnoremap <silent> <localleader><F4> :call work#TestUnit()<CR>
-" <F5> runs QACPP on the lint host, for the current unit
+" <localleader><F5> runs QACPP on the lint host, for the current unit
 nnoremap <silent> <localleader><F5> :call work#LintUnit()<CR>
 
 " <localleader>cci does a sanity check of the unit (todos, debug statements
