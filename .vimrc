@@ -165,6 +165,9 @@ nnoremap <leader>w  :set invwrap<BAR>set wrap?<CR>
 " Handy shortcut for editing my .vimrc
 nnoremap <leader>ev :split $MYVIMRC<CR>
 
+" Handy shortcut for sourcing my .vimrc
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
 """
 """ abbreviations
 """
