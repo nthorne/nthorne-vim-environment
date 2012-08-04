@@ -145,6 +145,9 @@ nnoremap <silent> <F2> :TlistToggle<CR>
 " <F3> shows the Gstatus window
 nnoremap <silent> <F3> :Gstatus<CR>
 
+" <F5> shows the Hiswin window
+nnoremap <silent> <F5> :Histwin<CR>
+
 " <F6> and <F7> is for navigating between files
 nnoremap <silent> <F6> :prev<CR>
 nnoremap <silent> <F7> :next<CR>
