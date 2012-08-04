@@ -29,9 +29,9 @@ if has('autocmd') && !exists('work_autocommands_loaded')
   " use the como compiler plugin where appropriate,
   " otherwise sun_cc
   if hostname() == "gbguxs04"
-    au BufRead,BufNewFile *.?pp compiler como
+    au FileType cpp compiler como
   else
-    au BufRead,BufNewFile *.?pp compiler sun_cc
+    au FileType cpp compiler sun_cc
   endif
 
   " set the appropriate filetype for the QACPP log files
@@ -50,15 +50,15 @@ if has('autocmd') && !exists('work_autocommands_loaded')
   let work_autocommands_loaded = 1
 
   " <localleader><F3> simply does a non-optimized recursive build
-  au filetype cpp nnoremap <silent> <localleader><F3> :make NO_OPTIMIZATION=y<CR>
+  au FileType cpp nnoremap <silent> <localleader><F3> :make NO_OPTIMIZATION=y<CR>
   " <localleader><F4> runs the current unit test, or the unit test for the current unit
-  au filetype cpp nnoremap <silent> <localleader><F4> :call work#TestUnit()<CR>
+  au FileType cpp nnoremap <silent> <localleader><F4> :call work#TestUnit()<CR>
   " <localleader><F5> runs QACPP on the lint host, for the current unit
-  au filetype cpp nnoremap <silent> <localleader><F5> :call work#LintUnit()<CR>
+  au FileType cpp nnoremap <silent> <localleader><F5> :call work#LintUnit()<CR>
 
   " <localleader>cci does a sanity check of the unit (todos, debug statements
   " and lint)
-  au filetype cpp nnoremap <silent> <localleader>cci <ESC>:call work#CanCheckin()<CR>
+  au FileType cpp nnoremap <silent> <localleader>cci <ESC>:call work#CanCheckin()<CR>
 endif
 
 
