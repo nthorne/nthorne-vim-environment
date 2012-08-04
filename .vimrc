@@ -181,12 +181,8 @@ nnoremap <leader>ev :split $MYVIMRC<CR>
 " Handy shortcut for sourcing my .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-"""
-""" abbreviations
-"""
-
-" nifty abbreviation for lcd-ing to the path in which the current file resides
-cabbrev lcc lcd %:p:h
+" lcd to path of current file
+nnoremap <localleader>lcf :lcd %:p:h<CR>
 
 
 """
