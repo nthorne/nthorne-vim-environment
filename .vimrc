@@ -2,72 +2,62 @@
 """ general setup {{{
 """
 
-" initialise pathogen
 call pathogen#infect()
 
-" be a bit less vi-compatible, in order to provide some useful features
-set nocompatible
 
-" use the 'magic' setting to keep patterns portable
-set sm
+set nocompatible    " be a bit less vi-compatible, for useful features
 
-" use 2 spaces for TAB as default
-" TODO: this one is perhaps a bit fishy
-set sw=2
-set sts=2
-set expandtab
-set bs=2
+set showmatch       " show matching bracket
 
-" use tab to do wild card expansion in the command line 
-set wildchar=<Tab>
 
-" turn on incremental searches
-set incsearch
+" TODO: These tab settings might be a bit fishy to use straight off,
+"   disregarding file type..
+set shiftwidth=2    " use two spaces for each step of autoindent
+set softtabstop=2   " use two spaces for a <Tab>
+set expandtab       " use spaces rather than tabs
+set backspace=2     " allow <BS> over autoindent, line breaks and insert start
 
-" turn on highlighting of last search
-set hlsearch
 
-" when vsplitting, put the new window to the right of current
-set splitright
+set wildchar=<Tab>  " use <Tab> for command-line wildcard expansion
 
-" when hsplitting, put the new window above current
-set nosplitbelow
+set incsearch       " use incremental searches
 
-" enable mouse support, if available
+set hlsearch        " highlight last search
+
+set splitright      " vsplit windows to the right of current
+
+set nosplitbelow    " hsplit windows above current
+
 if has('mouse')
-  set mouse=a
+  set mouse=a       " enable mouse support, if available
 endif
 
-" reduce the updatecount a bit, so that the swap file is written to a bit more
-" often
-set updatecount=20
+set updatecount=20  " reduce updatecount, for more frequent swap file writes
 
 
 """ }}} 
 """ appearance {{{
 """
 
-set shortmess+=I
-" color settings
-" TODO: what does this one do? (and where did i get it from?)
-if &term =~ "xterm"
-  if has("terminfo")
-	set t_Co=8
-	set t_Sf=[3%p1%dm
-	set t_Sb=[4%p1%dm
+set shortmess+=I    " skip the vim intro message
+
+
+if &term =~ "xterm"         " if terminal is xterm..
+  if has("terminfo")        " .. and terminfo database is used
+	set t_Co=8          "   .. set color count to 8
+	set t_Sf=[3%p1%dm "   .. foreground color
+	set t_Sb=[4%p1%dm "   .. background color
   else
-	set t_Co=8
-	set t_Sf=[3%dm
-	set t_Sb=[4%dm
+	set t_Co=8          "   .. set color count to 8
+	set t_Sf=[3%dm    "   .. foreground color
+	set t_Sb=[4%dm    "   .. background color
   endif
 endif
 
-" turn on syntax highlighting (with a stylish color scheme)
-syntax on
-colorscheme nthorne
+syntax on           " turn on syntax highlighting..
+colorscheme nthorne " .. with a stylish color scheme
 
-" turn on line numbers
-set number
+set number          " turn on line numbering
 
 " set the statusline
 set statusline=%<                           " truncate line at start
@@ -83,15 +73,12 @@ set statusline+=%=                          " right align
 set statusline+=%l,%c                       " line, column of cursor
 set statusline+=%V                          " virtual column
 
-" always show the statusline
-set laststatus=2
+set laststatus=2    " always show the status line
 
-" setup the ruler
-set showmode
-set ruler
+set showmode        " show the current mode on the last line
+set ruler           " show cursor position (overridden by statusline)
 
-" ignore whitespace changes, and show filler lines
-set diffopt=filler,iwhite
+set diffopt=filler,iwhite " show filler lines, and ignore whitespace changes
 
 
 """ }}}
@@ -120,12 +107,12 @@ if has('autocmd')
     " make sure all files are unfolded by default
     au BufRead,BufNewFile * normal zR
 
-    " this provides a simple template file system - for any file, if a file named
-    " template.<extension> exists in the skel dir, it is read into the new buffer
+    " this provides a simple template file system: for any file, if a file named
+    " template.<extension> exists in the skel dir, it is read into the buffer
     au BufNewFile Makefile silent! 0r $HOME/.vim/skel/Makefile
     au BufNewFile * silent! 0r $HOME/.vim/skel/template.%:e
 
-    " mark characters beyond the 80th (since lines longer than 80 chars is a no-no)
+    " mark characters beyond the 80th (lines longer than 80 chars is a no-no)
     au BufWinEnter * match ErrorMsg '\%>80v.\+'
 
     " for python files, set the makeprg to pylint, so that we can utilize
