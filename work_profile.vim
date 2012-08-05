@@ -1,7 +1,7 @@
 " this file contains some work-specific settings
 
 """
-""" general settings
+""" general settings {{{
 """
 
 " set gmake as our :make program
@@ -42,8 +42,8 @@ if has('autocmd')
 endif
 
 
-"""
-""" keybindings
+""" }}}
+""" keybindings {{{
 """
 
 " contains the functions called by the keybindings defined below
@@ -65,8 +65,8 @@ if has('autocmd')
 endif
 
 
-"""
-""" abbreviations
+""" }}}
+""" abbreviations {{{
 """
 
 " project path abbreviations
@@ -78,3 +78,5 @@ cabbrev ucbr using CBR3::
 iabbrev cmDist getDistance(Distance::CENTIMETER)
 iabbrev dbglog GPU3_LOG("666", critical, 
 
+
+""" }}}
