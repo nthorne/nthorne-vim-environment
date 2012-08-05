@@ -1,5 +1,5 @@
 """
-""" general setup
+""" general setup {{{
 """
 
 " initialise pathogen
@@ -43,8 +43,8 @@ endif
 set updatecount=20
 
 
-"""
-""" appearance
+""" }}} 
+""" appearance {{{
 """
 
 set shortmess+=I
@@ -69,8 +69,21 @@ colorscheme nthorne
 " turn on line numbers
 set number
 
-" set the statusline (including filetype, amongst other)
-set statusline=%<%f%h%m%r\ %y\ [%{&ff}]\ %{fugitive#statusline()}\ %l,%c%V
+" set the statusline
+set statusline=%<                           " truncate line at start
+set statusline+=%f                          " file type
+set statusline+=%h                          " help buffer flag
+set statusline+=%m                          " modified flag
+set statusline+=%r                          " readonly flag
+set statusline+=\ %y                        " filetype
+set statusline+=\ [%{&ff}]                  " fileformat
+set statusline+=\ %{fugitive#statusline()}  " git branch
+set statusline+=\ [%L\ lines]               " line count
+set statusline+=%=                          " right align
+set statusline+=%l,%c                       " line, column of cursor
+set statusline+=%V                          " virtual column
+
+" always show the statusline
 set laststatus=2
 
 " setup the ruler
@@ -81,8 +94,8 @@ set ruler
 set diffopt=filler,iwhite
 
 
-"""
-""" autocommands
+""" }}}
+""" autocommands {{{
 """
 
 if has('autocmd')
@@ -123,14 +136,17 @@ if has('autocmd')
     " coherent workflow
     au FileType python nnoremap <silent> <localleader><F3> :!/usr/bin/env python %<CR>
     au FileType python nnoremap <silent> <localleader><F5> :make<CR>
+
+    " us the marker foldmethod for vimscript
+    au FileType vim set foldmethod=marker
   augroup END
 
   filetype plugin on
 endif
 
 
-"""
-""" keybindings
+""" }}}
+""" keybindings {{{
 """
 
 let mapleader = '\'
@@ -185,8 +201,8 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <localleader>lcf :lcd %:p:h<CR>
 
 
-"""
-""" host specific options
+""" }}}
+""" host specific options {{{
 """
 
 " if at one of the work servers, expand the path for usefule file motions
@@ -195,8 +211,8 @@ if hostname() =~ 'gbguxs\d\+'
 endif
 
 
-"""
-""" plugin settings 
+""" }}}
+""" plugin settings {{{
 """
 
 " setup compiler options for the c-support plugin
@@ -208,3 +224,6 @@ let g:C_Comments='no'
 
 " setup taglist
 let g:Tlist_Use_Right_Window=1
+
+
+""" }}}
