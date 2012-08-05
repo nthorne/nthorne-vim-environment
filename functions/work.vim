@@ -3,8 +3,9 @@
 "
 
 
-" determine if the current file is ready for checkin (i.e. grep the file for
-" debug log statements, todo statements and lint it)it).
+" function work#CanCheckIn() {{{
+"   determine if the current file is ready for checkin (i.e. grep the file for
+"   debug log statements, todo statements and lint it)it).
 function! work#CanCheckin()
   if !filereadable(@%)
     return
@@ -36,9 +37,11 @@ function! work#CanCheckin()
   put = l:analysis
   1d
 endfunction
+" }}}
 
 
-" run the unit test of the current unit, or the currently open unit test
+" function work#TestUnit() {{{
+"   run the unit test of the current unit, or the currently open unit test
 function! work#TestUnit()
   if !filereadable(@%)
     return
@@ -94,9 +97,11 @@ function! work#TestUnit()
   " drop any pool destructor log statements
   exec 'silent g/\~pool/ d'
 endfunction
+" }}}
 
 
-" lint the current unit
+" function work#LintUnit() {{{
+"   lint the current unit
 function! work#LintUnit()
   if !filereadable(@%)
     return
@@ -145,9 +150,11 @@ function! work#LintUnit()
   " drop empty lines
   exec 'silent g/^[ \t]*$/ d'
 endfunction
+" }}}
 
 
-" helper function for opening a buffer named workbuffer 
+" function work#OpenWorkBuffer() {{{
+"   helper function for opening a buffer named workbuffer 
 function work#OpenWorkBuffer()
   if !bufexists('workbuffer')
     " if the workbuffer buffer does not exist, create
@@ -163,4 +170,4 @@ function work#OpenWorkBuffer()
     execute bufwinnr('workbuffer')."wincmd w"
   endif
 endfunction
-
+" }}}
