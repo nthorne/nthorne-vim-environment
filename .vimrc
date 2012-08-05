@@ -70,7 +70,7 @@ colorscheme nthorne
 set number
 
 " set the statusline (including filetype, amongst other)
-set statusline=%<%f%h%m%r\ [%{&ff}]\ %{fugitive#statusline()}\ %l,%c%V
+set statusline=%<%f%h%m%r\ %y\ [%{&ff}]\ %{fugitive#statusline()}\ %l,%c%V
 set laststatus=2
 
 " setup the ruler
