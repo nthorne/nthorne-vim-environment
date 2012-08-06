@@ -1,3 +1,5 @@
+source $HOME/.vim/functions/common.vim
+
 " Gather search hits, and display in a new scratch buffer.
 function! Gather(pattern)
   if !empty(a:pattern)
@@ -15,8 +17,10 @@ function! Gather(pattern)
 
     if !empty(results)
       " if we had any results, put them in a new scratch buffer
-      botright 10new
-      setlocal buftype=nofile bufhidden=hide noswapfile
+      call common#OpenBuffer('gather_buffer')
+
+      " clear the buffer
+      %d
 
       " set the buffer filetype to match that of the original file
       execute "setlocal filetype=".orig_ft

@@ -2,6 +2,9 @@
 "   contains work related vim functions
 "
 
+source $HOME/.vim/functions/common.vim
+
+
 
 " function work#CanCheckIn() {{{
 "   determine if the current file is ready for checkin (i.e. grep the file for
@@ -18,7 +21,7 @@ function! work#CanCheckin()
   " the error list.
   vimgrep /"666"\|TODO/ %
 
-  " run lint on the unit (this will setup the workbuffer buffer as well)
+  " run lint on the unit (this will setup the work_buffer buffer as well)
   call work#LintUnit()
 
   let l:analysis = ''
@@ -32,7 +35,7 @@ function! work#CanCheckin()
   let l:analysis = l:analysis."QACPP remarks:\n"
 
   " goto the first line, and put the analysis output there
-  execute bufwinnr('workbuffer') . "wincmd w"
+  execute bufwinnr('work_buffer') . "wincmd w"
   1g
   put = l:analysis
   1d
@@ -63,8 +66,8 @@ function! work#TestUnit()
   " the test binaries are stored under test/.out
   let l:test_bin = l:testpath.'/.out/'.l:test_base_name
 
-  " open a new workbuffer, and clear it
-  call work#OpenWorkBuffer()
+  " open a new work_buffer, and clear it
+  call common#OpenBuffer('work_buffer')
   %d
 
   " if the test binary exists..
@@ -83,7 +86,7 @@ function! work#TestUnit()
     let l:run_string = l:run_string.'$XERCES_ROOT/lib '.l:test_bin
     put = system(l:run_string)
   else
-    " .. otherwise, close the workbuffer, and return
+    " .. otherwise, close the work_buffer, and return
     close
     return
   endif
@@ -119,7 +122,7 @@ function! work#LintUnit()
   let l:error_file = '.lint/'.l:filename.'.err'
   let l:log_file = '.lint/'.l:filename.'.log'
 
-  call work#OpenWorkBuffer()
+  call common#OpenBuffer('work_buffer')
   " clear the buffer
   %d
 
@@ -153,21 +156,3 @@ endfunction
 " }}}
 
 
-" function work#OpenWorkBuffer() {{{
-"   helper function for opening a buffer named workbuffer 
-function work#OpenWorkBuffer()
-  if !bufexists('workbuffer')
-    " if the workbuffer buffer does not exist, create
-    below 15split workbuffer
-    setlocal buftype=nofile bufhidden=hide noswapfile
-  else
-    if -1 == bufwinnr('workbuffer')
-      " if the workbuffer exists, but isn't visible, split it shown
-      below 15split workbuffer
-    endif
-
-    " switch to the workbuffer
-    execute bufwinnr('workbuffer')."wincmd w"
-  endif
-endfunction
-" }}}
