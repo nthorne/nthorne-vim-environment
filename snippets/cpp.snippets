@@ -18,6 +18,8 @@ snippet unaryfun
 		{
 			$3 l_result;
 
+			${4}
+
 			return l_result;
 		}
 	};
@@ -43,7 +45,25 @@ snippet binaryfun
 		{
 			$4 l_result;
 
+			${5}
+
 			return l_result;
 		}
 	};
 
+
+# lint justifications
+snippet justify
+	/*
+	 * @justification (`system("date +%Y-%m-%d")`/nthorne) QACPP ${1:2116}: STL standard conformant predicate
+	 */
+	// PRQA S $1 ++
+	${2}// PRQA S $1 --
+
+snippet testheader
+	/**
+	 * @brief tests ${1:`Filename()`}
+	 * @responsible nthorne `system("date +%Y-%m-%d")`
+	 * @reviewer ${2:?} `system("date +%Y-%m-%d")`
+	 */
+	${3}
