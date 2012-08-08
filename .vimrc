@@ -99,9 +99,6 @@ if has('autocmd')
       \ exe "normal g`\"" |
       \ endif
 
-    " make vim recognise cpp file types, and set the appropriate folding method
-    au BufRead,BufNewFile *.hpp set filetype=cpp
-    au BufRead,BufNewFile *.cc set filetype=cpp
     au Filetype cpp set foldmethod=syntax
 
     " make sure all files are unfolded by default

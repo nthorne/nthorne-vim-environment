@@ -25,9 +25,6 @@ if has('autocmd')
   augroup nthorne_work_augroup
     au!
 
-    " set the appropriate filetype for tcc log files
-    au BufRead,BufNewFile *.[0-9]*.log set filetype=tcclog
-
     " use the como compiler plugin where appropriate,
     " otherwise sun_cc
     if hostname() == "gbguxs04"
@@ -35,9 +32,6 @@ if has('autocmd')
     else
       au FileType cpp compiler sun_cc
     endif
-
-    " set the appropriate filetype for the QACPP log files
-    au BufRead,BufNewFile *.cpp.log set filetype=qacpplog
   augroup END
 endif
 
