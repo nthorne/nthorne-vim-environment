@@ -20,3 +20,12 @@ function! common#OpenBuffer(buffer_name)
   endif
 endfunction
 " }}}
+
+
+" function common#IsWorkHost() {{{
+"   returns true if the current host name matches that of a host
+"   at work
+function! common#IsWorkHost()
+  return hostname() =~ 'gbguxs\d\+'
+endfunction
+" }}}

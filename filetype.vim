@@ -2,6 +2,7 @@
 "   defines new file types
 "   (structure copied from http://vim.wikia.com/wiki/Filetype.vim)
 
+source $HOME/.vim/functions/common.vim
 
 if exists("did_load_filetypes")
   finish
@@ -13,7 +14,7 @@ augroup filetypedetect
   au BufRead,BufNewFile *.cc set filetype=cpp
 
   " work specific file types
-  if hostname() =~ 'gbguxs\d\+'
+  if common#IsWorkHost()
     " set the appropriate filetype for tcc log files
     au BufRead,BufNewFile *.[0-9]*.log set filetype=tcclog
 

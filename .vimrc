@@ -2,6 +2,8 @@
 """ general setup {{{
 """
 
+source $HOME/.vim/functions/common.vim
+
 call pathogen#infect()
 
 
@@ -195,7 +197,7 @@ command! -bang -range EvalPy :call pyeval#EvaluateCurrentRangeAsMarkedUpPython("
 """
 
 " if at one of the work servers, expand the path for usefule file motions
-if hostname() =~ 'gbguxs\d\+'
+if common#IsWorkHost()
   source $HOME/.vim/work_profile.vim
 endif
 
