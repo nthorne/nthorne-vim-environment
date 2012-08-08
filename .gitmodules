@@ -33,4 +33,4 @@
 	url = git://github.com/chrisbra/histwin.vim.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
-	url = git://github.com/nthorne/snipmate.vim
+	url = git@github.com:nthorne/snipmate.vim
