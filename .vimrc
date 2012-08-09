@@ -166,7 +166,7 @@ nnoremap <silent> <F12> :cn<CR>
 nnoremap ä <C-]>
 
 " on <Leader>f Search for pattern, and gather the result in a new scratch buffer
-nnoremap <silent> <Leader>f :call Gather(input("Pattern: "))<CR>
+nnoremap <silent> <Leader>f :call gather#Gather(input("Pattern: "))<CR>
 
 
 " Toggle wrapping the display of long lines (and display the current 'wrap'
