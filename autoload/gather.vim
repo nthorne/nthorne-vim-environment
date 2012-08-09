@@ -1,5 +1,5 @@
 " Gather search hits, and display in a new scratch buffer.
-function! Gather(pattern)
+function! gather#Gather(pattern)
   if !empty(a:pattern)
     " save the cursor position
     let save_cursor = getpos(".")
