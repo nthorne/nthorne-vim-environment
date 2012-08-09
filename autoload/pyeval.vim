@@ -43,6 +43,7 @@ function! pyeval#EvaluateCurrentRangeAsMarkedUpPython(insert_results) range
     let code = join(code_lines, "\n")
     if empty(a:insert_results)
         call common#OpenBuffer('pyeval')
+        %d
         execute "r !python -c " . shellescape(code)
         1d
     else
