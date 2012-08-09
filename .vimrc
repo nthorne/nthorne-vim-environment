@@ -99,7 +99,7 @@ if has('autocmd')
       \ exe "normal g`\"" |
       \ endif
 
-    au Filetype cpp set foldmethod=syntax
+    au Filetype cpp setlocal foldmethod=syntax
 
     " make sure all files are unfolded by default
     au BufRead,BufNewFile * normal zR
@@ -114,15 +114,15 @@ if has('autocmd')
 
     " for python files, set the makeprg to pylint, so that we can utilize
     " a compiler plugin with an errorformat
-    au FileType python set makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
+    au FileType python setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
 
     " for python, map the usual compile/lint/whatnot function keys for a
     " coherent workflow
-    au FileType python nnoremap <silent> <localleader><F3> :!/usr/bin/env python %<CR>
-    au FileType python nnoremap <silent> <localleader><F5> :make<CR>
+    au FileType python nnoremap <buffer> <silent> <localleader><F3> :!/usr/bin/env python %<CR>
+    au FileType python nnoremap <buffer> <silent> <localleader><F5> :make<CR>
 
     " us the marker foldmethod for vimscript
-    au FileType vim set foldmethod=marker
+    au FileType vim setlocal foldmethod=marker
   augroup END
 
   filetype plugin on
