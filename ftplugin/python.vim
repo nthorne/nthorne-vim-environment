@@ -5,4 +5,4 @@ setlocal expandtab       " use spaces rather than tabs
 setlocal backspace=2     " allow <BS> over autoindent, line breaks and insert start
 
 " this is close enough
-setlocal cinden
+setlocal cindent
