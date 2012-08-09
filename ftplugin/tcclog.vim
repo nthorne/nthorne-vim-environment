@@ -1,3 +1,3 @@
 " this allows for some nifty folding of TCC trace logs
-set foldmarker=Entering,Exiting
-set foldmethod=marker
+setlocal foldmarker=Entering,Exiting
+setlocal foldmethod=marker
