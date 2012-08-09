@@ -2,8 +2,6 @@
 "   function for evaluating marked code snippet as python code
 "   (http://jeetworks.org/node/146)
 
-source $HOME/.vim/functions/common.vim
-
 
 " function common#EvaluateCurrentRangeAsMarkedUpPython {{{
 "   Execute currently selected visual range as Python.  Lines are pre-processed

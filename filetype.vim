@@ -2,8 +2,6 @@
 "   defines new file types
 "   (structure copied from http://vim.wikia.com/wiki/Filetype.vim)
 
-source $HOME/.vim/functions/common.vim
-
 if exists("did_load_filetypes")
   finish
 endif

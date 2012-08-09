@@ -1,5 +1,3 @@
-source $HOME/.vim/functions/common.vim
-
 " Gather search hits, and display in a new scratch buffer.
 function! Gather(pattern)
   if !empty(a:pattern)

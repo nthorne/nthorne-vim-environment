@@ -2,8 +2,6 @@
 """ general setup {{{
 """
 
-source $HOME/.vim/functions/common.vim
-
 call pathogen#infect()
 
 

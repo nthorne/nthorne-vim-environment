@@ -2,9 +2,6 @@
 "   contains work related vim functions
 "
 
-source $HOME/.vim/functions/common.vim
-
-
 
 " function work#CanCheckIn() {{{
 "   determine if the current file is ready for checkin (i.e. grep the file for
