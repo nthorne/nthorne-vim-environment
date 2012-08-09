@@ -38,10 +38,6 @@ endif
 
 """ }}}
 """ keybindings {{{
-"""
-
-" contains the functions called by the keybindings defined below
-runtime functions/work.vim
 
 if has('autocmd')
   augroup nthorne_work_augroup
