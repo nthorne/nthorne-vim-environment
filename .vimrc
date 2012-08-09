@@ -166,7 +166,6 @@ nnoremap <silent> <F12> :cn<CR>
 nnoremap ä <C-]>
 
 " on <Leader>f Search for pattern, and gather the result in a new scratch buffer
-runtime functions/gather.vim
 nnoremap <silent> <Leader>f :call Gather(input("Pattern: "))<CR>
 
 
