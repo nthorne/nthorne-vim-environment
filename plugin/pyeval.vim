@@ -3,6 +3,7 @@
 "   (http://jeetworks.org/node/146)
 
 
+command! -bang -range EvalPy :call <SID>EvaluateCurrentRangeAsMarkedUpPython("<bang>")
 " function common#EvaluateCurrentRangeAsMarkedUpPython {{{
 "   Execute currently selected visual range as Python.  Lines are pre-processed
 "   to remove extra indentation, leaders, or decorators that might be in place
@@ -12,7 +13,7 @@
 "   execute those lines in the default system Python and show the results in the
 "   command window. Using the 'bang' operator (':EvalPy!') will execute the
 "   lines and insert the results in the current buffer.
-function! pyeval#EvaluateCurrentRangeAsMarkedUpPython(insert_results) range
+function! <SID>EvaluateCurrentRangeAsMarkedUpPython(insert_results) range
     "" get lines
     let [lnum1, col1] = getpos("'<")[1:2]
     let [lnum2, col2] = getpos("'>")[1:2]

@@ -184,11 +184,6 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " lcd to path of current file
 nnoremap <leader>lcf :lcd %:p:h<CR>
 
-""" }}}
-""" user defined commands
-"""
-source $HOME/.vim/functions/pyeval.vim
-command! -bang -range EvalPy :call pyeval#EvaluateCurrentRangeAsMarkedUpPython("<bang>")
 
 """ }}}
 """ host specific options {{{
