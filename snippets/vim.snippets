@@ -5,8 +5,8 @@ snippet fihdr
 	"""
 	${2}
 
-# Function header snippet
-snippet fuhdr
+# Section header snippet
+snippet sehdr
 	""" }}}
 	""" ${1} {{{
 	"""
@@ -14,3 +14,24 @@ snippet fuhdr
 
 snippet eof
 	""" }}} 
+
+# Function header snippet
+snippet func Function definition, with arguments and return value
+	" function ${1:}()
+	"   ${2:}
+	"
+	" arguments:
+	"   ${3:} - ${4:}
+	" returns:
+	"   ${5:}
+	function $1($3)
+	  ${6}
+	endfunction
+
+snippet func Function definition, no arguments or return values
+	" function ${1:}()
+	"   ${2:}
+	function $1()
+	  ${3}
+	endfunction
+
