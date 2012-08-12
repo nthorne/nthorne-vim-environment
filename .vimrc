@@ -1,3 +1,8 @@
+""" .vimrc
+"""   - Vim initialization settings
+"""
+
+
 """
 """ general setup {{{
 """

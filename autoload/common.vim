@@ -1,5 +1,6 @@
-" common.vim
-"   contains common functions
+""" common.vim
+"""   - contains commonly used functions
+"""
 
 
 " function common#OpenBuffer() {{{

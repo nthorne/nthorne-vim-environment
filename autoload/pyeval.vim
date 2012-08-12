@@ -1,17 +1,18 @@
-" pyeval.vim
-"   function for evaluating marked code snippet as python code
-"   (http://jeetworks.org/node/146)
+""" pyeval.vim
+"""   - function for evaluating marked code snippet as python code
+"""     (http://jeetworks.org/node/146)
 
 
-" function common#EvaluateCurrentRangeAsMarkedUpPython {{{
-"   Execute currently selected visual range as Python.  Lines are pre-processed
+" function! common#EvaluateCurrentRangeAsMArkedUpPython() {{{
+"   Evecute currently selected visual range as Python. Lines are pre-processed
 "   to remove extra indentation, leaders, or decorators that might be in place
-"   due to the line range being part of a code block in a markup-language
+"   due to the line range being part of a code block in a mark-up language
 "   document (such as ReStructured Text, Markdown, etc.)
-"   Usage: Select a range of line in the buffer and then call ':EvalPy' to
-"   execute those lines in the default system Python and show the results in the
-"   command window. Using the 'bang' operator (':EvalPy!') will execute the
-"   lines and insert the results in the current buffer.
+"
+" arguments:
+"   insert_result - if set, result will be inserted into the current buffer
+" returns:
+"   - 
 function! pyeval#EvaluateCurrentRangeAsMarkedUpPython(insert_results) range
     "" get lines
     let [lnum1, col1] = getpos("'<")[1:2]

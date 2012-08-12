@@ -1,6 +1,6 @@
-" work.vim
-"   contains work related vim functions
-"
+""" work.vim
+"""   - contains work related functions
+"""
 
 
 " function work#CanCheckIn() {{{
@@ -151,5 +151,3 @@ function! work#LintUnit()
   exec 'silent g/^[ \t]*$/ d'
 endfunction
 " }}}
-
-

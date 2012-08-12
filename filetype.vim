@@ -1,10 +1,16 @@
-" filetypes.vim
-"   defines new file types
-"   (structure copied from http://vim.wikia.com/wiki/Filetype.vim)
+""" filetype.vim
+"""   - defines new file types
+"""     (structure copied from http://vim.wikia.com/wiki/Filetype.vim)
+
 
 if exists("did_load_filetypes")
   finish
 endif
+
+
+""" }}}
+""" autocommands {{{
+"""
 
 augroup filetypedetect
     " make vim recognise cpp file types, and set the appropriate folding method
@@ -20,3 +26,5 @@ augroup filetypedetect
     au BufRead,BufNewFile *.cpp.log setlocal filetype=qacpplog
   endif
 augroup END
+
+""" }}}

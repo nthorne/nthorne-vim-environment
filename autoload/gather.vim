@@ -1,4 +1,16 @@
-" Gather search hits, and display in a new scratch buffer.
+""" gather.vim
+"""   - defines the Gather function
+"""
+
+
+" function gather#Gather() {{{
+"   search the current buffer for _patter_, and display the results in a new
+"   buffer.
+"
+" arguments:
+"   pattern - the pattern to search for
+" returns:
+"   -
 function! gather#Gather(pattern)
   if !empty(a:pattern)
     " save the cursor position
@@ -30,3 +42,5 @@ function! gather#Gather(pattern)
     endif
   endif
 endfunction
+" }}}
+

@@ -1,6 +1,9 @@
-" this file contains some work-specific settings
-
+""" work_profile.vim
+"""   - contains work-specific settings
 """
+
+
+""" }}}
 """ general settings {{{
 """
 
@@ -9,7 +12,7 @@ setlocal makeprg=gmake
 
 
 """ }}}
-""" filetype settings {{{
+""" autocommands {{{
 """
 
 if has('autocmd')
