@@ -203,13 +203,6 @@ endif
 """ plugin settings {{{
 """
 
-" setup compiler options for the c-support plugin
-let g:C_CplusCompiler="CC"
-let g:C_CFlags="-g"
-let g:C_LFlags="-g"
-let g:C_Comments='no'
-
-
 " setup taglist
 let g:Tlist_Use_Right_Window=1
 
