@@ -15,5 +15,6 @@ let b:did_ftplugin = 1
 """
 
 setlocal foldmethod=marker
+setlocal autoindent
 
 """ }}}
