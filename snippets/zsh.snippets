@@ -10,3 +10,24 @@ snippet fihdr
 	###
 	${2}
 
+# Section header snippet
+snippet sehdr
+	### }}}
+	### ${1} {{{
+	###
+	${2}
+
+snippet eof
+	### }}}
+	${1}
+
+# Function header snippet
+snippet func
+	# function ${1:}() {{{
+	#   ${2:}
+	function $1()
+	{
+	  ${3}
+	}
+	# }}}
+
