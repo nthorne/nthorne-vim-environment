@@ -206,5 +206,9 @@ endif
 " setup taglist
 let g:Tlist_Use_Right_Window=1
 
+" setup NERDCommenter
+let g:NERDCustomDelimiters = {
+    \ 'zsh': { 'left': '#' }
+  \ }  
 
 """ }}}
