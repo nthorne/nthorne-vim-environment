@@ -21,7 +21,7 @@ snippet eof
 	""" }}}
 	${1}
 
-# Function header snippet
+# Function snippet
 snippet func Function definition, with arguments and return value
 	" function! ${1:}() {{{
 	"   ${2:}
@@ -30,15 +30,16 @@ snippet func Function definition, with arguments and return value
 	"   ${3:} - ${4:}
 	" returns:
 	"   ${5:}
-	function $1($3)
+	function! $1($3)
 	  ${6}
 	endfunction
 	" }}}
 
+# Function snippet
 snippet func Function definition, no arguments or return values
 	" function! ${1:}() {{{
 	"   ${2:}
-	function $1()
+	function! $1()
 	  ${3}
 	endfunction
 	" }}}
