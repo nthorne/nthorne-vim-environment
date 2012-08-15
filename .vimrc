@@ -40,6 +40,9 @@ endif
 set updatecount=20  " reduce updatecount, for more frequent swap file writes
 
 
+filetype plugin on  " turn on filetype plugin loading
+filetype indent on  " turn on filetype indent loading
+
 """ }}} 
 """ appearance {{{
 """
@@ -129,8 +132,6 @@ if has('autocmd')
     " us the marker foldmethod for vimscript
     au FileType vim setlocal foldmethod=marker
   augroup END
-
-  filetype plugin on
 endif
 
 
