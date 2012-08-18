@@ -41,8 +41,9 @@ set updatecount=20  " reduce updatecount, for more frequent swap file writes
 
 set wildmenu        " show the command-line completion menu
 
-
 set wildignore=*.o,*.pyc,*.sw[op] " ignore compiled files, and swap files
+
+set hidden          " hide buffers rather than abandoning them when unloaded
 
 set noerrorbells    " turn off audible bell..
 set novisualbell    " .. as well as the visual bell
