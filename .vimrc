@@ -44,6 +44,9 @@ set wildmenu        " show the command-line completion menu
 
 set wildignore=*.o,*.pyc,*.sw[op] " ignore compiled files, and swap files
 
+set noerrorbells    " turn off audible bell..
+set novisualbell    " .. as well as the visual bell
+
 
 filetype plugin on  " turn on filetype plugin loading
 filetype indent on  " turn on filetype indent loading
