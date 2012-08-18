@@ -226,6 +226,15 @@ nnoremap <M-k> mz:m-2<CR>`z
 vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
+" vimgrep all files recursively
+nnoremap <leader>g :vimgrep // **/*<left><left><left><left><left><left>
+
+" vimgrep current file
+nnoremap <leader><space> :vimgrep // %<left><left><left>
+
+nnoremap <leader>e :botright cope<CR>
+nnoremap <leader>n :cn<CR>
+nnoremap <leader>p :cp<CR>
 
 """ }}}
 """ host specific options {{{
