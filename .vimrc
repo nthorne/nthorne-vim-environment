@@ -218,6 +218,15 @@ nnoremap <leader>tm :tabmove<CR>
 
 nnoremap <leader>te :tabedit <C-r>=expand("%:p:h")<CR>/
 
+" move a line of text down/up with ALT+j/k
+nnoremap <M-j> mz:m+<CR>`z
+nnoremap <M-k> mz:m-2<CR>`z
+
+" move selected lines down/up in visual mode with ALT+j/k
+vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+
+
 """ }}}
 """ host specific options {{{
 """
