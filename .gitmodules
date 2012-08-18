@@ -37,3 +37,6 @@
 [submodule "bundle/doxygentoolkit"]
 	path = bundle/doxygentoolkit
 	url = git://github.com/vim-scripts/DoxygenToolkit.vim.git
+[submodule "bundle/drawit"]
+	path = bundle/drawit
+	url = git://github.com/vim-scripts/DrawIt.git
