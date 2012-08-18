@@ -189,6 +189,9 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " lcd to path of current file
 nnoremap <leader>lcf :lcd %:p:h<CR>
 
+" shortcut for saving
+nnoremap <leader>s :w!<CR>
+
 
 """ }}}
 """ host specific options {{{
