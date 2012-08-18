@@ -48,6 +48,9 @@ set hidden          " hide buffers rather than abandoning them when unloaded
 set noerrorbells    " turn off audible bell..
 set novisualbell    " .. as well as the visual bell
 
+set ignorecase      " ignore casing of normal letters..
+set smartcase       " .. but consider casing if pattern contains uppercase chars
+
 
 filetype plugin on  " turn on filetype plugin loading
 filetype indent on  " turn on filetype indent loading
