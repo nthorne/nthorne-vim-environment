@@ -39,6 +39,11 @@ endif
 
 set updatecount=20  " reduce updatecount, for more frequent swap file writes
 
+set wildmenu        " show the command-line completion menu
+
+
+set wildignore=*.o,*.pyc,*.sw[op] " ignore compiled files, and swap files
+
 
 filetype plugin on  " turn on filetype plugin loading
 filetype indent on  " turn on filetype indent loading
