@@ -246,6 +246,13 @@ endif
 
 
 """ }}}
+""" external modules {{{
+"""
+runtime macros/matchit.vim
+
+
+
+""" }}}
 """ plugin settings {{{
 """
 
