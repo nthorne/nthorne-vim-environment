@@ -172,10 +172,6 @@ nnoremap <silent> <F7> :next<CR>
 " <F8> is for easy window splitting
 nnoremap <silent> <F8> :split<CR>
 
-" <F11> and <F12> is for jumping back and forth through the error list
-nnoremap <silent> <F11> :cp<CR>
-nnoremap <silent> <F12> :cn<CR>
-
 " Navigate the help with the ä key, rather than the slightly awkward default
 nnoremap ä <C-]>
 
