@@ -194,8 +194,11 @@ nnoremap <leader>ev :split $MYVIMRC<CR>
 " Handy shortcut for sourcing my .vimrc
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
-" lcd to path of current file
-nnoremap <leader>lcf :lcd %:p:h<CR>
+" cd to path of current buffer
+nnoremap <leader>cd :cd %:p:h<CR>
+
+" lcd to path of current buffer
+nnoremap <leader>lcd :lcd %:p:h<CR>
 
 " shortcut for saving
 nnoremap <leader>s :w!<CR>
@@ -213,6 +216,7 @@ nnoremap <leader>to :tabonly<CR>
 nnoremap <leader>tc :tabclose<CR>
 nnoremap <leader>tm :tabmove<CR>
 
+nnoremap <leader>te :tabedit <C-r>=expand("%:p:h")<CR>/
 
 """ }}}
 """ host specific options {{{
