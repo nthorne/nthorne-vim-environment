@@ -201,6 +201,19 @@ nnoremap <leader>lcf :lcd %:p:h<CR>
 nnoremap <leader>s :w!<CR>
 
 
+" nifty window navigation keymappings
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+
+" tab management mappings
+nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>to :tabonly<CR>
+nnoremap <leader>tc :tabclose<CR>
+nnoremap <leader>tm :tabmove<CR>
+
+
 """ }}}
 """ host specific options {{{
 """
