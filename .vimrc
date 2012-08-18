@@ -206,6 +206,8 @@ nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
 
+nnoremap <leader>o :only<CR>
+
 " tab management mappings
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>to :tabonly<CR>
