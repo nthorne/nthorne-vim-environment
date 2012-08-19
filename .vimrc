@@ -143,6 +143,12 @@ if has('autocmd')
 
     " us the marker foldmethod for vimscript
     au FileType vim setlocal foldmethod=marker
+
+    " open the help for the word under the cursor
+    au FileType vim nnoremap <leader>h :help <C-R><C-W><CR>
+    " grep the help documentation for the word under the cursor
+    au FileType vim nnoremap <leader>hg :helpgrep <C-R><C-W><CR>
+
   augroup END
 endif
 
@@ -242,6 +248,7 @@ nnoremap <leader>p :cp<CR>
 " to easily jump to a bookmarked row, col rather than just row
 nnoremap ' `
 nnoremap ` '
+
 
 """ }}}
 """ host specific options {{{
