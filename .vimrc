@@ -272,4 +272,7 @@ let g:NERDCustomDelimiters = {
     \ 'zsh': { 'left': '#' }
   \ }  
 
+" setup ShowMarks
+let g:showmarks_enable=0    " do not enable ShowMarks by default
+
 """ }}}
