@@ -238,6 +238,11 @@ nnoremap <leader>e :botright cope<CR>
 nnoremap <leader>n :cn<CR>
 nnoremap <leader>p :cp<CR>
 
+" this makes more sense, since it is far more useful to be able
+" to easily jump to a bookmarked row, col rather than just row
+nnoremap ' `
+nnoremap ` '
+
 """ }}}
 """ host specific options {{{
 """
