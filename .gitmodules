@@ -43,3 +43,6 @@
 [submodule "bundle/showmarks"]
 	path = bundle/showmarks
 	url = git@github.com:nthorne/ShowMarks
+[submodule "bundle/pybreak"]
+	path = bundle/pybreak
+	url = git@github.com:nthorne/vim-pybreak
