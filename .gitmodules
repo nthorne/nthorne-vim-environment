@@ -40,3 +40,6 @@
 [submodule "bundle/drawit"]
 	path = bundle/drawit
 	url = git://github.com/vim-scripts/DrawIt.git
+[submodule "bundle/showmarks"]
+	path = bundle/showmarks
+	url = git@github.com:nthorne/ShowMarks
