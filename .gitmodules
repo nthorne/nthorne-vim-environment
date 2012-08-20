@@ -46,3 +46,6 @@
 [submodule "bundle/pybreak"]
 	path = bundle/pybreak
 	url = git@github.com:nthorne/vim-pybreak
+[submodule "bundle/tasklist"]
+	path = bundle/tasklist
+	url = git://github.com/superjudge/tasklist-pathogen.git

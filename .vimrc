@@ -250,6 +250,8 @@ nnoremap ' `
 nnoremap ` '
 
 
+nnoremap <leader>tl :TaskList<CR>
+
 """ }}}
 """ host specific options {{{
 """
