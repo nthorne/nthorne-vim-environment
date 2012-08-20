@@ -25,4 +25,8 @@ setlocal backspace=2      " allow <BS> over autoindent, line breaks and insert s
 setlocal textwidth=80
 
 setlocal nosmartindent    " turn off this one to get python indentation running
+
+" turn on python omnicompletion, which is super-useful, since it even displays
+" the pydoc for the completed item!
+setlocal omnifunc=pythoncomplete#Complete
 """ }}}
