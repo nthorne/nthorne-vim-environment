@@ -151,3 +151,20 @@ function! work#LintUnit()
   exec 'silent g/^[ \t]*$/ d'
 endfunction
 " }}}
+
+
+" function! work#ConstructPath() {{{
+"   Construct the path variable based on configuration file detailing current
+"   project
+function! work#ConstructPath()
+  let l:current_project_file=$HOME.'/current_project.vim'
+  if filereadable(l:current_project_file)
+    exec 'source '.l:current_project_file
+
+    if isdirectory(g:current_work_project_path)
+      exec 'set path+='.g:current_work_project_path.'/**/Distribution/include'
+      exec 'set path+='.g:current_work_project_path.'/**/Implementation/source'
+    endif
+  endif
+endfunction
+" }}}
