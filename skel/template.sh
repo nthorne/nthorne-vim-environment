@@ -35,8 +35,7 @@ function usage()
   cat <<Usage_Heredoc
 Usage: $(basename $0) [OPTIONS]
 
-This is a simple script that analyzes module verification reports copied
-by the mvrpt_copier script, and generates a basic trend
+This is a default template for shell scripts.
 
 Where valid OPTIONS are:
   -h, --help  display usage
