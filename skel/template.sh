@@ -59,8 +59,7 @@ function parse_options()
         exit 0
         ;;
       *)
-        usage
-        error "Unknown option: $1"
+        error "Unknown option: $1. Try $(basename $0) -h for options."
         ;;
     esac
 
