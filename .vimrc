@@ -55,6 +55,7 @@ set smartcase       " .. but consider casing if pattern contains uppercase chars
 filetype plugin on  " turn on filetype plugin loading
 filetype indent on  " turn on filetype indent loading
 
+
 """ }}} 
 """ appearance {{{
 """
@@ -119,8 +120,6 @@ if has('autocmd')
       \ exe "normal g`\"" |
       \ endif
 
-    au Filetype cpp setlocal foldmethod=syntax
-
     " make sure all files are unfolded by default
     au BufRead,BufNewFile * normal zR
 
@@ -131,23 +130,6 @@ if has('autocmd')
 
     " mark characters beyond the 80th (lines longer than 80 chars is a no-no)
     au BufWinEnter * match ErrorMsg '\%>80v.\+'
-
-    " for python files, set the makeprg to pylint, so that we can utilize
-    " a compiler plugin with an errorformat
-    au FileType python setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
-
-    " for python, map the usual compile/lint/whatnot function keys for a
-    " coherent workflow
-    au FileType python nnoremap <buffer> <silent> <localleader><F3> :!/usr/bin/env python %<CR>
-    au FileType python nnoremap <buffer> <silent> <localleader><F5> :make<CR>
-
-    " us the marker foldmethod for vimscript
-    au FileType vim setlocal foldmethod=marker
-
-    " open the help for the word under the cursor
-    au FileType vim nnoremap <leader>h :help <C-R><C-W><CR>
-    " grep the help documentation for the word under the cursor
-    au FileType vim nnoremap <leader>hg :helpgrep <C-R><C-W><CR>
 
   augroup END
 endif

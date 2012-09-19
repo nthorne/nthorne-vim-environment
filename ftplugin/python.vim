@@ -29,4 +29,20 @@ setlocal nosmartindent    " turn off this one to get python indentation running
 " turn on python omnicompletion, which is super-useful, since it even displays
 " the pydoc for the completed item!
 setlocal omnifunc=pythoncomplete#Complete
+
+" for python files, set the makeprg to pylint, so that we can utilize
+" a compiler plugin with an errorformat
+setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
+
+
+""" }}}
+""" keybindings {{{
+"""
+
+" for python, map the usual compile/lint/whatnot function keys for a
+" coherent workflow
+nnoremap <buffer> <silent> <localleader><F3> :!/usr/bin/env python %<CR>
+nnoremap <buffer> <silent> <localleader><F5> :make<CR>
+
+
 """ }}}

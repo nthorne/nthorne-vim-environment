@@ -14,10 +14,11 @@ let b:did_ftplugin = 1
 """ general settings {{{
 """
 
-
 if common#IsWorkHost()
   call work#ConstructPath()
 endif
+
+setlocal foldmethod=syntax
 
 
 """ }}}
