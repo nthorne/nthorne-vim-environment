@@ -15,4 +15,4 @@ if exists(":CompilerSet") != 2
 endif
 
 
-setlocal errorformat=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
+CompilerSet errorformat=%A%f:%l:\ [%t%.%#]\ %m,%Z%p^^,%-C%.%#
