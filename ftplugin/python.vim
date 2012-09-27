@@ -42,6 +42,7 @@ setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
 " for python, map the usual compile/lint/whatnot function keys for a
 " coherent workflow
 nnoremap <buffer> <silent> <localleader><F3> :!/usr/bin/env python %<CR>
+nnoremap <buffer> <silent> <localleader><F4> :call pyunit#RunPyUnittest()<CR>
 nnoremap <buffer> <silent> <localleader><F5> :make<CR>
 
 
