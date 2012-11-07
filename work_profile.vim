@@ -7,6 +7,10 @@
 """ general settings {{{
 """
 
+" Apparently, NERDTree does not render menu properly at work, so we'll go
+"  old-style
+let NERDTreeDirArrows=0
+
 " set gmake as our :make program
 setlocal makeprg=gmake
 
@@ -43,6 +47,13 @@ if has('autocmd')
     au FileType cpp iabbrev <buffer> dbglog GPU3_LOG("666", critical, 
   augroup END
 endif
+
+""" }}}
+""" keybindings {{{
+"""
+
+" Navigate the help with the ä key, rather than the slightly awkward default
+nnoremap ä <C-]>
 
 
 """ }}}
