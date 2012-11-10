@@ -44,6 +44,7 @@ setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
 nnoremap <buffer> <silent> <localleader><F3> :!/usr/bin/env python %<CR>
 nnoremap <buffer> <silent> <localleader><F4> :call pyunit#RunPyUnittest()<CR>
 nnoremap <buffer> <silent> <localleader><F5> :make<CR>
+nnoremap <buffer> <silent> <localleader><F6> :silent !coverage run %<CR>:!coverage report -m<CR>
 
 
 """ }}}
