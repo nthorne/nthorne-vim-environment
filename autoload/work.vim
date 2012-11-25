@@ -170,9 +170,11 @@ endfunction
 function! work#ConstructPath()
   call work#ReadProjectVariables()
 
-  if isdirectory(g:current_work_project_path)
-    exec 'set path+='.g:current_work_project_path.'/**/Distribution/include'
-    exec 'set path+='.g:current_work_project_path.'/**/Implementation/source'
+  if exists("g:current_work_project_path")
+    if isdirectory(g:current_work_project_path)
+      exec 'set path+='.g:current_work_project_path.'/**/Distribution/include'
+      exec 'set path+='.g:current_work_project_path.'/**/Implementation/source'
+    endif
   endif
 endfunction
 " }}}
