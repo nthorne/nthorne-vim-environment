@@ -153,18 +153,26 @@ endfunction
 " }}}
 
 
+" function! work#ReadProjectVariables() {{{
+"   Read the project definitions variables from the configuration file that
+"   details the current project
+function! work#ReadProjectVariables()
+  let l:current_project_file=$HOME.'/current_project.vim'
+  if filereadable(l:current_project_file)
+    exec 'source '.l:current_project_file
+  endif
+endfunction
+" }}}
+
 " function! work#ConstructPath() {{{
 "   Construct the path variable based on configuration file detailing current
 "   project
 function! work#ConstructPath()
-  let l:current_project_file=$HOME.'/current_project.vim'
-  if filereadable(l:current_project_file)
-    exec 'source '.l:current_project_file
+  call work#ReadProjectVariables()
 
-    if isdirectory(g:current_work_project_path)
-      exec 'set path+='.g:current_work_project_path.'/**/Distribution/include'
-      exec 'set path+='.g:current_work_project_path.'/**/Implementation/source'
-    endif
+  if isdirectory(g:current_work_project_path)
+    exec 'set path+='.g:current_work_project_path.'/**/Distribution/include'
+    exec 'set path+='.g:current_work_project_path.'/**/Implementation/source'
   endif
 endfunction
 " }}}
