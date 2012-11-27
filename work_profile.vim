@@ -54,8 +54,8 @@ if has('autocmd')
     " <localleader>ud updates the tagsfile
     call work#ReadProjectVariables()
     if exists("g:current_work_project_path")
-      exec 'au FileType cpp nnoremap <buffer> <silent> <localleader>ud :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q '.g:current_work_project_path.'<CR>'
-      exec 'set tags+='.g:current_work_project_path
+      exec 'au FileType cpp nnoremap <buffer> <silent> <localleader>ud :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q -f .tags '.g:current_work_project_path.'<CR>'
+      exec 'set tags+='.g:current_work_project_path.'/.tags'
     else
       au FileType cpp nnoremap <buffer> <silent> <localleader>ud :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q . <CR>
     endif
