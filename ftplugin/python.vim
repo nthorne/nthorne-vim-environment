@@ -34,6 +34,9 @@ setlocal omnifunc=pythoncomplete#Complete
 " a compiler plugin with an errorformat
 setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
 
+" mark lines longer than 80 characters
+match ErrorMsg '\%>80v.\+'
+
 
 """ }}}
 """ keybindings {{{

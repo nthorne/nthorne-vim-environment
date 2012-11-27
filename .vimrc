@@ -128,9 +128,6 @@ if has('autocmd')
     au BufNewFile Makefile silent! 0r $HOME/.vim/skel/Makefile
     au BufNewFile * silent! 0r $HOME/.vim/skel/template.%:e
 
-    " mark characters beyond the 80th (lines longer than 80 chars is a no-no)
-    au BufWinEnter * match ErrorMsg '\%>80v.\+'
-
   augroup END
 endif
 

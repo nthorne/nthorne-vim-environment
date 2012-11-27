@@ -16,6 +16,9 @@ let b:did_ftplugin = 1
 " us the marker foldmethod for vimscript
 setlocal foldmethod=marker
 
+" mark lines longer than 80 characters
+match ErrorMsg '\%>80v.\+'
+
 " open the help for the word under the cursor
 nnoremap <leader>h :help <C-R><C-W><CR>
 " grep the help documentation for the word under the cursor

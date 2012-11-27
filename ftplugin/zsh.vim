@@ -17,4 +17,7 @@ let b:did_ftplugin = 1
 setlocal foldmethod=marker
 setlocal autoindent
 
+" mark lines longer than 80 characters
+match ErrorMsg '\%>80v.\+'
+
 """ }}}
