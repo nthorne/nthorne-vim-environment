@@ -34,7 +34,7 @@ if has('autocmd')
     " <localleader><F3> simply does a non-optimized recursive build
     au FileType cpp nnoremap <buffer> <silent> <localleader><F3> :make NO_OPTIMIZATION=y<CR>
     " <localleader><F4> runs the current unit test, or the unit test for the current unit
-    au FileType cpp nnoremap <buffer> <silent> <localleader><F4> :call work#TestUnit()<CR>
+    au FileType cpp nnoremap <buffer> <silent> <localleader><F4> :call work#TestUnit(&makeprg)<CR>
     " <localleader><F5> runs QACPP on the lint host, for the current unit
     au FileType cpp nnoremap <buffer> <silent> <localleader><F5> :call work#LintUnit()<CR>
 

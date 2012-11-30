@@ -42,22 +42,26 @@ endfunction
 
 " function work#TestUnit() {{{
 "   run the unit test of the current unit, or the currently open unit test
-function! work#TestUnit()
+" arguments:
+"   mkprg - the program used to build the unit test (since setlocal makeprg in
+"     work_profile.vim is not propagated to this autoloaded function for some
+"     strange reason).
+function! work#TestUnit(mkprg)
   if !filereadable(@%)
     return
   endif
 
   if @% =~ 'Test\.[ch]pp$'
     " if the current file is a unit test, grab names and paths
-    let l:testpath = substitute(expand("%:p:h"), '\n', '', 'g')
+    let l:testpath = substitute(expand("%:h"), '\n', '', 'g')
     let l:test_base_name = substitute(
-      \substitute(expand("%:p:t"), '\n', '', 'g'), '\.[ch]pp', '', 'g')
+      \substitute(expand("%:t"), '\n', '', 'g'), '\.[ch]pp', '', 'g')
   else
     " else, if not a unit test, append /test to the unit path, and construct 
     " a proper Makefile recipe target (i.e. <UnitName>Test)
-    let l:testpath = substitute(expand("%:p:h"), '\n', '', 'g').'/test'
+    let l:testpath = substitute(expand("%:h"), '\n', '', 'g').'/test'
     let l:test_base_name = substitute(
-      \substitute(expand("%:p:t"), '\n', '', 'g'), '\.[ch]pp', 'Test', 'g')
+      \substitute(expand("%:t"), '\n', '', 'g'), '\.[ch]pp', 'Test', 'g')
   endif
 
   " the test binaries are stored under test/.out
@@ -73,6 +77,8 @@ function! work#TestUnit()
     exe 'silent !rm '.l:test_bin
   endif
 
+  " TODO: This is a dirty, ugly hack. But it works.
+  let &makeprg=a:mkprg
   exe 'make NO_OPTIMIZATION=y '.l:test_bin
 
   " if the test did build..
@@ -109,8 +115,8 @@ function! work#LintUnit()
 
   " the cpp file is the target for the Makefile recipe, so we'll go ahead
   " and construct that name, if we're editing a header file
-  let l:filename = substitute(@%, 'hpp', 'cpp', 'g')
-  if !filereadable(l:filename)
+  let l:filename = substitute(expand("%:t"), 'hpp', 'cpp', 'g')
+  if !filereadable(expand("%:h")."/".l:filename)
     return
   endif
 
@@ -120,7 +126,7 @@ function! work#LintUnit()
   let l:log_file = '.lint/'.l:filename.'.log'
 
   call common#OpenBuffer('work_buffer')
-  " clear the buffer
+  " clear the buffere
   %d
 
   if filereadable(l:error_file)
