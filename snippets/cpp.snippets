@@ -72,3 +72,9 @@ snippet testheader
 	 * @reviewer ${2:?} `system("date +%Y-%m-%d")`
 	 */
 	${3}
+
+snippet inc
+	#include <${1:iostream}>${2}
+
+snippet Inc
+	#include "${1:`Filename("$1.hpp")`}"${2}
