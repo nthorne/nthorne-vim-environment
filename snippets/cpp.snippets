@@ -78,3 +78,9 @@ snippet inc
 
 snippet Inc
 	#include "${1:`Filename("$1.hpp")`}"${2}
+
+snippet ns
+	namespace ${1:`Filename('', 'my')`}
+	{
+	  ${2}
+	}
