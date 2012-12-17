@@ -37,6 +37,15 @@ setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
 " mark lines longer than 80 characters
 match ErrorMsg '\%>80v.\+'
 
+" jedi-vim settings
+let g:jedi#goto_command = "<localleader>g"
+let g:jedi#get_definition_command = "<localleader>d"
+let g:jedi#rename_command = "<localleader>r"
+let g:jedi#related_names_command = "<localleader>o"
+
+" python-mode settings
+let g:pymode_run = 0
+
 
 """ }}}
 """ keybindings {{{
