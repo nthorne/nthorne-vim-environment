@@ -100,3 +100,30 @@ snippet xcp
 	// <ARC ${1:124}-S>
 	TCC::CyclicCrossCompare::instance().addObject(${2});
 	// <ARC $1-S>
+
+snippet serdec
+	virtual GPU3::OutputMessage& serialize(
+	    GPU3::OutputMessage& r_stream) const;
+
+snippet serdef
+	/**
+	 * @justification (`system("date +%Y-%m-%d")`/nthorne) QACPP 4028: Common stream operator pattern.
+	 */
+	// PRQA S 4028 ++
+	OutputMessage& ${1}::serialize(OutputMessage& r_stream) const
+	{
+	  $2
+	}
+	// PRQA S 4028 --
+
+snippet serfun
+	/**
+	 * @justification (`system("date +%Y-%m-%d")`/nthorne) QACPP 4028: Common stream operator pattern.
+	 */
+	// PRQA S 4028 ++
+	GPU3::OutputMessage& operator<<(GPU3::OutputMessage& r_stream,
+	    const ${1}& value)
+	{
+	  return r_stream << ${2:static_cast<GPU3::int32_t>(value)};
+	}
+	// PRQA S 4028 --
