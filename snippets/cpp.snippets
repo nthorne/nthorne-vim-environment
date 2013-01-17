@@ -95,3 +95,8 @@ snippet cl
 	private:
 		${2:/* data */}
 	};
+
+snippet xcp
+	// <ARC ${1:124}-S>
+	TCC::CyclicCrossCompare::instance().addObject(${2});
+	// <ARC $1-S>
