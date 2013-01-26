@@ -16,6 +16,8 @@ let b:did_ftplugin = 1
 
 if common#IsWorkHost()
   call work#ConstructPath()
+else
+ nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='.git' --c++-kinds=+p --fields=+iaS --extra=+q . <CR>
 endif
 
 setlocal foldmethod=syntax
