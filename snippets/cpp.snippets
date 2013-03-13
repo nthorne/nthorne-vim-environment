@@ -128,3 +128,9 @@ snippet serfun
 	  return r_stream << ${2:static_cast<GPU3::int32_t>(value)};
 	}
 	// PRQA S 4028 --
+
+snippet noabrt
+	void uninstall_abrt_handler(); uninstall_abrt_handler();
+
+snippet abrt
+	void install_abrt_handler(); install_abrt_handler();
