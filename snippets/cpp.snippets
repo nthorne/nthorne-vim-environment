@@ -67,12 +67,18 @@ snippet justify
 
 snippet testheader
 	/**
-	 * @brief tests ${1:`Filename()`}
-	 * @responsible nthorne `system("date +%Y-%m-%d")`
-	 * @reviewer ${2:?} `system("date +%Y-%m-%d")`
+	 * @defgroup ${1:`Filename('$1', 'name')`} Module test for ${2:`Filename('$1', 'name')`}
+	 * @brief ${3:Tests the implementation in the translation unit.}
+	 *    ${4:Ensure proper behavior of exported functions.}
+	 * @{
+	 * @testfile ${5:`Filename()`}.cpp
+	 * @reviewer
+	 * @review status:
+	 * @reviewed file-commit ID:
+	 * @codecovexp
+	 *    ${6:...}
+	 * @}
 	 */
-	${3}
-
 snippet inc
 	#include <${1:iostream}>${2}
 
