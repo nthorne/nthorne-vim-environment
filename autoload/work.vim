@@ -151,7 +151,7 @@ function! work#LintUnit()
   exec 'silent g/Unknown error$/ d'
 
   " drop any complexity that is 'too low' to bother about
-  exec 'silent g/STCYC = [1-5]/ d'
+  exec 'silent g/STCYC = [1-5]$/ d'
 
   " drop empty lines
   exec 'silent g/^[ \t]*$/ d'
