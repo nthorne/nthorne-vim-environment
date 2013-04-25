@@ -30,3 +30,11 @@ function! common#IsWorkHost()
   return hostname() =~ 'gbguxs\d\+'
 endfunction
 " }}}
+
+" function! common#IsWorkVM() {{{
+"   returns true if the current host name matches that of my work VM
+function! common#IsWorkVM()
+  return hostname() =~ "mintvm"
+endfunction
+" }}}
+
