@@ -18,7 +18,7 @@ augroup filetypedetect
   au BufRead,BufNewFile *.cc setlocal filetype=cpp
 
   " work specific file types
-  if common#IsWorkHost()
+  if common#IsWorkHost() || common#IsWorkVM()
     " set the appropriate filetype for tcc log files
     au BufRead,BufNewFile *.[0-9]*.log setlocal filetype=tcclog
 

@@ -14,7 +14,7 @@ let b:did_ftplugin = 1
 """ general settings {{{
 """
 
-if common#IsWorkHost()
+if common#IsWorkHost()  || common#IsWorkVM()
   call work#ConstructPath()
 else
   nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='.git' --c-kinds=+p --fields=+iaS --extra=+q . <CR>

@@ -238,6 +238,8 @@ nnoremap <leader>tl :TaskList<CR>
 " if at one of the work servers, expand the path for usefule file motions
 if common#IsWorkHost()
   source $HOME/.vim/work_profile.vim
+elseif common#IsWorkVM()
+  source $HOME/.vim/work_vm_profile.vim
 endif
 
 

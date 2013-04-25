@@ -22,7 +22,7 @@ set cpo-=C              " allow line continuation
 CompilerSet errorformat+=%f(%l\\,%c):\ %m
 
 " we use gmake as our make program
-CompilerSet makeprg=gmake
-
+CompilerSet makeprg=ssh\ gbguxs10\ \"source\ /etc/zprofile;\ cd\ \"%:p:h\";\ gmake\"
+=
 let &cpo = s:cpo_save   " restore cpoptions
 unlet s:cpo_save
