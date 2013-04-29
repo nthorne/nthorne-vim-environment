@@ -1,6 +1,6 @@
 [submodule "bundle/taglist"]
 	path = bundle/taglist
-	url = https://github.com/vim-scripts/taglist.vim
+	url = https://github.com/vim-scripts/taglist.vim.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
@@ -12,13 +12,13 @@
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
-	url = https://github.com/kien/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
 [submodule "bundle/surround"]
 	path = bundle/surround
-	url = https://github.com/tpope/vim-surround
+	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/bufexplorer"]
 	path = bundle/bufexplorer
 	url = https://github.com/tednaleid/bufexplorer.git
@@ -33,7 +33,7 @@
 	url = https://github.com/chrisbra/histwin.vim.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
-	url = https://github.com/nthorne/snipmate.vim
+	url = https://github.com/nthorne/snipmate.vim.git
 [submodule "bundle/doxygentoolkit"]
 	path = bundle/doxygentoolkit
 	url = https://github.com/vim-scripts/DoxygenToolkit.vim.git
@@ -42,10 +42,10 @@
 	url = https://github.com/vim-scripts/DrawIt.git
 [submodule "bundle/showmarks"]
 	path = bundle/showmarks
-	url = git@github.com:nthorne/ShowMarks
+	url = https://github.com/nthorne/ShowMarks.git
 [submodule "bundle/pybreak"]
 	path = bundle/pybreak
-	url = git@github.com:nthorne/vim-pybreak
+	url = https://github.com/nthorne/vim-pybreak.git
 [submodule "bundle/tasklist"]
 	path = bundle/tasklist
 	url = https://github.com/superjudge/tasklist-pathogen.git
