@@ -188,6 +188,9 @@ nnoremap <leader>lcd :lcd %:p:h<CR>
 " shortcut for saving
 nnoremap <leader>s :w!<CR>
 
+" Toggle the Numbers plugin
+nnoremap <leader>nt :NumbersToggle<CR>
+
 
 " nifty window navigation keymappings
 nnoremap <C-j> <C-W>j
