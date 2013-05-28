@@ -164,6 +164,9 @@ nnoremap <silent> <F8> :split<CR>
 " Navigate the help with the ä key, rather than the slightly awkward default
 nnoremap ä <C-]>
 
+" Allow for a more american-esque colon
+nnoremap ö :
+
 " on <Leader>f Search for pattern, and gather the result in a new scratch buffer
 nnoremap <silent> <Leader>f :call gather#Gather(input("Pattern: "))<CR>
 

@@ -67,5 +67,8 @@ endif
 " Navigate the help with the ä key, rather than the slightly awkward default
 nnoremap ä <C-]>
 
+" Allow for a more american-esque colon
+nnoremap ö :
+
 
 """ }}}
