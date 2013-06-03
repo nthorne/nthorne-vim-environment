@@ -191,6 +191,12 @@ nnoremap <leader>lcd :lcd %:p:h<CR>
 " shortcut for saving
 nnoremap <leader>s :w!<CR>
 
+" shortcut for saving a session
+nnoremap <leader>ss :mksession! ~/Session.vim<CR>
+
+" shortcut for restoring a session
+nnoremap <leader>rs :so ~/Session.vim<CR>
+
 " Toggle the Numbers plugin
 nnoremap <leader>nt :NumbersToggle<CR>
 
