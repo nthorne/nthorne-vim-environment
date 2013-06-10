@@ -243,6 +243,9 @@ nnoremap ` '
 
 nnoremap <leader>tl :TaskList<CR>
 
+" make tagjump a bit easier
+nnoremap @ :tj /
+
 """ }}}
 """ host specific options {{{
 """
