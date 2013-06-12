@@ -280,4 +280,7 @@ let g:NERDCustomDelimiters = {
 " setup ShowMarks
 let g:showmarks_enable=0    " do not enable ShowMarks by default
 
+" setup ctrlp
+let g:ctrlp_regexp=1        " use regexes for ctrlp matching
+
 """ }}}
