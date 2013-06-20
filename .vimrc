@@ -251,6 +251,9 @@ nnoremap @ :tj /
 " for easy toggling of list
 nnoremap <localleader>l  :set invlist<BAR>set list?<CR>
 
+" clear search highlights
+nnoremap <leader>chl :let @/=''<CR>
+
 
 """ }}}
 """ host specific options {{{
