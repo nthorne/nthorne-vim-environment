@@ -51,6 +51,8 @@ set novisualbell    " .. as well as the visual bell
 set ignorecase      " ignore casing of normal letters..
 set smartcase       " .. but consider casing if pattern contains uppercase chars
 
+set listchars+=trail:_  " show trailing
+set listchars+=tab:>-   " show tabs
 
 filetype plugin on  " turn on filetype plugin loading
 filetype indent on  " turn on filetype indent loading
@@ -245,6 +247,10 @@ nnoremap <leader>tl :TaskList<CR>
 
 " make tagjump a bit easier
 nnoremap @ :tj /
+
+" for easy toggling of list
+nnoremap <localleader>l  :set invlist<BAR>set list?<CR>
+
 
 """ }}}
 """ host specific options {{{
