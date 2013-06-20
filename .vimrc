@@ -257,6 +257,7 @@ nnoremap <leader>chl :let @/=''<CR>
 " keymapping for deleting trailing whitespaces
 nnoremap <localleader>d mz:%s/\s\+$//<CR>:let @/=''<CR>`z
 
+nnoremap <localleader>D :diffoff!<CR>
 
 """ }}}
 """ host specific options {{{
