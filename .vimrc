@@ -254,6 +254,9 @@ nnoremap <localleader>l  :set invlist<BAR>set list?<CR>
 " clear search highlights
 nnoremap <leader>chl :let @/=''<CR>
 
+" keymapping for deleting trailing whitespaces
+nnoremap <localleader>d mz:%s/\s\+$//<CR>:let @/=''<CR>`z
+
 
 """ }}}
 """ host specific options {{{
