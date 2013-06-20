@@ -1,4 +1,4 @@
-""" markdown.vim
+""" mkd.vim
 """   - provides settings specific markdown files
 """
 
@@ -16,5 +16,17 @@ let b:did_ftplugin = 1
 
 " turn on spell checking for markdown
 setlocal spell
+
+""" }}}
+
+""" }}}
+""" keybindings {{{
+"""
+
+" Increase heading level on row
+nnoremap <localleader>hi mzV:s/\(#*\)[ ]\?/\1# \2/<CR>`z:let @/=''<CR>
+
+" Decrease heading level on row
+nnoremap <localleader>hd mzV:s/^#[ ]\?//<CR>`z:let @/=''<CR>
 
 """ }}}
