@@ -206,7 +206,7 @@ function! work_vm#SyncWorkArea()
   let l:full_path = expand("%:p:h")
 
   if (match(l:full_path, g:current_work_project_path) != -1)
-    exec '!rsync -ravz --exclude=".*.sw*" --exclude="hooks/" '.g:current_work_project_path.' gbguxs10:'.g:current_work_project_remote_path
+    exec '!synctcc'
   endif
 endfunction
 " }}}
