@@ -32,6 +32,10 @@ if has('autocmd')
     au FileType cpp nnoremap <buffer> <silent> <localleader><F4> :call work_vm#TestUnit(&makeprg)<CR>
     " <localleader><F5> runs QACPP on the lint host, for the current unit
     au FileType cpp nnoremap <buffer> <silent> <localleader><F5> :call work_vm#LintUnit()<CR>
+    " <localleader><F6> deploys the system to the test server
+    au FileType cpp nnoremap <buffer> <silent> <localleader><F6> :!deploytcc.sh<CR>
+    " <localleader><F7> (re-)starts the system on the test server
+    au FileType cpp nnoremap <buffer> <silent> <localleader><F7> :!runtcc.sh<CR>
 
     " <localleader>cci does a sanity check of the unit (todos, debug statements
     " and lint)
