@@ -246,7 +246,7 @@ nnoremap ` '
 nnoremap <leader>tl :TaskList<CR>
 
 " make tagjump a bit easier
-nnoremap @ :tj /
+nnoremap § :tj /
 
 " for easy toggling of list
 nnoremap <localleader>l  :set invlist<BAR>set list?<CR>
