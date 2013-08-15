@@ -44,7 +44,6 @@ if has('autocmd')
 
     " abbreviations for common code snippets
     au FileType cpp iabbrev <buffer> cmDist getDistance(Distance::CENTIMETER)
-    au FileType cpp iabbrev <buffer> dbglog GPU3_LOG("666", critical, 
 
     " keybindings and settings for working with ctags:
     "  If the g:current_work_project_path variable can be read from the

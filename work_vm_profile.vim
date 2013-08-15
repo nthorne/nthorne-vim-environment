@@ -43,7 +43,6 @@ if has('autocmd')
 
     " abbreviations for common code snippets
     au FileType cpp iabbrev <buffer> cmDist getDistance(Distance::CENTIMETER)
-    au FileType cpp iabbrev <buffer> dbglog GPU3_LOG("666", critical, 
 
     au BufWritePost * call work_vm#SyncWorkArea()
 
