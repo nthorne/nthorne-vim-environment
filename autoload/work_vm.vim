@@ -211,3 +211,20 @@ function! work_vm#SyncWorkArea()
 endfunction
 " }}}
 
+" function! work_vm#BuildToQuickFix() {{{
+"   Execute a custom build script and send its output to quickfix
+function! work_vm#BuildToQuickFix()
+  " The option to doing this dirty hack is
+  "   cexpr system("buildtcc.sh")
+  "   copen
+  " the downside then is that we get a non-responsive, non-indicative
+  " session until the command has terminated..
+
+  " TODO: Refactor this to at least take the original makeprg as
+  "  an argument..
+  setlocal makeprg=buildtcc.sh
+  make
+  setlocal makeprg=ssh\ gbguxs10\ \"source\ /etc/profile;\ cd\ \"%:p:h\";\ gmake\"
+endfunction
+" }}}
+

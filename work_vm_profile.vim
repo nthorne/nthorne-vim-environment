@@ -27,7 +27,8 @@ if has('autocmd')
     au FileType cpp compiler sun_cc
 
     " <localleader><F3> simply does a non-optimized recursive build
-    au FileType cpp nnoremap <buffer> <silent> <localleader><F3> :!buildtcc.sh<CR>
+    "au FileType cpp nnoremap <buffer> <silent> <localleader><F3> :!buildtcc.sh<CR>
+    au FileType cpp nnoremap <buffer> <silent> <localleader><F3> :call work_vm#BuildToQuickFix()<CR>
     " <localleader><F4> runs the current unit test, or the unit test for the current unit
     au FileType cpp nnoremap <buffer> <silent> <localleader><F4> :call work_vm#TestUnit(&makeprg)<CR>
     " <localleader><F5> runs QACPP on the lint host, for the current unit
