@@ -37,6 +37,8 @@ if has('autocmd')
     au FileType cpp nnoremap <buffer> <silent> <localleader><F6> :!deploytcc.sh<CR>
     " <localleader><F7> (re-)starts the system on the test server
     au FileType cpp nnoremap <buffer> <silent> <localleader><F7> :!runtcc.sh<CR>
+    " <localleader><F8> syncronize the source tree
+    au FileType cpp nnoremap <buffer> <silent> <localleader><F8> :!synctcc.sh<CR>
 
     " <localleader>cci does a sanity check of the unit (todos, debug statements
     " and lint)
@@ -44,8 +46,6 @@ if has('autocmd')
 
     " abbreviations for common code snippets
     au FileType cpp iabbrev <buffer> cmDist getDistance(Distance::CENTIMETER)
-
-    au BufWritePost * call work_vm#SyncWorkArea()
 
     " keybindings and settings for working with ctags:
     "  If the g:current_work_project_path variable can be read from the

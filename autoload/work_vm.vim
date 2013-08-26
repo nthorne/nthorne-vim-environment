@@ -51,6 +51,8 @@ function! work_vm#TestUnit(mkprg)
     return
   endif
 
+  call work_vm#SyncWorkArea()
+
   if @% =~ 'Test\.[ch]pp$'
     " if the current file is a unit test, grab names and paths
     let l:testpath = substitute(expand("%:h"), '\n', '', 'g')
@@ -119,6 +121,8 @@ function! work_vm#LintUnit()
   if !filereadable(@%)
     return
   endif
+
+  call work_vm#SyncWorkArea()
 
   " the cpp file is the target for the Makefile recipe, so we'll go ahead
   " and construct that name, if we're editing a header file
