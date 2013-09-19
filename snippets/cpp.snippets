@@ -137,3 +137,15 @@ snippet dbglog
 
 snippet todo
 	// TODO (`system("date +%Y-%m-%d")`/`system("whoami")`): ${1}
+
+snippet testblock
+	{ // ${1}
+	  CPPUNIT_ASSERT(!"Not implemented");
+	}
+
+snippet noabrt
+	void uninstall_abrt_handler(); uninstall_abrt_handler();
+	${1}
+
+snippet note
+	// `system("whoami")`: ${1}
