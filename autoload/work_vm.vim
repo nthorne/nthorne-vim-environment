@@ -210,7 +210,7 @@ function! work_vm#SyncWorkArea()
   let l:full_path = expand("%:p:h")
 
   if (match(l:full_path, g:current_work_project_path) != -1)
-    exec '!synctcc.sh'
+    exec 'silent !synctcc.sh'
   endif
 endfunction
 " }}}
