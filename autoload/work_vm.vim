@@ -232,3 +232,14 @@ function! work_vm#BuildToQuickFix()
 endfunction
 " }}}
 
+" function! work_vm#LocalBuildToQuickFix() {{{
+"   Execute a custom build script and send its output to quickfix
+function! work_vm#LocalBuildToQuickFix()
+  " TODO: Refactor this to at least take the original makeprg as
+  "  an argument..
+  setlocal makeprg=localbuildtcc.sh\ %:p:h
+  make
+  setlocal makeprg=ssh\ gbguxs10\ \"source\ /etc/profile;\ cd\ \"%:p:h\";\ gmake\"
+endfunction
+" }}}
+
