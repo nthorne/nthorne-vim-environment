@@ -262,6 +262,8 @@ nnoremap <localleader>D :diffoff!<CR>
 " Split lines (and trim trailing whitespaces).
 nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 
+nnoremap <localleader>r :redo<CR>
+
 """ }}}
 """ host specific options {{{
 """
