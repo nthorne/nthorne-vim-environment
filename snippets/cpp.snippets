@@ -28,7 +28,6 @@ snippet unaryfun
 			return l_result;
 		}
 	};
-
 # Binary functor definition (work related)
 snippet binaryfun
 	/**
@@ -55,8 +54,6 @@ snippet binaryfun
 			return l_result;
 		}
 	};
-
-
 # lint justifications
 snippet justify
 	/*
@@ -64,7 +61,6 @@ snippet justify
 	 */
 	// PRQA S $1 ++
 	${2}// PRQA S $1 --
-
 snippet testheader
 	/**
 	 * @brief tests ${1:`Filename()`}
@@ -72,19 +68,15 @@ snippet testheader
 	 * @reviewer ${2:?} `system("date +%Y-%m-%d")`
 	 */
 	${3}
-
 snippet inc
 	#include <${1:iostream}>${2}
-
 snippet Inc
 	#include "${1:`Filename("$1.hpp")`}"${2}
-
 snippet ns
 	namespace ${1:`Filename('', 'my')`}
 	{
 		${2}
 	}
-
 snippet cl
 	class ${1:`Filename('$1_t', 'name')`}
 	{
@@ -95,28 +87,24 @@ snippet cl
 	private:
 		${2:/* data */}
 	};
-
 snippet xcp
 	// <ARC ${1:124}-S>
 	TCC::CyclicCrossCompare::instance().addObject(${2});
 	// <ARC $1-S>
-
 snippet serdec
 	///For cross compare
 	virtual GPU3::OutputMessage& serialize(
 	    GPU3::OutputMessage& r_stream) const;
-
 snippet serdef
 	/**
 	 * @justification (`system("date +%Y-%m-%d")`/nthorne) QACPP 4028: Common stream operator pattern.
 	 */
 	// PRQA S 4028 ++
-	OutputMessage& ${1}::serialize(OutputMessage& r_stream) const
+	OutputMessage& `Filename()`::serialize(OutputMessage& r_stream) const
 	{
-	  $2
+	  return r_stream << ${1};
 	}
 	// PRQA S 4028 --
-
 snippet serfun
 	/**
 	 * @justification (`system("date +%Y-%m-%d")`/nthorne) QACPP 4028: Common stream operator pattern.
@@ -128,25 +116,36 @@ snippet serfun
 	  return r_stream << ${2:static_cast<GPU3::int32_t>(value)};
 	}
 	// PRQA S 4028 --
-
 snippet ass
 	GPU3_ASSERT(${1});
 	${2}
-
 snippet dbglog
-	GPU3_LOG("666", critical, "${1}");
-
+	GPU3_LOG("666", critical, "!! ${1}");
 snippet todo
 	// TODO (`system("date +%Y-%m-%d")`/`system("whoami")`): ${1}
-
 snippet testblock
 	{ // ${1}
 	  CPPUNIT_ASSERT(!"Not implemented");
 	}
-
 snippet noabrt
 	void uninstall_abrt_handler(); uninstall_abrt_handler();
 	${1}
-
 snippet note
 	// `system("whoami")`: ${1}
+snippet doxymeth
+	/**
+	 * @brief ${1}
+	 */
+snippet mdec
+	/**
+	 * @brief ${4}
+	 */
+	${1:void} ${2}(${3});
+snippet mdef
+	${1:void} `Filename()`::${2}(${3})
+	{
+	  ${4}
+	}
+snippet incguard
+	#ifndef __INCLUDED_`Filename()`_`system("date +%Y%m%d")`__
+	#define __INCLUDED_`Filename()`_`system("date +%Y%m%d")`__${1}
