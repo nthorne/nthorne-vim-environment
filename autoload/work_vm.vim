@@ -243,3 +243,10 @@ function! work_vm#LocalBuildToQuickFix()
 endfunction
 " }}}
 
+" function! work_vm#LcdToProjectRoot() {{{
+"   lcd to project root
+function! work_vm#LcdToProjectRoot()
+  exec ':lcd '.g:current_work_project_path
+endfunction
+" }}}
+

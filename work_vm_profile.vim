@@ -11,6 +11,8 @@
 "  old-style
 let NERDTreeDirArrows=0
 
+let g:ctrlp_working_path_mode='rw'
+
 " set gmake as our :make program
 setlocal makeprg=ssh\ gbguxs10\ \"source\ /etc/profile;\ cd\ \"%:p:h\";\ gmake\"
 
@@ -46,8 +48,8 @@ if has('autocmd')
     " and lint)
     au FileType cpp nnoremap <buffer> <silent> <localleader>cci <ESC>:call work_vm#CanCheckin()<CR>
 
-    " abbreviations for common code snippets
-    au FileType cpp iabbrev <buffer> cmDist getDistance(Distance::CENTIMETER)
+    " <localleader>p lcd to project root
+    au FileType cpp nnoremap <buffer> <silent> <localleader>p <ESC>:call work_vm#LcdToProjectRoot()<CR>
 
     " keybindings and settings for working with ctags:
     "  If the g:current_work_project_path variable can be read from the
