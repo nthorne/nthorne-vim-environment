@@ -149,3 +149,9 @@ snippet mdef
 snippet incguard
 	#ifndef __INCLUDED_`Filename()`_`system("date +%Y%m%d")`__
 	#define __INCLUDED_`Filename()`_`system("date +%Y%m%d")`__${1}
+snippet list
+	GPU3::List<${1:GPU3::xstring> }>::type
+snippet ptr
+	GPU3::shared_ptr<${1}>
+snippet str
+	GPU3::xstring
