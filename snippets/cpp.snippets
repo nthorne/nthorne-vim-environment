@@ -63,9 +63,16 @@ snippet justify
 	${2}// PRQA S $1 --
 snippet testheader
 	/**
-	 * @brief tests ${1:`Filename()`}
+	 * @brief tests `Filename("$1.hpp")`
+	 * @defgroup `Filename()`
+	 * @{
+	 * @testfile `Filename("$1.hpp")`
 	 * @responsible nthorne `system("date +%Y-%m-%d")`
-	 * @reviewer ${2:?} `system("date +%Y-%m-%d")`
+	 * @reviewer
+	 * @review status
+	 * @reviewed file-commit ID
+	 * @codecovexp
+	 * @}
 	 */
 	${3}
 snippet inc
@@ -126,7 +133,7 @@ snippet todo
 snippet testblock
 	{ // ${1}
 	  CPPUNIT_ASSERT(!"Not implemented");
-	}
+	}${2}
 snippet noabrt
 	void uninstall_abrt_handler(); uninstall_abrt_handler();
 	${1}
@@ -150,8 +157,13 @@ snippet incguard
 	#ifndef __INCLUDED_`Filename()`_`system("date +%Y%m%d")`__
 	#define __INCLUDED_`Filename()`_`system("date +%Y%m%d")`__${1}
 snippet list
-	GPU3::List<${1:GPU3::xstring> }>::type
+	GPU3::List<${1:GPU3::xstring> }>::type ${2}
 snippet ptr
-	GPU3::shared_ptr<${1}>
+	GPU3::shared_ptr<${1}> ${2}
 snippet str
 	GPU3::xstring
+snippet else
+	else
+	{
+	  ${1}
+	}
