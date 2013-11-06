@@ -38,3 +38,20 @@ function! common#IsWorkVM()
 endfunction
 " }}}
 
+" function! common#CleanupCppBeforeWrite() {{{
+"   perform pre-write cleanup of cpp files
+function! common#CleanupCppBeforeWrite()
+  " Store cursor position
+  let l:line = line(".")
+  let l:col = col(".")
+
+  " Clean trailing whitespaces..
+  exec ':silent! %s/\s\+$//'
+  let @/=''
+  "`z
+
+  " Restore cursor position
+  call cursor(l:line, l:col)
+endfunction
+" }}}
+

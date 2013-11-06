@@ -60,7 +60,7 @@ function! work_vm#TestUnit(mkprg)
     let l:test_base_name = substitute(
       \substitute(expand("%:t"), '\n', '', 'g'), '\.[ch]pp', '', 'g')
   else
-    " else, if not a unit test, append /test to the unit path, and construct 
+    " else, if not a unit test, append /test to the unit path, and construct
     " a proper Makefile recipe target (i.e. <UnitName>Test)
     let l:testpath = substitute(expand("%:h"), '\n', '', 'g').'/test'
     let l:fullpath = substitute(expand("%:p:h"), '\n', '', 'g').'/test'
@@ -205,7 +205,7 @@ endfunction
 " }}}
 
 " function! work_vm#SyncWorkArea() {{{
-"   Sync the work are to the remote host 
+"   Sync the work are to the remote host
 function! work_vm#SyncWorkArea()
   let l:full_path = expand("%:p:h")
 
@@ -249,4 +249,3 @@ function! work_vm#LcdToProjectRoot()
   exec ':lcd '.g:current_work_project_path
 endfunction
 " }}}
-

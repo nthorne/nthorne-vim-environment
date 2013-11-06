@@ -39,3 +39,17 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
 """ }}}
+
+""" }}}
+""" autocommands {{{
+"""
+if has('autocmd')
+  augroup nthorne_work_vm_augroup
+    au!
+    au BufWrite * call common#CleanupCppBeforeWrite()
+  augroup END
+endif
+
+""" }}}
+
+
