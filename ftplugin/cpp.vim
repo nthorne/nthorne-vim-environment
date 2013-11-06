@@ -44,7 +44,7 @@ set completeopt=menuone,menu,longest,preview
 """ autocommands {{{
 """
 if has('autocmd')
-  augroup nthorne_work_vm_augroup
+  augroup nthorne_ftplugin_cpp_augroup
     au!
     au BufWrite * call common#CleanupCppBeforeWrite()
   augroup END
