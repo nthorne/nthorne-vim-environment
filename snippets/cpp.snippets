@@ -157,9 +157,9 @@ snippet incguard
 	#ifndef __INCLUDED_`Filename()`_`system("date +%Y%m%d")`__
 	#define __INCLUDED_`Filename()`_`system("date +%Y%m%d")`__${1}
 snippet list
-	GPU3::List<${1:GPU3::xstring> }>::type ${2}
+	GPU3::List<${1}>::type
 snippet ptr
-	GPU3::shared_ptr<${1}> ${2}
+	GPU3::shared_ptr<${1}>
 snippet str
 	GPU3::xstring
 snippet else
@@ -167,3 +167,22 @@ snippet else
 	{
 	  ${1}
 	}
+snippet log
+	GPU3_LOG(${1}, ${2:debug}, "${3}");
+snippet for
+	for (${1:int i = 0}; ${2: i < 10}; ${3: ++i})
+	{
+	  ${4}
+	}
+snippet elif
+	else if (${1})
+	{
+	  ${2}
+	}
+snippet if
+	if (${1})
+	{
+	  ${2}
+	}
+snippet cr
+	const ${1}&
