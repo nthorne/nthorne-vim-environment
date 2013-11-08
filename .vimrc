@@ -58,7 +58,7 @@ filetype plugin on  " turn on filetype plugin loading
 filetype indent on  " turn on filetype indent loading
 
 
-""" }}} 
+""" }}}
 """ appearance {{{
 """
 
@@ -115,7 +115,7 @@ if has('autocmd')
     " When editing a file, always jump to the last known cursor
     " position. Don't do it when the position is invalid or when inside
     " an event handler (happens when dropping a file on gvim).
-    " 
+    "
     " (from Bill Odom's vim environment)
     au BufReadPost *
       \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -162,6 +162,9 @@ nnoremap <silent> <F7> :next<CR>
 
 " <F8> is for easy window splitting
 nnoremap <silent> <F8> :split<CR>
+
+" <F9> is for showing the yankring
+nnoremap <silent> <F9> :YRShow<CR>
 
 " Navigate the help with the ä key, rather than the slightly awkward default
 nnoremap ä <C-]>
@@ -293,7 +296,7 @@ let g:Tlist_Use_Right_Window=1
 " setup NERDCommenter
 let g:NERDCustomDelimiters = {
     \ 'zsh': { 'left': '#' }
-  \ }  
+  \ }
 
 " setup ShowMarks
 let g:showmarks_enable=0    " do not enable ShowMarks by default
