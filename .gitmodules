@@ -28,9 +28,6 @@
 [submodule "bundle/a"]
 	path = bundle/a
 	url = https://github.com/vim-scripts/a.vim.git
-[submodule "bundle/histwin"]
-	path = bundle/histwin
-	url = https://github.com/chrisbra/histwin.vim.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = https://github.com/nthorne/snipmate.vim
@@ -64,3 +61,6 @@
 [submodule "bundle/numbers"]
 	path = bundle/numbers
 	url = https://github.com/myusuf3/numbers.vim.git
+[submodule "bundle/gundo"]
+	path = bundle/gundo
+	url = https://github.com/vim-scripts/Gundo.git

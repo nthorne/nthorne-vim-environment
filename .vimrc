@@ -154,7 +154,7 @@ nnoremap <silent> <F3> :Gstatus<CR>
 nnoremap <silent> <F4> :BufExplorer<CR>
 
 " <F5> shows the Hiswin window
-nnoremap <silent> <F5> :Histwin<CR>
+nnoremap <silent> <F5> :GundoToggle<CR>
 
 " <F6> and <F7> is for navigating between files
 nnoremap <silent> <F6> :prev<CR>
