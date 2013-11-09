@@ -307,4 +307,8 @@ let g:ctrlp_regexp=1        " use regexes for ctrlp matching
 " setup taglist
 let g:tlTokenList=['666', 'TODO', 'FIXME', 'XXX']
 
+" setup yankring
+let g:yankring_replace_n_pkey=''
+let g:yankring_replace_n_nkey=''
+
 """ }}}
