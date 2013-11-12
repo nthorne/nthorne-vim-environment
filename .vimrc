@@ -307,4 +307,7 @@ let g:yankring_replace_n_nkey=''
 " setup tagbar
 let g:tagbar_autoclose=1
 
+" setup delimitMate
+let g:delimitMate_expand_cr=1
+
 """ }}}
