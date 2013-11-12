@@ -144,8 +144,9 @@ let maplocalleader = ',,'
 " <F1> toggles NERDTree
 nnoremap <silent> <F1> :NERDTreeToggle<CR>
 
-" <F2> toggles taglist
-nnoremap <silent> <F2> :TlistToggle<CR>
+" <F2> toggles tagbar
+" note: for some reason, I need to reenable line numbering here..
+nnoremap <silent> <F2> :TagbarToggle<CR>:set number<CR>:NumbersEnable<CR>
 
 " <F3> shows the Gstatus window
 nnoremap <silent> <F3> :Gstatus<CR>
@@ -288,9 +289,6 @@ runtime macros/matchit.vim
 """ plugin settings {{{
 """
 
-" setup taglist
-let g:Tlist_Use_Right_Window=1
-
 " setup NERDCommenter
 let g:NERDCustomDelimiters = {
     \ 'zsh': { 'left': '#' }
@@ -302,11 +300,14 @@ let g:showmarks_enable=0    " do not enable ShowMarks by default
 " setup ctrlp
 let g:ctrlp_regexp=1        " use regexes for ctrlp matching
 
-" setup taglist
+" setup tasklist
 let g:tlTokenList=['666', 'TODO', 'FIXME', 'XXX']
 
 " setup yankring
 let g:yankring_replace_n_pkey=''
 let g:yankring_replace_n_nkey=''
+
+" setup tagbar
+let g:tagbar_autoclose=1
 
 """ }}}
