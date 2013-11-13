@@ -149,7 +149,7 @@ nnoremap <silent> <F1> :NERDTreeToggle<CR>
 nnoremap <silent> <F2> :TagbarToggle<CR>:set number<CR>:NumbersEnable<CR>
 
 " <F3> shows the Gstatus window
-nnoremap <silent> <F3> :Gstatus<CR>
+nnoremap <silent> <F3> :Gstatus<CR>:set nofoldenable<CR>
 
 " <F4> shows the Buffer Explorer window
 nnoremap <silent> <F4> :BufExplorer<CR>
