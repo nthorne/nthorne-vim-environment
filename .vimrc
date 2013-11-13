@@ -310,4 +310,8 @@ let g:tagbar_autoclose=1
 " setup delimitMate
 let g:delimitMate_expand_cr=1
 
+" setup neocomplcache
+let g:neocomplcache_enable_at_startup=1
+inoremap <expr><C-l> neocomplcache#complete_common_string()
+
 """ }}}
