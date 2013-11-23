@@ -249,3 +249,37 @@ function! work_vm#LcdToProjectRoot()
   exec ':lcd '.g:current_work_project_path
 endfunction
 " }}}
+
+" function! work_vm#OpenUnitTest() {{{
+"   open the unit test of a cpp/hpp file
+" arguments:
+"  newtab - if non-zero, the test is opened in a new tab
+function! work_vm#OpenUnitTest(newtab)
+  if @% =~ 'Test\.[ch]pp$'
+    " if the current file is a unit test, we're done
+    return
+  endif
+
+  " else, if not a unit test, construct the full path to the ./test folder..
+  let l:fullpath = substitute(expand("%:p:h"), '\n', '', 'g').'/test'
+  " .. and add Test to the end of filename
+  let l:test_base_name = substitute(
+    \substitute(expand("%:t"), '\n', '', 'g'), '\(\.[ch]pp\)', 'Test\1', 'g')
+  let l:test_name=l:fullpath.'/'.l:test_base_name
+
+
+  if filereadable(l:test_name)
+    let l:curdir=getcwd()
+
+    if 0 == a:newtab
+      exe 'edit '.l:test_name
+    else
+      exec 'tabedit '.l:test_name
+    endif
+
+    exe 'lcd '.l:curdir
+  else
+    echo ''.l:test_name.': no such file'
+  endif
+endfunction
+" }}}

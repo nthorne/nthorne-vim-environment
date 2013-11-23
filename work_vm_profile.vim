@@ -51,6 +51,11 @@ if has('autocmd')
     " <localleader>p lcd to project root
     au FileType cpp nnoremap <buffer> <silent> <localleader>p <ESC>:call work_vm#LcdToProjectRoot()<CR>
 
+    " <localleader>uo for opening unit test
+    au FileType cpp nnoremap <buffer> <silent> <localleader>uo <ESC>:call work_vm#OpenUnitTest(0)<CR>
+    " <localleader>uO for opening unit test in new tab
+    au FileType cpp nnoremap <buffer> <silent> <localleader>uO <ESC>:call work_vm#OpenUnitTest(1)<CR>
+
     " keybindings and settings for working with ctags:
     "  If the g:current_work_project_path variable can be read from the
     "  configuration file that details the current project, then that directory
