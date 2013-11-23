@@ -291,7 +291,8 @@ runtime macros/matchit.vim
 
 " setup NERDCommenter
 let g:NERDCustomDelimiters = {
-    \ 'zsh': { 'left': '#' }
+    \ 'zsh': { 'left': '#' },
+    \ 'vim': { 'left': '"'}
   \ }
 
 " setup ctrlp
