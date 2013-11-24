@@ -224,22 +224,34 @@ function! work_vm#BuildToQuickFix()
   " the downside then is that we get a non-responsive, non-indicative
   " session until the command has terminated..
 
-  " TODO: Refactor this to at least take the original makeprg as
-  "  an argument..
+  let l:prev_make=&l:makeprg
   setlocal makeprg=buildtcc.sh
-  make
-  setlocal makeprg=ssh\ gbguxs10\ \"source\ /etc/profile;\ cd\ \"%:p:h\";\ gmake\"
+
+  if @% =~ '[Ss]tub\.cpp$'
+    " TODO: Determine if this works.
+    make stub_targets
+  else
+    make
+  endif
+
+  let &l:makeprg=l:prev_make
 endfunction
 " }}}
 
 " function! work_vm#LocalBuildToQuickFix() {{{
 "   Execute a custom build script and send its output to quickfix
 function! work_vm#LocalBuildToQuickFix()
-  " TODO: Refactor this to at least take the original makeprg as
-  "  an argument..
+  let l:prev_make=&makeprg
   setlocal makeprg=localbuildtcc.sh\ %:p:h
-  make
-  setlocal makeprg=ssh\ gbguxs10\ \"source\ /etc/profile;\ cd\ \"%:p:h\";\ gmake\"
+
+  if @% =~ '[Ss]tub\.cpp$'
+    " TODO: Determine if this works.
+    make stub_targets
+  else
+    make
+  endif
+
+  let &l:makeprg=l:prev_make
 endfunction
 " }}}
 
