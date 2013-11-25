@@ -228,7 +228,6 @@ function! work_vm#BuildToQuickFix()
   setlocal makeprg=buildtcc.sh
 
   if @% =~ '[Ss]tub\.cpp$'
-    " TODO: Determine if this works.
     make stub_targets
   else
     make
@@ -242,12 +241,12 @@ endfunction
 "   Execute a custom build script and send its output to quickfix
 function! work_vm#LocalBuildToQuickFix()
   let l:prev_make=&makeprg
-  setlocal makeprg=localbuildtcc.sh\ %:p:h
 
   if @% =~ '[Ss]tub\.cpp$'
-    " TODO: Determine if this works.
+    setlocal makeprg=localbuildtcc.sh\ %:p:h:h
     make stub_targets
   else
+    setlocal makeprg=localbuildtcc.sh\ %:p:h
     make
   endif
 
