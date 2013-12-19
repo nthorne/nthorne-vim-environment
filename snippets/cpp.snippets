@@ -196,3 +196,9 @@ snippet set
 	{
 	  m_${4} = ${3};
 	}
+snippet poolcr
+	GPU3::shared_ptr<${1:}> ${2:} =
+	  GPU3::ObjectPool<$1>::createObj();
+snippet poolcl
+	GPU3::shared_ptr<${1:}> ${2:} =
+	  GPU3::ObjectPool<$1>::cloneObj(${3:});
