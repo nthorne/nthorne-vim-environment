@@ -246,7 +246,24 @@ function! work_vm#LocalBuildToQuickFix()
     setlocal makeprg=localbuildtcc.sh\ %:p:h:h
     make stub_targets
   else
-    setlocal makeprg=localbuildtcc.sh\ %:p:h
+    setlocal makeprg=localbuildtcc.sh\ %:p:h\ %:t
+    make
+  endif
+
+  let &l:makeprg=l:prev_make
+endfunction
+" }}}
+
+" function! work_vm#LocalMakeToQuickFix() {{{
+"   Execute a custom build script and send its output to quickfix
+function! work_vm#LocalMakeToQuickFix()
+  let l:prev_make=&makeprg
+
+  if @% =~ '[Ss]tub\.cpp$'
+    setlocal makeprg=localmaketcc.sh\ %:p:h:h
+    make stub_targets
+  else
+    setlocal makeprg=localmaketcc.sh\ %:p:h
     make
   endif
 

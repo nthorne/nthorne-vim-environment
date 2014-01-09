@@ -28,8 +28,10 @@ if has('autocmd')
     " use the sun_cc compiler
     au FileType cpp compiler sun_cc
 
-    " <localleader><F2> issues a make command in the folder of the current source file
-    au FileType cpp nnoremap <buffer> <silent> <localleader><F2> :call work_vm#LocalBuildToQuickFix()<CR>
+    " <localleader><F1> builds a single object
+    au FileType cpp nnoremap <buffer> <silent> <localleader><F1> :call work_vm#LocalBuildToQuickFix()<CR>
+    " <localleader><F2> issues a make in the folder containing the current file
+    au FileType cpp nnoremap <buffer> <silent> <localleader><F2> :call work_vm#LocalMakeToQuickFix()<CR>
     " <localleader><F3> simply does a non-optimized recursive build
     "au FileType cpp nnoremap <buffer> <silent> <localleader><F3> :!buildtcc.sh<CR>
     au FileType cpp nnoremap <buffer> <silent> <localleader><F3> :call work_vm#BuildToQuickFix()<CR>
