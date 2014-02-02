@@ -317,4 +317,7 @@ let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_enable_camel_case_completion=1
 inoremap <expr><C-l> neocomplcache#complete_common_string()
 
+" setup jedi-vim
+let g:jedi#popup_on_dot=0
+
 """ }}}
