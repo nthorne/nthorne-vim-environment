@@ -29,4 +29,7 @@ nnoremap <localleader>hi mzV:s/\(#*\)[ ]\?/\1# \2/<CR>`z:let @/=''<CR>
 " Decrease heading level on row
 nnoremap <localleader>hd mzV:s/^#[ ]\?//<CR>`z:let @/=''<CR>
 
+" Add keybinding for PDF compilation
+nnoremap <localleader><F3> :!compiledoc % "%:t:r.pdf" <CR>
+
 """ }}}
