@@ -32,4 +32,9 @@ nnoremap <localleader>hd mzV:s/^#[ ]\?//<CR>`z:let @/=''<CR>
 " Add keybinding for PDF compilation
 nnoremap <localleader><F3> :!compiledoc % "%:t:r.pdf" <CR>
 
+" Keybinding for creating salt todo lists
+nnoremap <localleader>ai o[ ] 
+
+" Keybinging fore creating a code fence block
+nnoremap <localleader>c i``````<ESC>hhi
 """ }}}
