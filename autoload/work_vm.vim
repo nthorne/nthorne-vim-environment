@@ -25,7 +25,7 @@ function! work_vm#CanCheckin()
 
   let l:analysis = l:analysis."---------------\n"
   let l:analysis = l:analysis.'Debug logs: '.system(
-    \'ssh gbguxs10 fgrep "\"666\"" '.l:full_path.' | wc -l')
+    \'ssh '.g:remote_host.' fgrep "\"666\"" '.l:full_path.' | wc -l')
   let l:analysis = l:analysis.'TODO count: '.system(
     \'ssh fgrep TODO '.l:full_path.' | wc -l')
   let l:analysis = l:analysis."---------------\n"
@@ -42,35 +42,35 @@ endfunction
 
 " function work_vm#TestUnit() {{{
 "   run the unit test of the current unit, or the currently open unit test
-" arguments:
-"   mkprg - the program used to build the unit test (since setlocal makeprg in
-"     work_vm_profile.vim is not propagated to this autoloaded function for some
-"     strange reason).
-function! work_vm#TestUnit(mkprg)
+function! work_vm#TestUnit()
   if !filereadable(@%)
     return
   endif
 
   call work_vm#SyncWorkArea()
 
+  let l:modulePath=expand("%:p:h")
+
   if @% =~ 'Test\.[ch]pp$'
     " if the current file is a unit test, grab names and paths
     let l:testpath = substitute(expand("%:h"), '\n', '', 'g')
-    let l:fullpath = substitute(expand("%:p:h"), '\n', '', 'g')
+    let l:fullpath = substitute(l:modulePath, '\n', '', 'g')
     let l:test_base_name = substitute(
       \substitute(expand("%:t"), '\n', '', 'g'), '\.[ch]pp', '', 'g')
   else
     " else, if not a unit test, append /test to the unit path, and construct
     " a proper Makefile recipe target (i.e. <UnitName>Test)
     let l:testpath = substitute(expand("%:h"), '\n', '', 'g').'/test'
-    let l:fullpath = substitute(expand("%:p:h"), '\n', '', 'g').'/test'
+    let l:fullpath = substitute(l:modulePath, '\n', '', 'g').'/test'
     let l:test_base_name = substitute(
       \substitute(expand("%:t"), '\n', '', 'g'), '\.[ch]pp', 'Test', 'g')
   endif
 
+  let l:translatedPath = work_vm#TranslateLocalPathToRemote(l:fullpath)
+
   " the test binaries are stored under test/.out
   let l:test_bin = l:testpath.'/.out/'.l:test_base_name
-  let l:remote_test_bin = l:fullpath.'/.out/'.l:test_base_name
+  let l:remote_test_bin = l:translatedPath.'/.out/'.l:test_base_name
 
   " open a new work_buffer, and clear it
   call common#OpenBuffer('work_buffer')
@@ -79,19 +79,21 @@ function! work_vm#TestUnit(mkprg)
   " if the test binary exists..
   "if filereadable(l:test_bin)
     " .. remove it to force a test rebuild
-    exe 'silent !ssh gbguxs10 "rm '.l:remote_test_bin.' 2>/dev/null"'
+  exe 'silent !ssh '.g:remote_host.' "rm '.l:remote_test_bin.' 2>/dev/null"'
   "endif
 
   " TODO: This is a dirty, ugly hack. But it works.
-  let &makeprg=a:mkprg
+  let &makeprg = "ssh ".g:remote_host." \"source /etc/profile; cd "
+  let &makeprg = &makeprg.work_vm#TranslateLocalPathToRemote(l:modulePath)
+  let &makeprg = &makeprg." ; gmake \""
   exe 'make NO_OPTIMIZATION=y '.l:test_bin
 
   " if the test did build..
-  "let l:output=system('ssh gbguxs10 test -f '.l:remote_test_bin)
-  exe 'silent !ssh gbguxs10 test -f '.l:remote_test_bin
+  "let l:output=system('ssh '.g:remote_host.' test -f '.l:remote_test_bin)
+  exe 'silent !ssh '.g:remote_host.' test -f '.l:remote_test_bin
   if 0 == v:shell_error
     " .. run it, with a sane LD_LIBRARY_PATH and XERCES path
-    let l:run_string = 'ssh gbguxs10 "cd '.l:fullpath.'/.. ;'
+    let l:run_string = 'ssh '.g:remote_host.' "cd '.l:translatedPath.'/.. ;'
     let l:run_string = l:run_string.'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'
     let l:run_string = l:run_string.'/home/nthorne/TCC_SW/Distribution/SunOS_i86pc/lib:'
     let l:run_string = l:run_string.'$XERCES_ROOT/lib test/.out/'.l:test_base_name
@@ -309,5 +311,17 @@ function! work_vm#OpenUnitTest(newtab)
   else
     echo ''.l:test_name.': no such file'
   endif
+endfunction
+" }}}
+
+" function! work_vm#TranslateLocalPathToRemote() {{{
+"   translate a local path to a remote one
+"
+" arguments:
+"   localPath - the local path
+" returns:
+"   a path on the remote server
+function! work_vm#TranslateLocalPathToRemote(localPath)
+  return substitute(a:localPath, g:current_work_project_path, g:current_work_project_remote_path, "")
 endfunction
 " }}}
