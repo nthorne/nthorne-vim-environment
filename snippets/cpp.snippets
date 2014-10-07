@@ -124,8 +124,9 @@ snippet serfun
 	}
 	// PRQA S 4028 --
 snippet ass
-	GPU3_ASSERT(${1});
-	${2}
+	/// @assert_just ${1:Enforcing precondition}
+	GPU3_ASSERT(${2});
+	${3}
 snippet dbglog
 	GPU3_LOG("666", critical, "!! ${1}");
 snippet todo
