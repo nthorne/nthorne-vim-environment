@@ -13,10 +13,6 @@ let NERDTreeDirArrows=0
 
 let g:ctrlp_working_path_mode='rw'
 
-" set gmake as our :make program
-setlocal makeprg=ssh\ gbguxs10\ \"source\ /etc/profile;\ cd\ \"%:p:h\";\ gmake\"
-
-
 """ }}}
 """ autocommands {{{
 """
@@ -36,7 +32,7 @@ if has('autocmd')
     "au FileType cpp nnoremap <buffer> <silent> <localleader><F3> :!buildtcc.sh<CR>
     au FileType cpp nnoremap <buffer> <silent> <localleader><F3> :call work_vm#BuildToQuickFix()<CR>
     " <localleader><F4> runs the current unit test, or the unit test for the current unit
-    au FileType cpp nnoremap <buffer> <silent> <localleader><F4> :call work_vm#TestUnit(&makeprg)<CR>
+    au FileType cpp nnoremap <buffer> <silent> <localleader><F4> :call work_vm#TestUnit()<CR>
     " <localleader><F5> runs QACPP on the lint host, for the current unit
     au FileType cpp nnoremap <buffer> <silent> <localleader><F5> :call work_vm#LintUnit()<CR>
     " <localleader><F6> deploys the system to the test server
@@ -66,7 +62,7 @@ if has('autocmd')
     " <localleader>ud updates the tagsfile
     call work_vm#ReadProjectVariables()
     if exists("g:current_work_project_path")
-      exec 'au FileType cpp nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude="*.sql" --exclude=".git" --c++-kinds=+p --fields=+iaS --extra=+q -f '.g:current_work_project_path.'/.tags '.g:current_work_project_path.'<CR>'
+      exec 'au FileType cpp nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude="*.sql" --exclude=".git" --exclude="*Test.?pp" --c++-kinds=+p --fields=+iaS --extra=+q -f '.g:current_work_project_path.'/.tags '.g:current_work_project_path.'<CR>'
       exec 'set tags+='.g:current_work_project_path.'/.tags'
     else
       au FileType cpp nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='*.sql' --exclude='.git' --c++-kinds=+p --fields=+iaS --extra=+q . <CR>
