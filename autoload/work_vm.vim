@@ -57,6 +57,7 @@ function! work_vm#TestUnit()
     let l:fullpath = substitute(l:modulePath, '\n', '', 'g')
     let l:test_base_name = substitute(
       \substitute(expand("%:t"), '\n', '', 'g'), '\.[ch]pp', '', 'g')
+    let l:modulePath = substitute(l:modulePath, '\/test$', '', 'g')
   else
     " else, if not a unit test, append /test to the unit path, and construct
     " a proper Makefile recipe target (i.e. <UnitName>Test)
