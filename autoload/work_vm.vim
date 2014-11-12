@@ -70,18 +70,15 @@ function! work_vm#TestUnit()
   let l:translatedPath = work_vm#TranslateLocalPathToRemote(l:fullpath)
 
   " the test binaries are stored under test/.out
-  let l:test_bin = l:testpath.'/.out/'.l:test_base_name
+  let l:test_bin = './test/.out/'.l:test_base_name
   let l:remote_test_bin = l:translatedPath.'/.out/'.l:test_base_name
 
   " open a new work_buffer, and clear it
   call common#OpenBuffer('work_buffer')
   %d
 
-  " if the test binary exists..
-  "if filereadable(l:test_bin)
-    " .. remove it to force a test rebuild
   exe 'silent !ssh '.g:remote_host.' "rm '.l:remote_test_bin.' 2>/dev/null"'
-  "endif
+
 
   " TODO: This is a dirty, ugly hack. But it works.
   let &makeprg = "ssh ".g:remote_host." \"source /etc/profile; cd "
