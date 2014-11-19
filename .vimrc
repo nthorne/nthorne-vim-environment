@@ -276,6 +276,8 @@ nnoremap <localleader>D :diffoff!<CR>
 " Split lines (and trim trailing whitespaces).
 nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>`w
 
+nnoremap <C-A-p> :CtrlPTag<cr>
+
 " Turn off the annoying ex mode
 nnoremap Q <nop>
 
