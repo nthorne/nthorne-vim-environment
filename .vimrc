@@ -266,7 +266,7 @@ nnoremap § :tj /
 nnoremap <localleader>l  :set invlist<BAR>set list?<CR>
 
 " clear search highlights
-nnoremap <leader>chl :let @/=''<CR>
+nnoremap <leader>/ :nohlsearch<CR>
 
 " keymapping for deleting trailing whitespaces
 nnoremap <localleader>d mz:%s/\s\+$//<CR>:let @/=''<CR>`z
