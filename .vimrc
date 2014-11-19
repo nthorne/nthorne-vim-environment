@@ -311,7 +311,10 @@ let g:NERDCustomDelimiters = {
   \ }
 
 " setup ctrlp
-let g:ctrlp_regexp=1        " use regexes for ctrlp matching
+let g:ctrlp_regexp = 1                " use regexes for ctrlp matching
+let g:ctrlp_lazy_update = 1           " wait until finished typing before attempting match
+let g:ctrlp_open_multiple_files = 'h' " open multiple files in horizontal split
+let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'undo', 'changes', 'line', 'dir', 'mixed']
 
 " setup tasklist
 let g:tlTokenList=['666', 'TODO', 'FIXME', 'XXX']
