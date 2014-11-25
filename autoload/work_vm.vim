@@ -75,7 +75,10 @@ function! work_vm#TestUnit()
 
   " open a new work_buffer, and clear it
   call common#OpenBuffer('work_buffer')
-  %d
+  " clear the buffer
+  setlocal modifiable
+  exec 'silent u 1  | silent u'
+  setlocal nomodifiable
 
   exe 'silent !ssh '.g:remote_host.' "rm '.l:remote_test_bin.' 2>/dev/null"'
 
@@ -96,21 +99,22 @@ function! work_vm#TestUnit()
     let l:run_string = l:run_string.'/home/nthorne/TCC_SW/Distribution/SunOS_i86pc/lib:'
     let l:run_string = l:run_string.'$XERCES_ROOT/lib test/.out/'.l:test_base_name
     let l:run_string = l:run_string.'"'
-    put = system(l:run_string)
+    setlocal modifiable
+    0put = system(l:run_string)
+    setlocal nomodifiable
   else
     " .. otherwise, close the work_buffer, and return
     close
     return
   endif
 
-  " drop the empty newline at the top of the buffer
-  1d
-
+  setlocal modifiable
   " drop any pool constructor messages
   exec 'silent g/pool[\[0-9\]\+]/ d'
 
   " drop any pool destructor log statements
   exec 'silent g/\~pool/ d'
+  setlocal nomodifiable
 endfunction
 " }}}
 
@@ -140,8 +144,11 @@ function! work_vm#LintUnit()
   let l:remote_log_file = g:current_work_project_lint_path.l:full_path.'/'.l:log_file
 
   call common#OpenBuffer('work_buffer')
-  " clear the buffere
-  %d
+  " clear the buffer
+  setlocal modifiable
+  exec 'silent u 1'
+  exec 'silent u'
+  setlocal nomodifiable
 
   "if filereadable(l:error_file)
     " if the error-file already existed, remove it to force lintage
@@ -155,7 +162,8 @@ function! work_vm#LintUnit()
   let l:ssh_command = l:ssh_command.' ; make NO_OPTIMIZATION=y '.l:error_file.'"'
   let l:output = substitute(system(l:ssh_command), '', '', 'g')
 
-  put = l:error_file.':'
+  setlocal modifiable
+  0put = l:error_file.':'
   put = l:output
 
   " read the log file input into the buffer
@@ -174,6 +182,7 @@ function! work_vm#LintUnit()
 
   " drop empty lines
   exec 'silent g/^[ \t]*$/ d'
+  setlocal nomodifiable
 endfunction
 " }}}
 

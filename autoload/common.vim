@@ -9,7 +9,14 @@ function! common#OpenBuffer(buffer_name)
   if !bufexists(a:buffer_name)
     " if the buffer does not exist, create
     execute "below 15split ".a:buffer_name
-    setlocal buftype=nofile bufhidden=hide noswapfile
+    setlocal buftype=nofile
+    setlocal bufhidden=hide
+    setlocal noswapfile
+    setlocal nobuflisted
+    setlocal nomodifiable
+    setlocal nolist
+    setlocal nowrap
+    setlocal nospell
   else
     if -1 == bufwinnr(a:buffer_name)
       " if the buffer exists, but isn't visible, split it shown
@@ -18,6 +25,9 @@ function! common#OpenBuffer(buffer_name)
 
     " switch to the buffer
     execute bufwinnr(a:buffer_name)."wincmd w"
+
+    nnoremap <buffer> <silent> <F4> :close<CR>
+    nnoremap <buffer> <silent> <F5> :close<CR>
   endif
 endfunction
 " }}}
