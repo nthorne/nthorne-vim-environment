@@ -38,10 +38,10 @@ setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
 match ErrorMsg '\%>80v.\+'
 
 " jedi-vim settings
-let g:jedi#goto_command = "<localleader>g"
-let g:jedi#get_definition_command = "<localleader>d"
+let g:jedi#goto_assignments_command = "<localleader>g"
+let g:jedi#goto_definition_command = "<localleader>d"
 let g:jedi#rename_command = "<localleader>r"
-let g:jedi#related_names_command = "<localleader>o"
+let g:jedi#usages_command = "<localleader>o"
 
 " python-mode settings
 let g:pymode_run = 0
