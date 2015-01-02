@@ -28,6 +28,8 @@ nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='.git' --c-kinds
 """
 
 setlocal foldmethod=syntax
+setlocal softtabstop=0
+setlocal shiftwidth=8
 
 " mark lines longer than 80 characters
 match ErrorMsg '\%>80v.\+'
