@@ -86,6 +86,7 @@ nnoremap ä <C-]>
 " Allow for a more american-esque colon
 nnoremap ö :
 
-
+" vimgrep project for word under cursor
+nnoremap <leader>gpw :execute "vimgrep /".expand('<cword>')."/j **/*/**/*.?pp"<left><left><left><left><left><left><left><left><left><left><left>
 
 """ }}}
