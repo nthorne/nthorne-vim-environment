@@ -41,7 +41,9 @@ set updatecount=20  " reduce updatecount, for more frequent swap file writes
 
 set wildmenu        " show the command-line completion menu
 
-set wildignore=*.o,*.pyc,*.sw[op] " ignore compiled files, and swap files
+set wildignore+=*.o,*.pyc,*.a " ignore compiled files
+set wildignore+=*.sw[op]      " ignore swap files
+set wildignore+=*.pdf         " ignore binaru documents"
 
 set hidden          " hide buffers rather than abandoning them when unloaded
 
@@ -246,6 +248,9 @@ nnoremap <leader>g :vimgrep // **/*<left><left><left><left><left><left>
 
 " vimgrep current file
 nnoremap <leader><space> :vimgrep // %<left><left><left>
+
+" vimgrep for word under cursor
+nnoremap <leader>gw :execute "vimgrep /".expand('<cword>')."/j **" <Bar> :cw<CR>
 
 nnoremap <leader>e :botright cope<CR>
 nnoremap <leader>n :cn<CR>
