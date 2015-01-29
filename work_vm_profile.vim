@@ -13,10 +13,6 @@ let NERDTreeDirArrows=0
 
 let g:ctrlp_working_path_mode='rw'
 
-" Ignore unit tests, stubs and other noise when grepping
-set wildignore+=*/test/*
-set wildignore+=*/[Ss]tub*/*
-
 
 """ }}}
 """ autocommands {{{
