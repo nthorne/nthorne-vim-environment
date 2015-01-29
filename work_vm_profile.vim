@@ -82,6 +82,9 @@ nnoremap ä <C-]>
 " Allow for a more american-esque colon
 nnoremap ö :
 
+" vimgrep project
+nnoremap <leader>gp :execute "vimgrep //j **/*/**/*.?pp"<left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left><left>
+
 " vimgrep project for word under cursor
 nnoremap <leader>gpw :execute "vimgrep /".expand('<cword>')."/j **/*/**/*.?pp"<left><left><left><left><left><left><left><left><left><left><left>
 
