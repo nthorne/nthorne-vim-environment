@@ -182,6 +182,9 @@ function! work_vm#LintUnit()
 
   " drop empty lines
   exec 'silent g/^[ \t]*$/ d'
+
+  " modify the path to match local path
+  exec 'silent %s/.*nthorne/\~/g'
   setlocal nomodifiable
 endfunction
 " }}}
