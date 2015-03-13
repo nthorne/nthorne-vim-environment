@@ -53,5 +53,6 @@ endif
 """ }}}
 """ keybindings {{{
 """
-nnoremap <buffer> <silent> <localleader><F3> :make build<CR>
-nnoremap <buffer> <silent> <localleader><F7> :make run<CR>
+nnoremap <buffer> <silent> <localleader><F1> :compiler rustc<CR> :make<CR>
+nnoremap <buffer> <silent> <localleader><F3> :compiler cargo<CR> :make build<CR>
+nnoremap <buffer> <silent> <localleader><F7> :compiler cargo<CR> :make run<CR>
