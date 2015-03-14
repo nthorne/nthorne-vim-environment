@@ -18,6 +18,9 @@ let b:did_ftplugin = 1
 
 setlocal foldmethod=syntax
 
+set shiftwidth=4    " use four spaces for each step of autoindent
+set softtabstop=4   " use four spaces for a <Tab>
+
 " mark lines longer than 80 characters
 match ErrorMsg '\%>80v.\+'
 
