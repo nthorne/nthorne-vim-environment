@@ -1,0 +1,36 @@
+snippet todo
+	// TODO: 
+snippet fn
+	fn ${1:foo}(${2})${3: -> i32} {
+		${4}
+	}
+snippet pr
+	println!("${1}"${2:, });
+	${3}
+snippet l
+	let ${1:x} = ${2:2};
+	${3}
+snippet lm
+	let mut ${1:x} = ${2:2};
+	${3}
+snippet ls
+	let ${1:x: &'static} ${2:str = "Foobar"}; 
+	${3}
+snippet main
+	fn main() {
+		${1}
+	}
+snippet s
+	struct ${1:Foo}${2:<'a>} {
+		${3:x: i32,}
+	}
+snippet f
+	for ${1:_} in ${2:0..10} {
+		${3}
+	}
+snippet B
+	Box::new(${1});
+	${2}
+snippet R
+	Rc::new(${1});
+	${2}
