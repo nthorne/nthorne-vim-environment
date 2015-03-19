@@ -50,3 +50,34 @@ snippet fun
 	}
 snippet nul
 	>/dev/null
+snippet if
+	if [[ ${1} ]]
+	then
+		${2}
+	fi
+snippet ifz
+	if [[ -z "${1}" ]]
+	then
+		${2}
+	fi
+snippet ifn
+	if [[ -z "${1}" ]]
+	then
+		${2}
+	fi
+snippet iff
+	if [[ -f "${1}" ]]
+	then
+		${2}
+	fi
+snippet elif
+	elif [[ ${1} ]]
+	then
+		${2}
+snippet tf
+	test -f "${1}" ${2}
+snippet whileps
+	while
+	do
+		${1}
+	done < <(${2:ls})
