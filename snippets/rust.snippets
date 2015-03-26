@@ -1,7 +1,13 @@
 snippet todo
 	// TODO: 
-snippet fn
+snippet p
+	pub 
+snippet f
 	fn ${1:foo}(${2})${3: -> i32} {
+		${4}
+	}
+snippet mf
+	fn ${1:foo}(&self${2:, })${3: -> i32} {
 		${4}
 	}
 snippet pr
@@ -24,7 +30,19 @@ snippet s
 	struct ${1:Foo}${2:<'a>} {
 		${3:x: i32,}
 	}
-snippet f
+snippet i
+	impl ${1:Foo} {
+		fn new() -> $1 {
+			$1 { ${2:/* Attributes here */} }
+		}
+	}
+
+	impl Drop for $1 {
+		fn drop(&mut self) {
+			${3:// Destructor code here}
+		}
+	}
+snippet for
 	for ${1:_} in ${2:0..10} {
 		${3}
 	}
@@ -34,3 +52,16 @@ snippet B
 snippet R
 	Rc::new(${1});
 	${2}
+snippet m
+	match ${1:var} {
+		${2:VAL} => ${3:/* Code goes here.. */},
+		${4}
+		_ => (),
+	};
+snippet mb
+	${1:VAL} => ${2:/* Code goes here.. */},
+snippet t
+	trait ${1:Typename} {
+		${2}
+	}
+	${3}
