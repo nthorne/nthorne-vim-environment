@@ -140,13 +140,9 @@ snippet noabrt
 	${1}
 snippet note
 	// `system("whoami")`: ${1}
-snippet doxymeth
-	/**
-	 * @brief ${1}
-	 */
 snippet mdec
 	/**
-	 * @brief ${4}
+	 * ${4}
 	 */
 	${1:void} ${2}(${3});${5}
 snippet mdef
@@ -218,3 +214,19 @@ snippet switch
 	}
 snippet ext
 	TCC::Extension ${1}
+snippet dm
+	/**
+	 * ${1}
+	 *
+	 * ${2}
+	 *
+	 * ${3:@return }
+	 */
+snippet dc
+	/**
+	 * ${1}
+	 *
+	 * ${2}
+	 */
+snippet da
+	//!< ${2}
