@@ -83,3 +83,5 @@ snippet whileps
 	done < <(${2:ls})
 snippet todo
 	# TODO: ${1}
+snippet mydir
+	$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
