@@ -96,8 +96,8 @@ function! work_vm#TestUnit()
     " .. run it, with a sane LD_LIBRARY_PATH and XERCES path
     let l:run_string = 'ssh '.g:remote_host.' "cd '.l:translatedPath.'/.. ;'
     let l:run_string = l:run_string.'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'
-    let l:run_string = l:run_string.'/home/nthorne/TCC_SW/Distribution/SunOS_i86pc/lib:'
-    let l:run_string = l:run_string.'$XERCES_ROOT/lib test/.out/'.l:test_base_name
+    let l:run_string = l:run_string.'/opt/ACE-5.6.1/ACE_wrappers/lib:'
+    let l:run_string = l:run_string.'/opt/xerces/lib test/.out/'.l:test_base_name
     let l:run_string = l:run_string.'"'
     setlocal modifiable
     0put = system(l:run_string)
