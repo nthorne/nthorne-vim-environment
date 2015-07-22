@@ -103,3 +103,6 @@
 [submodule "bundle/improved-ansiesc"]
 	path = bundle/improved-ansiesc
 	url = https://github.com/vim-scripts/Improved-AnsiEsc.git
+[submodule "bundle/vim-et"]
+	path = bundle/vim-et
+	url = https://github.com/nthorne/vim-et.git
