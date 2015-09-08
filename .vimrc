@@ -7,7 +7,44 @@
 """ general setup {{{
 """
 
-call pathogen#infect()
+call plug#begin()
+Plug 'https://github.com/scrooloose/nerdtree.git', {'on': 'NERDTreeToggle'}
+Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
+Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/kien/ctrlp.vim'
+Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/scrooloose/nerdcommenter'
+Plug 'https://github.com/tednaleid/bufexplorer.git', {'on': 'BufExplorer'}
+Plug 'https://github.com/Lokaltog/vim-easymotion.git'
+Plug 'https://github.com/vim-scripts/a.vim.git'
+Plug 'https://github.com/nthorne/snipmate.vim'
+Plug 'https://github.com/vim-scripts/DoxygenToolkit.vim.git'
+Plug 'https://github.com/vim-scripts/DrawIt.git'
+Plug 'https://github.com/nthorne/ShowMarks.git'
+Plug 'https://github.com/nthorne/vim-pybreak.git'
+Plug 'https://github.com/superjudge/tasklist-pathogen.git'
+Plug 'https://github.com/vim-scripts/OmniCppComplete.git'
+"Plug 'https://github.com/davidhalter/jedi-vim.git'
+Plug 'https://github.com/klen/python-mode.git'
+Plug 'https://github.com/plasticboy/vim-markdown.git'
+Plug 'https://github.com/myusuf3/numbers.vim.git'
+Plug 'https://github.com/vim-scripts/Gundo.git', {'on': 'GundoToggle'}
+Plug 'https://github.com/tpope/vim-abolish.git'
+Plug 'https://github.com/vim-scripts/YankRing.vim.git'
+Plug 'https://github.com/majutsushi/tagbar.git', {'on': 'TagbarToggle'}
+Plug 'https://github.com/Raimondi/delimitMate.git'
+Plug 'https://github.com/godlygeek/tabular.git'
+Plug 'https://github.com/Shougo/neocomplcache.vim.git'
+"Plug 'https://github.com/dart-lang/dart-vim-plugin.git'
+Plug 'https://github.com/fatih/vim-go.git'
+Plug 'https://github.com/michaeljsmith/vim-indent-object.git'
+Plug 'https://github.com/kshenoy/vim-signature.git'
+Plug 'https://github.com/airblade/vim-gitgutter.git'
+Plug 'https://github.com/wting/rust.vim.git'
+Plug 'https://github.com/tpope/vim-repeat.git'
+Plug 'https://github.com/vim-scripts/Improved-AnsiEsc.git'
+Plug 'https://github.com/nthorne/vim-et.git'
+call plug#end()
 
 
 set nocompatible    " be a bit less vi-compatible, for useful features
