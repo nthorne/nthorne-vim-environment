@@ -44,6 +44,11 @@ Plug 'https://github.com/wting/rust.vim.git'
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/vim-scripts/Improved-AnsiEsc.git'
 Plug 'https://github.com/nthorne/vim-et.git'
+" Under evaluation
+Plug 'https://github.com/vimwiki/vimwiki.git'
+" Vim-misc is a requirement for vim-notes
+Plug 'https://github.com/xolox/vim-misc.git'
+Plug 'https://github.com/xolox/vim-notes.git'
 call plug#end()
 
 
@@ -380,6 +385,10 @@ let g:neocomplcache_enable_camel_case_completion=1
 inoremap <expr><C-l> neocomplcache#complete_common_string()
 
 " setup jedi-vim
-let g:jedi#popup_on_dot=0
+" let g:jedi#popup_on_dot=0
+
+let g:notes_directories = ['~/Documents/notes']
+let g:notes_suffix='.md'
+
 
 """ }}}
