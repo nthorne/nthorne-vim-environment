@@ -389,6 +389,10 @@ inoremap <expr><C-l> neocomplcache#complete_common_string()
 
 let g:notes_directories = ['~/Documents/notes']
 let g:notes_suffix='.md'
+let g:notes_conceal_code=0
+let g:notes_conceal_italic=0
+let g:notes_conceal_bold=0
+let g:notes_conceal_url=0
 
 
 """ }}}
