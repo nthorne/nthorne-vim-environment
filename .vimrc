@@ -46,8 +46,9 @@ Plug 'https://github.com/vim-scripts/Improved-AnsiEsc.git'
 Plug 'https://github.com/nthorne/vim-et.git'
 " Under evaluation
 Plug 'https://github.com/vimwiki/vimwiki.git'
-" Vim-misc is a requirement for vim-notes
+" Vim-misc and vim-shell are requirements for vim-notes
 Plug 'https://github.com/xolox/vim-misc.git'
+Plug 'https://github.com/xolox/vim-shell.git'
 Plug 'https://github.com/xolox/vim-notes.git'
 Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 call plug#end()
