@@ -49,6 +49,7 @@ Plug 'https://github.com/vimwiki/vimwiki.git'
 " Vim-misc is a requirement for vim-notes
 Plug 'https://github.com/xolox/vim-misc.git'
 Plug 'https://github.com/xolox/vim-notes.git'
+Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 call plug#end()
 
 
