@@ -16,10 +16,9 @@ Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/scrooloose/nerdcommenter'
 Plug 'https://github.com/tednaleid/bufexplorer.git', {'on': 'BufExplorer'}
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
-Plug 'https://github.com/vim-scripts/a.vim.git'
+Plug 'https://github.com/vim-scripts/a.vim.git', {'for': 'cpp'}
 Plug 'https://github.com/nthorne/snipmate.vim'
-Plug 'https://github.com/vim-scripts/DoxygenToolkit.vim.git'
-Plug 'https://github.com/vim-scripts/DrawIt.git'
+Plug 'https://github.com/vim-scripts/DoxygenToolkit.vim.git', {'for': 'cpp'}
 Plug 'https://github.com/nthorne/ShowMarks.git'
 Plug 'https://github.com/nthorne/vim-pybreak.git'
 Plug 'https://github.com/superjudge/tasklist-pathogen.git'
@@ -307,7 +306,7 @@ nnoremap ' `
 nnoremap ` '
 
 
-nnoremap <leader>tl :TaskList<CR>
+map <Leader>tl <Plug>TaskList
 
 " make tagjump a bit easier
 nnoremap § :tj /
@@ -331,7 +330,9 @@ nnoremap <C-A-p> :CtrlPTag<cr>
 " Turn off the annoying ex mode
 nnoremap Q <nop>
 
-nnoremap <leader>a :Ag -S 
+nnoremap <leader>a :Ag -S
+
+nnoremap <leader>t :CtrlPTag<CR>
 
 """ }}}
 """ host specific options {{{
