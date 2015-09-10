@@ -136,12 +136,13 @@ function! work_vm#LintUnit()
   endif
 
   let l:full_path = expand("%:p:h")
+  let l:translatedPath = work_vm#TranslateLocalPathToLint(l:full_path)
 
   let l:error_file = '.lint/'.l:filename.'.err'
-  let l:remote_error_file = g:current_work_project_lint_path.l:full_path.'/'.l:error_file
+  let l:remote_error_file = l:translatedPath.'/'.l:error_file
   echom l:remote_error_file
   let l:log_file = '.lint/'.l:filename.'.log'
-  let l:remote_log_file = g:current_work_project_lint_path.l:full_path.'/'.l:log_file
+  let l:remote_log_file = l:translatedPath.'/'.l:log_file
 
   call common#OpenBuffer('work_buffer')
   " clear the buffer
@@ -157,8 +158,7 @@ function! work_vm#LintUnit()
 
   " open an ssh-session to the lint host, and Make the lint error-file
   let l:ssh_command = 'ssh linthost "source /etc/zprofile ; cd '
-  let l:ssh_command = l:ssh_command.g:current_work_project_lint_path
-  let l:ssh_command = l:ssh_command.'/'.l:full_path
+  let l:ssh_command = l:ssh_command.'/'.l:translatedPath
   let l:ssh_command = l:ssh_command.' ; make NO_OPTIMIZATION=y '.l:error_file.'"'
   let l:output = substitute(system(l:ssh_command), '', '', 'g')
 
@@ -333,5 +333,17 @@ endfunction
 "   a path on the remote server
 function! work_vm#TranslateLocalPathToRemote(localPath)
   return substitute(a:localPath, g:current_work_project_path, g:current_work_project_remote_path, "")
+endfunction
+" }}}
+
+" function! work_vm#TranslateLocalPathToLint() {{{
+"   translate a local path to a lint path
+"
+" arguments:
+"   localPath - the local path
+" returns:
+"   a path on the lint server
+function! work_vm#TranslateLocalPathToLint(localPath)
+  return substitute(a:localPath, g:current_work_project_path, g:current_work_project_lint_path, "")
 endfunction
 " }}}
