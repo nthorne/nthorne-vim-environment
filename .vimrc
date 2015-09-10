@@ -51,6 +51,7 @@ Plug 'https://github.com/xolox/vim-misc.git'
 Plug 'https://github.com/xolox/vim-shell.git'
 Plug 'https://github.com/xolox/vim-notes.git'
 Plug 'https://github.com/terryma/vim-multiple-cursors.git'
+Plug 'https://github.com/rking/ag.vim'
 call plug#end()
 
 
@@ -329,6 +330,8 @@ nnoremap <C-A-p> :CtrlPTag<cr>
 
 " Turn off the annoying ex mode
 nnoremap Q <nop>
+
+nnoremap <leader>a :Ag -S 
 
 """ }}}
 """ host specific options {{{
