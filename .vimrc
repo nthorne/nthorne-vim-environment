@@ -330,7 +330,7 @@ nnoremap <C-A-p> :CtrlPTag<cr>
 " Turn off the annoying ex mode
 nnoremap Q <nop>
 
-nnoremap <leader>a :Ag<CR>
+nnoremap <leader>a :Ag<Space>
 nnoremap <leader>f :FZF<CR>
 
 nnoremap <leader>t :CtrlPTag<CR>
