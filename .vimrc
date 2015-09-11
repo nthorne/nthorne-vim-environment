@@ -333,7 +333,7 @@ nnoremap Q <nop>
 nnoremap <leader>a :Ag<Space>
 nnoremap <leader>f :FZF<CR>
 
-nnoremap <leader>t :CtrlPTag<CR>
+nnoremap <leader>t :Tags<CR>
 
 """ }}}
 """ host specific options {{{
