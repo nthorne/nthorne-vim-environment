@@ -50,7 +50,7 @@ Plug 'https://github.com/xolox/vim-misc.git'
 Plug 'https://github.com/xolox/vim-shell.git'
 Plug 'https://github.com/xolox/vim-notes.git'
 Plug 'https://github.com/terryma/vim-multiple-cursors.git'
-Plug 'https://github.com/rking/ag.vim'
+Plug 'https://github.com/junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} | Plug 'https://github.com/junegunn/fzf.vim'
 call plug#end()
 
 
@@ -230,7 +230,7 @@ nnoremap ä <C-]>
 nnoremap ö :
 
 " on <Leader>f Search for pattern, and gather the result in a new scratch buffer
-nnoremap <silent> <Leader>f :call gather#Gather(input("Pattern: "))<CR>
+"nnoremap <silent> <Leader>f :call gather#Gather(input("Pattern: "))<CR>
 
 
 " Toggle wrapping the display of long lines (and display the current 'wrap'
@@ -330,7 +330,8 @@ nnoremap <C-A-p> :CtrlPTag<cr>
 " Turn off the annoying ex mode
 nnoremap Q <nop>
 
-nnoremap <leader>a :Ag -S
+nnoremap <leader>a :Ag<CR>
+nnoremap <leader>f :FZF<CR>
 
 nnoremap <leader>t :CtrlPTag<CR>
 
@@ -399,6 +400,5 @@ let g:notes_conceal_code=0
 let g:notes_conceal_italic=0
 let g:notes_conceal_bold=0
 let g:notes_conceal_url=0
-
 
 """ }}}
