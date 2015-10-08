@@ -2,3 +2,4 @@
 .netrwhist
 spell/
 plugged/
+autoload/plug.vim.old
