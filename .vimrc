@@ -170,6 +170,7 @@ if has('autocmd')
 
     " make sure all files are unfolded by default
     au BufRead,BufNewFile * normal zR
+    au Syntax notes normal zR
 
     " this provides a simple template file system: for any file, if a file named
     " template.<extension> exists in the skel dir, it is read into the buffer
