@@ -51,6 +51,7 @@ Plug 'https://github.com/xolox/vim-shell.git'
 Plug 'https://github.com/xolox/vim-notes.git'
 Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 Plug 'https://github.com/junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} | Plug 'https://github.com/nthorne/fzf.vim'
+Plug 'https://github.com/lambdatoast/elm.vim'
 call plug#end()
 
 
