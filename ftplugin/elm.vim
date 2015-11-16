@@ -10,6 +10,12 @@ endif
 let b:did_own_ftplugin = 1
 
 """ }}}
+"""  {{{
+"""
+set shiftwidth=4    " use four spaces for each step of autoindent
+set softtabstop=4   " use four spaces for a <Tab>
+
+""" }}}
 """ keybindings {{{
 """
 " <localleader><F1> executes elm make, with HTML output for the current file.
