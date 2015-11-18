@@ -55,6 +55,11 @@ if has('autocmd')
     " <localleader>uO for opening unit test in new tab
     au FileType cpp nnoremap <buffer> <silent> <localleader>uO <ESC>:call work_vm#OpenUnitTest(1)<CR>
 
+    " <localleader><F1> compiles the current markdown file to .pdf
+    au FileType markdown nnoremap <buffer> <silent> <localleader><F1> :!compiledoc %<CR>
+    " <localleader><F7> opens the pdf file corresponding to the current markdown
+    au FileType markdown nnoremap <buffer> <silent> <localleader><F7> :!xdg-open %:p:r.pdf<CR>
+
     " keybindings and settings for working with ctags:
     "  If the g:current_work_project_path variable can be read from the
     "  configuration file that details the current project, then that directory
