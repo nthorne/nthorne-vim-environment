@@ -231,3 +231,8 @@ snippet dc
 	 */
 snippet da
 	//!< ${2}
+snippet testlog
+	// Enable logging
+	GPU3::log::Options logOptions("debug+", false);
+	GPU3::log::Logger::instance().configure(logOptions, "test", 0, 'A');
+	${1}
