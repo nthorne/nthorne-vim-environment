@@ -2,19 +2,6 @@
 
 # vim: filetype=sh
 
-####################################################################
-# Changelog:
-#
-# Todo:
-#   *) Change default values
-#
-# Notes: 
-#   As the PATH is set to a saner (reduced) value, some filters
-#   and tools might not be located as expected; if this is the case,
-#   prefer naming the tool with full path e.g. '/usr/bin/tar' rather
-#   than 'tar'.
-####################################################################
-
 # Set IFS explicitly to space-tab-newline to avoid tampering
 IFS=' 	
 '
