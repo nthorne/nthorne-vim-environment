@@ -54,6 +54,7 @@ Plug 'https://github.com/junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./instal
 Plug 'https://github.com/lambdatoast/elm.vim'
 Plug 'https://github.com/tpope/vim-dispatch.git'
 Plug 'https://github.com/derekwyatt/vim-scala.git'
+Plug 'https://github.com/scrooloose/syntastic.git'
 call plug#end()
 
 
@@ -404,6 +405,17 @@ let g:notes_conceal_code=0
 let g:notes_conceal_italic=0
 let g:notes_conceal_bold=0
 let g:notes_conceal_url=0
+
+" setup syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 
 """ }}}
 
