@@ -55,6 +55,7 @@ Plug 'https://github.com/lambdatoast/elm.vim'
 Plug 'https://github.com/tpope/vim-dispatch.git'
 Plug 'https://github.com/derekwyatt/vim-scala.git'
 Plug 'https://github.com/scrooloose/syntastic.git'
+Plug 'https://github.com/tpope/vim-eunuch.git'
 call plug#end()
 
 
