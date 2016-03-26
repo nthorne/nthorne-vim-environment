@@ -85,14 +85,3 @@ snippet todo
 	# TODO: ${1}
 snippet mydir
 	$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-snippet scala
-	#!/bin/sh
-	# vim: filetype=scala
-	exec scala "$0" "$@"
-	!#
-
-	object HelloWorld extends App{
-	  println("Hello, world! " + args.toList)
-	}
-
-	HelloWorld.main(args)
