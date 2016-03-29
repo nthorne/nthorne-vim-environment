@@ -132,8 +132,11 @@ snippet dbglog
 snippet todo
 	// TODO (`system("date +%Y-%m-%d")`/`system("whoami")`): ${1}
 snippet testblock
-	{ // TEST: ${1}
-	  // EXPECTED: ${2}
+	{ /// @test_cond {
+	  /// TEST: ${1}
+	  /// EXPECTED: ${2}
+	  /// }
+
 	  CPPUNIT_ASSERT(!"Not implemented");
 	}${3}
 snippet noabrt
