@@ -13,7 +13,6 @@ let NERDTreeDirArrows=0
 
 let g:ctrlp_working_path_mode='rw'
 
-
 """ }}}
 """ autocommands {{{
 """
@@ -24,6 +23,9 @@ if has('autocmd')
 
     " use the sun_cc compiler
     au FileType cpp compiler sun_cc
+
+    " Set syntastic to passive mode for CPP files, since the include path setup is not in place.
+    au Filetype cpp let b:syntastic_mode= "passive"
 
     " <localleader><F1> builds a single object
     au FileType cpp nnoremap <buffer> <silent> <localleader><F1> :call work_vm#LocalBuildToQuickFix()<CR>
