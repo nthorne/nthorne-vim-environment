@@ -19,7 +19,6 @@ Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 Plug 'https://github.com/vim-scripts/a.vim.git', {'for': 'cpp'}
 Plug 'https://github.com/nthorne/snipmate.vim'
 Plug 'https://github.com/vim-scripts/DoxygenToolkit.vim.git', {'for': 'cpp'}
-Plug 'https://github.com/nthorne/ShowMarks.git'
 Plug 'https://github.com/nthorne/vim-pybreak.git'
 Plug 'https://github.com/superjudge/tasklist-pathogen.git'
 Plug 'https://github.com/vim-scripts/OmniCppComplete.git'
