@@ -340,6 +340,10 @@ nnoremap <leader>f :FZF<CR>
 
 nnoremap <leader>t :Tags<CR>
 
+" Location list keybindings
+nnoremap <localleader>lo :lopen<CR>
+nnoremap <localleader>lc :lclose<CR>
+
 """ }}}
 """ host specific options {{{
 """
@@ -412,7 +416,6 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
