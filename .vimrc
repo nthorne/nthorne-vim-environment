@@ -55,6 +55,7 @@ Plug 'https://github.com/tpope/vim-dispatch.git'
 Plug 'https://github.com/derekwyatt/vim-scala.git'
 Plug 'https://github.com/scrooloose/syntastic.git'
 Plug 'https://github.com/tpope/vim-eunuch.git'
+Plug 'https://github.com/altercation/vim-colors-solarized.git'
 call plug#end()
 
 
@@ -128,7 +129,10 @@ if &term =~ "xterm"         " if terminal is xterm..
 endif
 
 syntax on           " turn on syntax highlighting..
-colorscheme nthorne " .. with a stylish color scheme
+"colorscheme nthorne " .. with a stylish color scheme
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
 
 set number          " turn on line numbering
 
