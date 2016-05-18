@@ -11,7 +11,6 @@ call plug#begin()
 Plug 'https://github.com/scrooloose/nerdtree.git', {'on': 'NERDTreeToggle'}
 Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/kien/ctrlp.vim'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/scrooloose/nerdcommenter'
 Plug 'https://github.com/tednaleid/bufexplorer.git', {'on': 'BufExplorer'}
@@ -19,11 +18,10 @@ Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 Plug 'https://github.com/vim-scripts/a.vim.git', {'for': 'cpp'}
 Plug 'https://github.com/nthorne/snipmate.vim'
 Plug 'https://github.com/vim-scripts/DoxygenToolkit.vim.git', {'for': 'cpp'}
-Plug 'https://github.com/nthorne/vim-pybreak.git'
+Plug 'https://github.com/nthorne/vim-pybreak.git', {'for': 'python'}
 Plug 'https://github.com/superjudge/tasklist-pathogen.git'
 Plug 'https://github.com/vim-scripts/OmniCppComplete.git'
-"Plug 'https://github.com/davidhalter/jedi-vim.git'
-Plug 'https://github.com/klen/python-mode.git'
+Plug 'https://github.com/klen/python-mode.git', {'for': 'python'}
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'https://github.com/myusuf3/numbers.vim.git'
 Plug 'https://github.com/vim-scripts/Gundo.git', {'on': 'GundoToggle'}
@@ -33,28 +31,26 @@ Plug 'https://github.com/majutsushi/tagbar.git', {'on': 'TagbarToggle'}
 Plug 'https://github.com/Raimondi/delimitMate.git'
 Plug 'https://github.com/godlygeek/tabular.git'
 Plug 'https://github.com/Shougo/neocomplcache.vim.git'
-"Plug 'https://github.com/dart-lang/dart-vim-plugin.git'
-Plug 'https://github.com/fatih/vim-go.git'
+Plug 'https://github.com/fatih/vim-go.git', {'for': 'go'}
 Plug 'https://github.com/michaeljsmith/vim-indent-object.git'
 Plug 'https://github.com/kshenoy/vim-signature.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
-Plug 'https://github.com/wting/rust.vim.git'
+Plug 'https://github.com/wting/rust.vim.git', {'for': 'rust'}
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/vim-scripts/Improved-AnsiEsc.git'
 Plug 'https://github.com/nthorne/vim-et.git'
-" Under evaluation
+Plug 'https://github.com/junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} | Plug 'https://github.com/nthorne/fzf.vim'
+Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 Plug 'https://github.com/vimwiki/vimwiki.git'
 " Vim-misc and vim-shell are requirements for vim-notes
 Plug 'https://github.com/xolox/vim-misc.git'
 Plug 'https://github.com/xolox/vim-shell.git'
 Plug 'https://github.com/xolox/vim-notes.git'
-Plug 'https://github.com/terryma/vim-multiple-cursors.git'
-Plug 'https://github.com/junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} | Plug 'https://github.com/nthorne/fzf.vim'
+" Under evaluation
 Plug 'https://github.com/lambdatoast/elm.vim'
 Plug 'https://github.com/tpope/vim-dispatch.git'
 Plug 'https://github.com/derekwyatt/vim-scala.git'
 Plug 'https://github.com/scrooloose/syntastic.git'
-Plug 'https://github.com/tpope/vim-eunuch.git'
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
 call plug#end()
 
@@ -381,14 +377,6 @@ let g:NERDCustomDelimiters = {
     \ 'zsh': { 'left': '#' },
     \ 'vim': { 'left': '"'}
   \ }
-
-" setup ctrlp
-let g:ctrlp_regexp = 1                " use regexes for ctrlp matching
-let g:ctrlp_lazy_update = 1           " wait until finished typing before attempting match
-let g:ctrlp_open_multiple_files = 'h' " open multiple files in horizontal split
-let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'undo', 'changes', 'line', 'dir', 'mixed']
-let g:ctrlp_root_markers = ['ci_env.conf']
-let g:ctrlp_clear_cache_on_exit = 1   " always clear the ControlP cache when exiting
 
 " setup tasklist
 let g:tlTokenList=['666', 'TODO', 'FIXME', 'XXX']
