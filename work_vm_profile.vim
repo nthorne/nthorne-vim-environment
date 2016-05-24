@@ -13,6 +13,21 @@ let NERDTreeDirArrows=0
 
 let g:ctrlp_working_path_mode='rw'
 
+" Neomake checkers
+let g:neomake_cpp_qacpp_maker = {
+      \ 'exe': 'qacpp',
+      \ 'errorformat': '%f(%l\,%c): %m',
+      \ 'cwd': '%:p:h'
+      \}
+let g:neomake_cpp_lbuild_maker = {
+      \ 'exe': 'lbuild',
+      \ 'cwd': '%:p:h',
+      \ 'errorformat':
+            \ '"%f"\, line %l: %trror: %m,'.
+            \ '"%f"\, line %l: %tarning: %m'
+      \}
+let g:neomake_cpp_enabled_makers = ['lbuild','qacpp']
+
 """ }}}
 """ autocommands {{{
 """
@@ -23,9 +38,6 @@ if has('autocmd')
 
     " use the sun_cc compiler
     au FileType cpp compiler sun_cc
-
-    " Set syntastic to passive mode for CPP files, since the include path setup is not in place.
-    au Filetype cpp let b:syntastic_mode= "passive"
 
     " <localleader><F1> builds a single object
     au FileType cpp nnoremap <buffer> <silent> <localleader><F1> :call work_vm#LocalBuildToQuickFix()<CR>
@@ -57,10 +69,13 @@ if has('autocmd')
     " <localleader>uO for opening unit test in new tab
     au FileType cpp nnoremap <buffer> <silent> <localleader>uO <ESC>:call work_vm#OpenUnitTest(1)<CR>
 
+
     " <localleader><F1> compiles the current markdown file to .pdf
     au FileType markdown nnoremap <buffer> <silent> <localleader><F1> :!compiledoc %<CR>
     " <localleader><F7> opens the pdf file corresponding to the current markdown
     au FileType markdown nnoremap <buffer> <silent> <localleader><F7> :!xdg-open %:p:r.pdf<CR>
+
+    au BufWritePost * Neomake
 
     " keybindings and settings for working with ctags:
     "  If the g:current_work_project_path variable can be read from the
@@ -94,5 +109,4 @@ nnoremap <leader>gp :execute "vimgrep //j **/*/**/*.?pp"<left><left><left><left>
 
 " vimgrep project for word under cursor
 nnoremap <leader>gpw :execute "vimgrep /".expand('<cword>')."/j **/*/**/*.?pp"<left><left><left><left><left><left><left><left><left><left><left>
-
 """ }}}

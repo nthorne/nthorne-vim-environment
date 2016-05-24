@@ -50,8 +50,8 @@ Plug 'https://github.com/xolox/vim-notes.git'
 Plug 'https://github.com/lambdatoast/elm.vim'
 Plug 'https://github.com/tpope/vim-dispatch.git'
 Plug 'https://github.com/derekwyatt/vim-scala.git'
-Plug 'https://github.com/scrooloose/syntastic.git'
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
+Plug 'https://github.com/neomake/neomake.git'
 call plug#end()
 
 
@@ -406,17 +406,6 @@ let g:notes_conceal_code=0
 let g:notes_conceal_italic=0
 let g:notes_conceal_bold=0
 let g:notes_conceal_url=0
-
-" setup syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_mode_map = {"passive_filetypes": ["scala", "sbt.scala"]}
 
 
 """ }}}
