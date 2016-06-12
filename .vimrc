@@ -344,10 +344,14 @@ nnoremap <leader>t :Tags<CR>
 nnoremap <localleader>lo :lopen<CR>
 nnoremap <localleader>lc :lclose<CR>
 
+" Get rid of the annoying ex-mode
+map q: :q
+
 if has('nvim')
   tnoremap <localleader><Esc> <C-\><C-n>:set relativenumber<CR>
   nnoremap <localleader>s :spl<CR>:terminal<CR>
 endif
+
 
 """ }}}
 """ host specific options {{{
