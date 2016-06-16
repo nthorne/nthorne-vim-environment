@@ -199,8 +199,10 @@ endif
 """ keybindings {{{
 """
 
-let mapleader = ' '
-let maplocalleader = '  '
+let mapleader = ','
+let maplocalleader = ',,'
+map <space> <leader>
+map <space><space> <leader><leader>
 
 " <F1> toggles NERDTree
 nnoremap <silent> <F1> :NERDTreeToggle<CR>
