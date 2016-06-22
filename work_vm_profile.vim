@@ -26,7 +26,15 @@ let g:neomake_cpp_lbuild_maker = {
             \ '"%f"\, line %l: %trror: %m,'.
             \ '"%f"\, line %l: %tarning: %m'
       \}
-let g:neomake_cpp_enabled_makers = ['lbuild','qacpp']
+
+let g:neomake_cpp_doxy_maker = {
+      \ 'exe': 'doxy',
+      \ 'cwd': '%:p:h',
+      \ 'errorformat':
+            \ '%f:%l: %trror: %m,'.
+            \ '%f:%l: %tarning: %m'
+      \}
+let g:neomake_cpp_enabled_makers = ['lbuild','qacpp','doxy']
 
 """ }}}
 """ autocommands {{{
