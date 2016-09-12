@@ -48,6 +48,20 @@ let g:pymode_run = 0
 
 
 """ }}}
+""" autocommands {{{
+"""
+
+if has('autocmd')
+  augroup nthorne_ftplugin_augroup_python
+    au!
+
+    au BufWritePost * Neomake
+  augroup END
+endif
+
+
+
+""" }}}
 """ keybindings {{{
 """
 

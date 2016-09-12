@@ -21,7 +21,7 @@ Plug 'https://github.com/vim-scripts/DoxygenToolkit.vim.git', {'for': 'cpp'}
 Plug 'https://github.com/nthorne/vim-pybreak.git', {'for': 'python'}
 Plug 'https://github.com/superjudge/tasklist-pathogen.git'
 Plug 'https://github.com/vim-scripts/OmniCppComplete.git'
-Plug 'https://github.com/klen/python-mode.git', {'for': 'python'}
+"Plug 'https://github.com/klen/python-mode.git', {'for': 'python'}
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'https://github.com/myusuf3/numbers.vim.git'
 Plug 'https://github.com/vim-scripts/Gundo.git', {'on': 'GundoToggle'}
