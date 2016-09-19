@@ -52,7 +52,6 @@ Plug 'https://github.com/tpope/vim-dispatch.git'
 Plug 'https://github.com/derekwyatt/vim-scala.git'
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
 Plug 'https://github.com/neomake/neomake.git'
-Plug 'https://github.com/vim-scripts/cscope_macros.vim'
 call plug#end()
 
 
