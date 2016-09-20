@@ -17,11 +17,9 @@ Plug 'https://github.com/tednaleid/bufexplorer.git', {'on': 'BufExplorer'}
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 Plug 'https://github.com/vim-scripts/a.vim.git', {'for': 'cpp'}
 Plug 'https://github.com/nthorne/snipmate.vim'
-Plug 'https://github.com/vim-scripts/DoxygenToolkit.vim.git', {'for': 'cpp'}
 Plug 'https://github.com/nthorne/vim-pybreak.git', {'for': 'python'}
 Plug 'https://github.com/superjudge/tasklist-pathogen.git'
 Plug 'https://github.com/vim-scripts/OmniCppComplete.git'
-"Plug 'https://github.com/klen/python-mode.git', {'for': 'python'}
 Plug 'https://github.com/plasticboy/vim-markdown.git'
 Plug 'https://github.com/myusuf3/numbers.vim.git'
 Plug 'https://github.com/vim-scripts/Gundo.git', {'on': 'GundoToggle'}
@@ -46,12 +44,12 @@ Plug 'https://github.com/vimwiki/vimwiki.git'
 Plug 'https://github.com/xolox/vim-misc.git'
 Plug 'https://github.com/xolox/vim-shell.git'
 Plug 'https://github.com/xolox/vim-notes.git'
-" Under evaluation
-Plug 'https://github.com/lambdatoast/elm.vim'
 Plug 'https://github.com/tpope/vim-dispatch.git'
-Plug 'https://github.com/derekwyatt/vim-scala.git'
-Plug 'https://github.com/altercation/vim-colors-solarized.git'
 Plug 'https://github.com/neomake/neomake.git'
+Plug 'https://github.com/lambdatoast/elm.vim', {'for': 'elm'}
+Plug 'https://github.com/derekwyatt/vim-scala.git', {'for': 'scala'}
+Plug 'https://github.com/altercation/vim-colors-solarized.git'
+" Under evaluation
 call plug#end()
 
 
@@ -402,9 +400,6 @@ let g:neocomplcache_enable_at_startup=1
 let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_enable_camel_case_completion=1
 inoremap <expr><C-l> neocomplcache#complete_common_string()
-
-" setup jedi-vim
-" let g:jedi#popup_on_dot=0
 
 let g:notes_directories = ['~/Documents/notes']
 let g:notes_suffix='.md'
