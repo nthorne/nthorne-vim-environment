@@ -50,6 +50,7 @@ Plug 'https://github.com/lambdatoast/elm.vim', {'for': 'elm'}
 Plug 'https://github.com/derekwyatt/vim-scala.git', {'for': 'scala'}
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
 " Under evaluation
+Plug 'https://github.com/haya14busa/incsearch.vim'
 call plug#end()
 
 
@@ -407,6 +408,12 @@ let g:notes_conceal_code=0
 let g:notes_conceal_italic=0
 let g:notes_conceal_bold=0
 let g:notes_conceal_url=0
+
+" setup incsearch
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
 
 
 """ }}}
