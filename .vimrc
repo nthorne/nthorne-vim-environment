@@ -51,6 +51,7 @@ Plug 'https://github.com/derekwyatt/vim-scala.git', {'for': 'scala'}
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
 " Under evaluation
 Plug 'https://github.com/haya14busa/incsearch.vim'
+Plug 'https://github.com/dhruvasagar/vim-table-mode'
 call plug#end()
 
 
