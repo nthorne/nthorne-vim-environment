@@ -52,6 +52,7 @@ Plug 'https://github.com/altercation/vim-colors-solarized.git'
 " Under evaluation
 Plug 'https://github.com/haya14busa/incsearch.vim'
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
+Plug 'https://github.com/sk1418/HowMuch'
 call plug#end()
 
 
