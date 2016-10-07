@@ -91,7 +91,6 @@ if has('autocmd')
     au FileType markdown nnoremap <buffer> <silent> <localleader><F7> :!xdg-open %:p:r.pdf<CR>
 
     au BufWritePost * Neomake
-    au BufWinEnter * Neomake
 
     " keybindings and settings for working with ctags:
     "  If the g:current_work_project_path variable can be read from the
