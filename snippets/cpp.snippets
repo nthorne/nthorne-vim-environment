@@ -97,7 +97,7 @@ snippet cl
 snippet xcp
 	// <ARC ${1:124}-S>
 	TCC::CyclicCrossCompare::instance().addObject(${2});
-	// <ARC $1-S>
+	// </ARC $1-S>
 snippet serdec
 	///For cross compare
 	virtual GPU3::OutputMessage& serialize(
@@ -239,3 +239,7 @@ snippet testlog
 	GPU3::log::Options logOptions("debug+", false);
 	GPU3::log::Logger::instance().configure(logOptions, "test", 0, 'A');
 	${1}
+snippet arcs
+	// <ARC ${1:19}-S>
+snippet arce
+	// </ARC ${1:19}-S>
