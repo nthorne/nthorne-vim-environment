@@ -190,27 +190,14 @@ endfunction
 " }}}
 
 
-" function! work_vm#ReadProjectVariables() {{{
-"   Read the project definitions variables from the configuration file that
-"   details the current project
-function! work_vm#ReadProjectVariables()
-  let l:current_project_file=$HOME.'/current_project.vim'
-  if filereadable(l:current_project_file)
-    exec 'source '.l:current_project_file
-  endif
-endfunction
-" }}}
-
 " function! work_vm#ConstructPath() {{{
 "   Construct the path variable based on configuration file detailing current
 "   project
 function! work_vm#ConstructPath()
-  call work_vm#ReadProjectVariables()
-
-  if exists("g:current_work_project_path")
-    if isdirectory(g:current_work_project_path)
-      exec 'set path+='.g:current_work_project_path.'/**/Distribution/include'
-      exec 'set path+='.g:current_work_project_path.'/**/Implementation/source'
+  if exists("$CURRENT_WORK_PROJECT_PATH")
+    if isdirectory($CURRENT_WORK_PROJECT_PATH)
+      exec 'set path+='.$CURRENT_WORK_PROJECT_PATH.'/**/Distribution/include'
+      exec 'set path+='.$CURRENT_WORK_PROJECT_PATH.'/**/Implementation/source'
     endif
   endif
 endfunction
@@ -221,7 +208,7 @@ endfunction
 function! work_vm#SyncWorkArea()
   let l:full_path = expand("%:p:h")
 
-  if (match(l:full_path, g:current_work_project_path) != -1)
+  if (match(l:full_path, $CURRENT_WORK_PROJECT_PATH) != -1)
     exec 'silent !synctcc.sh'
   endif
 endfunction
@@ -286,7 +273,7 @@ endfunction
 " function! work_vm#LcdToProjectRoot() {{{
 "   lcd to project root
 function! work_vm#LcdToProjectRoot()
-  exec ':lcd '.g:current_work_project_path
+  exec ':lcd '.$CURRENT_WORK_PROJECT_PATH
 endfunction
 " }}}
 
@@ -332,7 +319,7 @@ endfunction
 " returns:
 "   a path on the remote server
 function! work_vm#TranslateLocalPathToRemote(localPath)
-  return substitute(a:localPath, g:current_work_project_path, g:current_work_project_remote_path, "")
+  return substitute(a:localPath, $CURRENT_WORK_PROJECT_PATH, $CURRENT_WORK_PROJECT_REMOTE_PATH, "")
 endfunction
 " }}}
 
@@ -344,6 +331,6 @@ endfunction
 " returns:
 "   a path on the lint server
 function! work_vm#TranslateLocalPathToLint(localPath)
-  return substitute(a:localPath, g:current_work_project_path, g:current_work_project_lint_path, "")
+  return substitute(a:localPath, $CURRENT_WORK_PROJECT_PATH, $CURRENT_WORK_PROJECT_LINT_PATH, "")
 endfunction
 " }}}
