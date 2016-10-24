@@ -25,7 +25,7 @@ function! work_vm#CanCheckin()
 
   let l:analysis = l:analysis."---------------\n"
   let l:analysis = l:analysis.'Debug logs: '.system(
-    \'ssh '.g:remote_host.' fgrep "\"666\"" '.l:full_path.' | wc -l')
+    \'ssh '.$REMOTE_HOST.' fgrep "\"666\"" '.l:full_path.' | wc -l')
   let l:analysis = l:analysis.'TODO count: '.system(
     \'ssh fgrep TODO '.l:full_path.' | wc -l')
   let l:analysis = l:analysis."---------------\n"
@@ -80,21 +80,21 @@ function! work_vm#TestUnit()
   exec 'silent u 1  | silent u'
   setlocal nomodifiable
 
-  exe 'silent !ssh '.g:remote_host.' "rm '.l:remote_test_bin.' 2>/dev/null"'
+  exe 'silent !ssh '.$REMOTE_HOST.' "rm '.l:remote_test_bin.' 2>/dev/null"'
 
 
   " TODO: This is a dirty, ugly hack. But it works.
-  let &makeprg = "ssh ".g:remote_host." \"source /etc/profile; cd "
+  let &makeprg = "ssh ".$REMOTE_HOST." \"source /etc/profile; cd "
   let &makeprg = &makeprg.work_vm#TranslateLocalPathToRemote(l:modulePath)
   let &makeprg = &makeprg." ; gmake \""
   exe 'make NO_OPTIMIZATION=y '.l:test_bin
 
   " if the test did build..
-  "let l:output=system('ssh '.g:remote_host.' test -f '.l:remote_test_bin)
-  exe 'silent !ssh '.g:remote_host.' test -f '.l:remote_test_bin
+  "let l:output=system('ssh '.$REMOTE_HOST.' test -f '.l:remote_test_bin)
+  exe 'silent !ssh '.$REMOTE_HOST.' test -f '.l:remote_test_bin
   if 0 == v:shell_error
     " .. run it, with a sane LD_LIBRARY_PATH and XERCES path
-    let l:run_string = 'ssh '.g:remote_host.' "cd '.l:translatedPath.'/.. ;'
+    let l:run_string = 'ssh '.$REMOTE_HOST.' "cd '.l:translatedPath.'/.. ;'
     let l:run_string = l:run_string.'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:'
     let l:run_string = l:run_string.'/opt/ACE-5.6.1/ACE_wrappers/lib:'
     let l:run_string = l:run_string.'/opt/xerces/lib test/.out/'.l:test_base_name
