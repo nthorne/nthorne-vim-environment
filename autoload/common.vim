@@ -44,7 +44,7 @@ endfunction
 " function! common#IsWorkVM() {{{
 "   returns true if the current host name matches that of my work VM
 function! common#IsWorkVM()
-  return hostname() =~ "mintvm"
+  return hostname() =~ "mintvm" || hostname() =~ "nixos"
 endfunction
 " }}}
 
