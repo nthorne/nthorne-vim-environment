@@ -184,3 +184,18 @@ function! work#ConstructPath()
   endif
 endfunction
 " }}}
+
+" function! work#AddCppUnitTest() {{{
+"   Add a test case declaration, an add that test case to the test suite.
+function! work#AddCppUnitTest()
+  "exec 'normal! o'
+  let testcase = input('Enter test case name: ')
+  let purpose = input('Enter test case purpose: ')
+  put = ''
+  put = '  /**'
+  put = '   * '.purpose
+  put = '   */'
+  put = '  void '.testcase.'(void);'
+  exec "normal! ?_TEST_SUITE_END?\rOCPPUNIT_TEST(".testcase.");"
+endfunction
+" }}}
