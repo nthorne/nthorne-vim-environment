@@ -53,6 +53,7 @@ Plug 'https://github.com/altercation/vim-colors-solarized.git'
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
 Plug 'https://github.com/sk1418/HowMuch'
 Plug 'https://github.com/gregsexton/gitv'
+Plug 'https://github.com/LnL7/vim-nix'
 call plug#end()
 
 
