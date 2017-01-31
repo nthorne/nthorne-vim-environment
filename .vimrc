@@ -37,7 +37,7 @@ Plug 'https://github.com/wting/rust.vim.git', {'for': 'rust'}
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/vim-scripts/Improved-AnsiEsc.git'
 Plug 'https://github.com/nthorne/vim-et.git'
-Plug 'https://github.com/junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} | Plug 'https://github.com/junegunn/fzf'
+Plug 'https://github.com/junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} | Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/vimwiki/vimwiki.git'
 " Vim-misc and vim-shell are requirements for vim-notes
 Plug 'https://github.com/xolox/vim-misc.git'
