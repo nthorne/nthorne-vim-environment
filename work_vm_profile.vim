@@ -98,10 +98,10 @@ if has('autocmd')
     "
     " <localleader>ud updates the tagsfile
     if exists("$CURRENT_WORK_PROJECT_PATH")
-      exec 'au FileType cpp nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude="*.sql" --exclude=".git" --exclude="*Test.?pp" --exclude="*[Ss]tub*.?pp" --exclude=Makefile --exclude=Documentation --c++-kinds=+p --fields=+iaS --extra=+q -f '.$CURRENT_WORK_PROJECT_PATH.'/.tags '.$CURRENT_WORK_PROJECT_PATH.'<CR>'
+      exec 'au FileType cpp nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude="*.sql" --exclude=".git" --exclude=".direnv" --exclude="*Test.?pp" --exclude="*[Ss]tub*.?pp" --exclude=Makefile --exclude=Documentation --c++-kinds=+p --fields=+iaS --extra=+q -f '.$CURRENT_WORK_PROJECT_PATH.'/.tags '.$CURRENT_WORK_PROJECT_PATH.'<CR>'
       exec 'set tags+='.$CURRENT_WORK_PROJECT_PATH.'/.tags'
     else
-      au FileType cpp nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='*.sql' --exclude='.git' --c++-kinds=+p --fields=+iaS --extra=+q . <CR>
+      au FileType cpp nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='*.sql' --exclude='.git' --exclude=".direnv" --c++-kinds=+p --fields=+iaS --extra=+q . <CR>
     endif
 
   augroup END

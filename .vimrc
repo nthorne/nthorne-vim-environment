@@ -37,8 +37,7 @@ Plug 'https://github.com/wting/rust.vim.git', {'for': 'rust'}
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/vim-scripts/Improved-AnsiEsc.git'
 Plug 'https://github.com/nthorne/vim-et.git'
-Plug 'https://github.com/junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} | Plug 'https://github.com/nthorne/fzf.vim'
-Plug 'https://github.com/terryma/vim-multiple-cursors.git'
+Plug 'https://github.com/junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} | Plug 'https://github.com/junegunn/fzf'
 Plug 'https://github.com/vimwiki/vimwiki.git'
 " Vim-misc and vim-shell are requirements for vim-notes
 Plug 'https://github.com/xolox/vim-misc.git'
@@ -411,6 +410,9 @@ let g:notes_conceal_code=0
 let g:notes_conceal_italic=0
 let g:notes_conceal_bold=0
 let g:notes_conceal_url=0
+
+" setup fzf tags
+let g:fzf_tags_command = 'ctags -R --exclude=".git" --exclude=".direnv"'
 
 
 
