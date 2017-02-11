@@ -52,6 +52,13 @@ endif
 let g:neocomplcache_omni_functions.rust = 'racer#RacerComplete'
 let g:neocomplcache_force_omni_patterns.rust = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
+" Setup a rustc neomake maker
+let g:neomake_rust_rustc_maker = {
+      \ 'exe': 'rustc',
+      \ 'cwd': '%:p:h'
+      \}
+let g:neomake_rust_enabled_makers = ['rustc']
+
 """ }}}
 
 """ }}}
@@ -61,7 +68,7 @@ if has('autocmd')
   augroup nthorne_ftplugin_rust_augroup
     au!
     au BufWrite * call common#CleanupCppBeforeWrite()
-
+    au BufWritePost * Neomake
   augroup END
 endif
 
