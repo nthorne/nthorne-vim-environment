@@ -55,6 +55,7 @@ let g:neocomplcache_force_omni_patterns.rust = '[^.[:digit:] *\t]\%(\.\|->\)\w*\
 " Setup a rustc neomake maker
 let g:neomake_rust_rustc_maker = {
       \ 'exe': 'rustc',
+      \ 'args': ['-o /dev/null'],
       \ 'cwd': '%:p:h'
       \}
 let g:neomake_rust_enabled_makers = ['rustc']
