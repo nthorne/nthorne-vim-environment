@@ -33,7 +33,7 @@ Plug 'https://github.com/fatih/vim-go.git', {'for': 'go'}
 Plug 'https://github.com/michaeljsmith/vim-indent-object.git'
 Plug 'https://github.com/kshenoy/vim-signature.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
-Plug 'https://github.com/wting/rust.vim.git', {'for': 'rust'}
+Plug 'https://github.com/rust-lang/rust.vim', {'for': 'rust'}
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/vim-scripts/Improved-AnsiEsc.git'
 Plug 'https://github.com/nthorne/vim-et.git'
@@ -53,6 +53,7 @@ Plug 'https://github.com/dhruvasagar/vim-table-mode'
 Plug 'https://github.com/sk1418/HowMuch'
 Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/LnL7/vim-nix'
+Plug 'https://github.com/racer-rust/vim-racer', {'for': 'rust'}
 call plug#end()
 
 

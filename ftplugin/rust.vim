@@ -6,10 +6,10 @@ setlocal makeprg=cargo
 
 
 " Only load this ftplugin once per buffer
-if exists("b:did_ftplugin")
+if exists("b:did_ftplugin_nthorne")
   finish
 endif
-let b:did_ftplugin = 1
+let b:did_ftplugin_nthorne = 1
 
 
 """ }}}
@@ -37,6 +37,21 @@ let OmniCpp_DefaultNamespaces = ["std"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
+" Set up racer
+set hidden
+let g:racer_cmd="racer"
+let g:racer_experimental_completer=1
+
+" Set up neocomplcache
+if !exists('g:neocomplcache_omni_functions')
+  let g:neocomplcache_omni_functions = {}
+endif
+if !exists('g:neocomplcache_force_omni_patterns')
+  let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_omni_functions.rust = 'racer#RacerComplete'
+let g:neocomplcache_force_omni_patterns.rust = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+
 """ }}}
 
 """ }}}
@@ -50,8 +65,6 @@ if has('autocmd')
   augroup END
 endif
 
-""" }}}
-
 
 """ }}}
 """ keybindings {{{
@@ -59,3 +72,10 @@ endif
 nnoremap <buffer> <silent> <localleader><F1> :compiler rustc<CR> :make<CR>
 nnoremap <buffer> <silent> <localleader><F3> :compiler cargo<CR> :make build<CR>
 nnoremap <buffer> <silent> <localleader><F7> :compiler cargo<CR> :make run<CR>
+
+nmap gd <Plug>(rust-def)
+nmap gs <Plug>(rust-def-split)
+nmap gx <Plug>(rust-def-vertical)
+nmap <leader>gd <Plug>(rust-doc)
+
+""" }}}
