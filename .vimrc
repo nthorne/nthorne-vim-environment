@@ -55,6 +55,7 @@ Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/LnL7/vim-nix'
 Plug 'https://github.com/racer-rust/vim-racer', {'for': 'rust'}
 Plug 'https://github.com/rhysd/rust-doc.vim', {'for': 'rust'}
+Plug 'https://github.com/terryma/vim-multiple-cursors.git'
 call plug#end()
 
 
