@@ -82,6 +82,7 @@ endif
 """
 nnoremap <buffer> <silent> <localleader><F1> :compiler rustc<CR> :make<CR>
 nnoremap <buffer> <silent> <localleader><F3> :compiler cargo<CR> :make build<CR>
+nnoremap <buffer> <silent> <localleader><F4> :compiler cargo<CR> :make test<CR>
 nnoremap <buffer> <silent> <localleader><F7> :compiler cargo<CR> :make run<CR>
 
 nmap gd <Plug>(rust-def)
