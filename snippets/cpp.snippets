@@ -218,7 +218,7 @@ snippet switch
 	}
 snippet ext
 	TCC::Extension ${1}
-snippet dm
+snippet @m
 	/**
 	 * ${1}
 	 *
@@ -226,14 +226,16 @@ snippet dm
 	 *
 	 * ${3:@return }
 	 */
-snippet dc
+snippet @a
+	//!< ${2}
+snippet @b
 	/**
 	 * ${1}
-	 *
-	 * ${2}
 	 */
-snippet da
-	//!< ${2}
+snippet @r
+	/**
+	 * @return ${1}
+	 */
 snippet testlog
 	// Enable logging
 	GPU3::log::Options logOptions("debug+", false);
