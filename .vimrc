@@ -8,54 +8,57 @@
 """
 
 call plug#begin()
-Plug 'https://github.com/scrooloose/nerdtree.git', {'on': 'NERDTreeToggle'}
-Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
-Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'https://github.com/tpope/vim-surround'
-Plug 'https://github.com/scrooloose/nerdcommenter'
-Plug 'https://github.com/tednaleid/bufexplorer.git', {'on': 'BufExplorer'}
+Plug 'https://github.com/LnL7/vim-nix', {'for': 'nix'}
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
-Plug 'https://github.com/vim-scripts/a.vim.git', {'for': 'cpp'}
-Plug 'https://github.com/nthorne/snipmate.vim'
-Plug 'https://github.com/nthorne/vim-pybreak.git', {'for': 'python'}
-Plug 'https://github.com/superjudge/tasklist-pathogen.git'
-Plug 'https://github.com/vim-scripts/OmniCppComplete.git'
-Plug 'https://github.com/plasticboy/vim-markdown.git'
-Plug 'https://github.com/myusuf3/numbers.vim.git'
-Plug 'https://github.com/vim-scripts/Gundo.git', {'on': 'GundoToggle'}
-Plug 'https://github.com/tpope/vim-abolish.git'
-Plug 'https://github.com/vim-scripts/YankRing.vim.git'
-Plug 'https://github.com/majutsushi/tagbar.git', {'on': 'TagbarToggle'}
+Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
 Plug 'https://github.com/Raimondi/delimitMate.git'
-Plug 'https://github.com/godlygeek/tabular.git'
 Plug 'https://github.com/Shougo/neocomplcache.vim.git'
-Plug 'https://github.com/fatih/vim-go.git', {'for': 'go'}
-Plug 'https://github.com/michaeljsmith/vim-indent-object.git'
-Plug 'https://github.com/kshenoy/vim-signature.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
-Plug 'https://github.com/rust-lang/rust.vim', {'for': 'rust'}
-Plug 'https://github.com/tpope/vim-repeat.git'
-Plug 'https://github.com/vim-scripts/Improved-AnsiEsc.git'
-Plug 'https://github.com/nthorne/vim-et.git'
+Plug 'https://github.com/altercation/vim-colors-solarized.git'
+Plug 'https://github.com/derekwyatt/vim-scala.git', {'for': 'scala'}
+Plug 'https://github.com/fatih/vim-go.git', {'for': 'go'}
+Plug 'https://github.com/godlygeek/tabular.git'
+Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} | Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/kshenoy/vim-signature.git'
+Plug 'https://github.com/lambdatoast/elm.vim', {'for': 'elm'}
+Plug 'https://github.com/majutsushi/tagbar.git', {'on': 'TagbarToggle'}
+Plug 'https://github.com/michaeljsmith/vim-indent-object.git'
+Plug 'https://github.com/myusuf3/numbers.vim.git'
+Plug 'https://github.com/neomake/neomake.git'
+Plug 'https://github.com/nthorne/snipmate.vim'
+Plug 'https://github.com/nthorne/vim-et.git'
+Plug 'https://github.com/nthorne/vim-pybreak.git', {'for': 'python'}
+Plug 'https://github.com/plasticboy/vim-markdown.git'
+Plug 'https://github.com/racer-rust/vim-racer', {'for': 'rust'}
+Plug 'https://github.com/rhysd/rust-doc.vim', {'for': 'rust'}
+Plug 'https://github.com/rust-lang/rust.vim', {'for': 'rust'}
+Plug 'https://github.com/scrooloose/nerdcommenter'
+Plug 'https://github.com/scrooloose/nerdtree.git', {'on': 'NERDTreeToggle'}
+Plug 'https://github.com/superjudge/tasklist-pathogen.git'
+Plug 'https://github.com/tednaleid/bufexplorer.git', {'on': 'BufExplorer'}
+Plug 'https://github.com/terryma/vim-multiple-cursors.git'
+Plug 'https://github.com/tpope/vim-abolish.git'
+Plug 'https://github.com/tpope/vim-dispatch.git'
+Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/tpope/vim-repeat.git'
+Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/vim-scripts/Gundo.git', {'on': 'GundoToggle'}
+Plug 'https://github.com/vim-scripts/Improved-AnsiEsc.git'
+Plug 'https://github.com/vim-scripts/OmniCppComplete.git'
+Plug 'https://github.com/vim-scripts/YankRing.vim.git'
+Plug 'https://github.com/vim-scripts/a.vim.git', {'for': 'cpp'}
 Plug 'https://github.com/vimwiki/vimwiki.git'
-" Vim-misc and vim-shell are requirements for vim-notes
+" <vim-notes>
 Plug 'https://github.com/xolox/vim-misc.git'
 Plug 'https://github.com/xolox/vim-shell.git'
 Plug 'https://github.com/xolox/vim-notes.git'
-Plug 'https://github.com/tpope/vim-dispatch.git'
-Plug 'https://github.com/neomake/neomake.git'
-Plug 'https://github.com/lambdatoast/elm.vim', {'for': 'elm'}
-Plug 'https://github.com/derekwyatt/vim-scala.git', {'for': 'scala'}
-Plug 'https://github.com/altercation/vim-colors-solarized.git'
+" </vim-notes>
+
 " Under evaluation
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
-Plug 'https://github.com/sk1418/HowMuch'
-Plug 'https://github.com/gregsexton/gitv'
-Plug 'https://github.com/LnL7/vim-nix'
-Plug 'https://github.com/racer-rust/vim-racer', {'for': 'rust'}
-Plug 'https://github.com/rhysd/rust-doc.vim', {'for': 'rust'}
-Plug 'https://github.com/terryma/vim-multiple-cursors.git'
+" Deleted, but not really (aka might be good to have some time)..
+" Plug 'https://github.com/sk1418/HowMuch'
 call plug#end()
 
 
