@@ -54,7 +54,9 @@ Plug 'https://github.com/xolox/vim-misc.git'
 Plug 'https://github.com/xolox/vim-shell.git'
 Plug 'https://github.com/xolox/vim-notes.git'
 " </vim-notes>
-
+Plug 'https://github.com/farmergreg/vim-lastplace'
+Plug 'https://github.com/wellle/visual-split.vim'
+Plug 'https://github.com/justinmk/vim-sneak'
 " Under evaluation
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
 " Deleted, but not really (aka might be good to have some time)..
@@ -168,16 +170,6 @@ set diffopt=filler,iwhite " show filler lines, and ignore whitespace changes
 if has('autocmd')
   augroup nthorne_augroup
     au!
-
-    " When editing a file, always jump to the last known cursor
-    " position. Don't do it when the position is invalid or when inside
-    " an event handler (happens when dropping a file on gvim).
-    "
-    " (from Bill Odom's vim environment)
-    au BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \ exe "normal g`\"" |
-      \ endif
 
     " make sure all files are unfolded by default
     au BufRead,BufNewFile * normal zR
@@ -420,6 +412,8 @@ let g:notes_conceal_url=0
 " setup fzf tags
 let g:fzf_tags_command = 'ctags -R --exclude=".git" --exclude=".direnv"'
 
+" Show vim-sneak labels..
+let g:sneak#label=1
 
 
 
