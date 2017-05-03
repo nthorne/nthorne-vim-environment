@@ -12,7 +12,6 @@ Plug 'https://github.com/LnL7/vim-nix', {'for': 'nix'}
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
 Plug 'https://github.com/Raimondi/delimitMate.git'
-Plug 'https://github.com/Shougo/neocomplcache.vim.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
 Plug 'https://github.com/derekwyatt/vim-scala.git', {'for': 'scala'}
@@ -45,7 +44,6 @@ Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/vim-scripts/Gundo.git', {'on': 'GundoToggle'}
 Plug 'https://github.com/vim-scripts/Improved-AnsiEsc.git'
-Plug 'https://github.com/vim-scripts/OmniCppComplete.git'
 Plug 'https://github.com/vim-scripts/YankRing.vim.git'
 Plug 'https://github.com/vim-scripts/a.vim.git', {'for': 'cpp'}
 Plug 'https://github.com/vimwiki/vimwiki.git'
@@ -59,8 +57,14 @@ Plug 'https://github.com/wellle/visual-split.vim'
 Plug 'https://github.com/justinmk/vim-sneak'
 " Under evaluation
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
+
+Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+let g:deoplete#enable_at_startup = 1
+
 " Deleted, but not really (aka might be good to have some time)..
 " Plug 'https://github.com/sk1418/HowMuch'
+" Plug 'https://github.com/vim-scripts/OmniCppComplete.git'
+" Plug 'https://github.com/Shougo/neocomplcache.vim.git'
 call plug#end()
 
 
