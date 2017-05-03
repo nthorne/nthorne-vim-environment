@@ -8,6 +8,7 @@
 """
 
 call plug#begin()
+Plug 'https://github.com/vim-scripts/OmniCppComplete.git', {'for': 'cpp'}
 Plug 'https://github.com/LnL7/vim-nix', {'for': 'nix'}
 Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
@@ -57,13 +58,11 @@ Plug 'https://github.com/wellle/visual-split.vim'
 Plug 'https://github.com/justinmk/vim-sneak'
 " Under evaluation
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
-
 Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-let g:deoplete#enable_at_startup = 1
+Plug 'https://github.com/autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 
 " Deleted, but not really (aka might be good to have some time)..
 " Plug 'https://github.com/sk1418/HowMuch'
-" Plug 'https://github.com/vim-scripts/OmniCppComplete.git'
 " Plug 'https://github.com/Shougo/neocomplcache.vim.git'
 call plug#end()
 
@@ -419,7 +418,17 @@ let g:fzf_tags_command = 'ctags -R --exclude=".git" --exclude=".direnv"'
 " Show vim-sneak labels..
 let g:sneak#label=1
 
+" Enable deoplete at startup
+let g:deoplete#enable_at_startup = 1
 
+" Set up LanguageClient
+" Required for operations modifying multiple buffers like rename.
+set hidden
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rls'],
+    \ }
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
 
 """ }}}
 

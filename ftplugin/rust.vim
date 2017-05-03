@@ -24,15 +24,6 @@ set softtabstop=4   " use four spaces for a <Tab>
 " mark lines longer than 80 characters
 match ErrorMsg '\%>80v.\+'
 
-" OmniCppComplete settings
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
@@ -41,16 +32,6 @@ set completeopt=menuone,menu,longest,preview
 set hidden
 let g:racer_cmd="racer"
 let g:racer_experimental_completer=1
-
-" Set up neocomplcache
-if !exists('g:neocomplcache_omni_functions')
-  let g:neocomplcache_omni_functions = {}
-endif
-if !exists('g:neocomplcache_force_omni_patterns')
-  let g:neocomplcache_force_omni_patterns = {}
-endif
-let g:neocomplcache_omni_functions.rust = 'racer#RacerComplete'
-let g:neocomplcache_force_omni_patterns.rust = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 
 " Setup a rustc neomake maker
 let g:neomake_rust_rustc_maker = {
@@ -85,9 +66,18 @@ nnoremap <buffer> <silent> <localleader><F3> :compiler cargo<CR> :make build<CR>
 nnoremap <buffer> <silent> <localleader><F4> :compiler cargo<CR> :make test<CR>
 nnoremap <buffer> <silent> <localleader><F7> :compiler cargo<CR> :make run<CR>
 
-nmap gd <Plug>(rust-def)
-nmap gs <Plug>(rust-def-split)
-nmap gx <Plug>(rust-def-vertical)
+" This is a bit naive, but use RLS if the binary exists, and
+" fall back to racer if not.
+if executable("rls")
+  nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+  nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+  nnoremap <silent> <F2>  :call LanguageClient_textDocument_rename()<CR>
+else
+  nmap <silent> gd <Plug>(rust-def)
+  nmap <silent> gs <Plug>(rust-def-split)
+  nmap <silent> gx <Plug>(rust-def-vertical)
+endif
+
 nmap <leader>gd <Plug>(rust-doc)
 
 """ }}}
