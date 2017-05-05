@@ -424,9 +424,11 @@ let g:deoplete#enable_at_startup = 1
 " Set up LanguageClient
 " Required for operations modifying multiple buffers like rename.
 set hidden
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rls'],
-    \ }
+if executable("rls")
+  let g:LanguageClient_serverCommands = {
+        \ 'rust': ['rls'],
+        \ }
+endif
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
 
