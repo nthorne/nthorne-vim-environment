@@ -65,3 +65,8 @@ snippet t
 		${2}
 	}
 	${3}
+snippet test
+	#[test]
+	fn ${1}() {
+		${2:assert!(false)}
+	}
