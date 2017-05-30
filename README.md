@@ -16,3 +16,13 @@ causes the **path** variable, for cpp files, to contain all
 *Distribution/include* and *Implementation/source* folders for
 easy source file navigation. Also, tagsfiles will be placed in the folder
 defined in the project path variable.
+
+
+neovim configuration
+--------------------
+In order to use this configuration in neovim, create the file `$HOME/.config/nvim/init.vim`,
+with the following contents:
+
+    set runtimepath^=~/.vim runtimepath+=~/.vim/after
+    let &packpath = &runtimepath
+    source ~/.vimrc
