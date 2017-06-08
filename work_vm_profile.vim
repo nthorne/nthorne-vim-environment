@@ -41,7 +41,7 @@ let g:neomake_cpp_cppclean_maker = {
       \ 'cwd': '%:p:h'
       \}
 
-let g:neomake_cpp_enabled_makers = ['lbuild','qacpp','doxy', 'cppclean']
+let g:neomake_cpp_enabled_makers = ['cppclean']
 
 """ }}}
 """ autocommands {{{
