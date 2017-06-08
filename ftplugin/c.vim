@@ -16,10 +16,9 @@ let b:did_ftplugin = 1
 
 if common#IsWorkHost()  || common#IsWorkVM()
   call work#ConstructPath()
-else
-  nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='.git' --exclude=".direnv" --c-kinds=+p --fields=+iaS --extra=+q . <CR>
 endif
 
+nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='.git' --exclude=".direnv" --c-kinds=+p --fields=+iaS --extra=+q . <CR>
 setlocal foldmethod=syntax
 
 " mark lines longer than 80 characters
