@@ -181,6 +181,7 @@ if has('autocmd')
     " this provides a simple template file system: for any file, if a file named
     " template.<extension> exists in the skel dir, it is read into the buffer
     au BufNewFile Makefile silent! 0r $HOME/.vim/skel/Makefile
+    au BufNewFile CMakeLists.txt silent! 0r $HOME/.vim/skel/CMakeLists.txt
     au BufNewFile * silent! 0r $HOME/.vim/skel/template.%:e
 
     " Large files are > 10M
