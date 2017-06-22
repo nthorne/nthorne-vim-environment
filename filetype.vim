@@ -13,17 +13,14 @@ endif
 """
 
 augroup filetypedetect
-    " make vim recognise cpp file types, and set the appropriate folding method
+  " make vim recognise cpp file types, and set the appropriate folding method
   au BufRead,BufNewFile *.hpp setlocal filetype=cpp
   au BufRead,BufNewFile *.cc setlocal filetype=cpp
+  au BufRead,BufNewFile *.h setlocal filetype=c
 
   " work specific file types
   if common#IsWorkHost() || common#IsWorkVM()
-    " set the appropriate filetype for tcc log files
-    au BufRead,BufNewFile *.[0-9]*.log setlocal filetype=tcclog
-
-    " set the appropriate filetype for the QACPP log files
-    au BufRead,BufNewFile *.cpp.log setlocal filetype=qacpplog
+    " TODO: Add work specific file types here..
   endif
 augroup END
 
