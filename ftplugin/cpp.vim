@@ -46,7 +46,8 @@ set completeopt=menuone,menu,longest,preview
 if has('autocmd')
   augroup nthorne_ftplugin_cpp_augroup
     au!
-    au BufWrite * call common#CleanupCppBeforeWrite()
+    au FileType cpp
+      \ au BufWritePre <buffer> call common#CleanupCppBeforeWrite()
   augroup END
 endif
 

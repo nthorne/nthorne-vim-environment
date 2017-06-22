@@ -25,3 +25,11 @@ setlocal foldmethod=syntax
 match ErrorMsg '\%>80v.\+'
 
 """ }}}
+
+if has('autocmd')
+  augroup nthorne_ftplugin_c_augroup
+    au!
+    au FileType c
+      \ au BufWritePre <buffer> call common#CleanupCppBeforeWrite()
+  augroup END
+endif
