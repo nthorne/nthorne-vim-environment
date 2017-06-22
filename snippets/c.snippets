@@ -1,0 +1,113 @@
+### c.snippets
+###   - provides snippets for c files
+###
+
+
+snippet inc
+	#include <${1:iostream}>${2}
+snippet Inc
+	#include "${1:`Filename("$1.hpp")`}"${2}
+snippet ns
+	namespace ${1:`Filename('', 'my')`}
+	{
+		${2}
+	}
+snippet dbglog
+	GPU3_LOG("666", critical, "!! ${1}");
+snippet todo
+	/** TODO (`system("date +%Y-%m-%d")`/`system("whoami")`): ${1} */
+snippet testblock
+	{ /** @test_cond {
+	   *  TEST: ${1}
+	   *  EXPECTED: ${2}
+	   */ }
+
+	  CPPUNIT_ASSERT(!"Not implemented");
+	}${3}
+snippet note
+	/** `system("whoami")`: ${1} */
+snippet mdec
+	/**
+	 * ${4}
+	 */
+	${1:void} ${2}(${3});${5}
+snippet mdef
+	${1:void} `Filename()`::${2}(${3})
+	{
+	  ${4}
+	}
+snippet incguard
+	#ifndef __INCLUDED_`Filename()`__
+	#define __INCLUDED_`Filename()`__${1}
+snippet else
+	else
+	{
+	  ${1}
+	}
+snippet log
+	GPU3_LOG(${1}, ${2:debug}, "${3}");
+snippet for
+	for (${1:int i = 0}; ${2: i < 10}; ${3: ++i})
+	{
+	  ${4}
+	}
+snippet elif
+	else if (${1})
+	{
+	  ${2}
+	}
+snippet if
+	if (${1})
+	{
+	  ${2}
+	}
+snippet cr
+	const ${1}&
+snippet get
+	${1} get${2}() const
+	{
+	  return m_${3};
+	}
+snippet set
+	void set${1}(const ${2}& ${3})
+	{
+	  m_${4} = ${3};
+	}
+snippet switch
+	switch (${1})
+	{
+	case ${2}:
+	  ${3}
+	  break;
+	default:
+	  break;
+	}
+snippet @m
+	/**
+	 * ${1}
+	 *
+	 * ${2}
+	 *
+	 * ${3:@return }
+	 */
+snippet @a
+	/** !< ${1} */
+snippet @o
+	/** !< [out] ${1} */
+snippet @io
+	/** !< [inout] ${1} */
+snippet @b
+	/**
+	 * ${1}
+	 */
+snippet @r
+	/**
+	 * @return ${1}
+	 */
+snippet @p
+	/** !< @pre ${1} */
+snippet testlog
+	// Enable logging
+	GPU3::log::Options logOptions("debug+", false);
+	GPU3::log::Logger::instance().configure(logOptions, "test", 0, 'A');
+	${1}
