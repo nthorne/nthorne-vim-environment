@@ -13,36 +13,6 @@ let NERDTreeDirArrows=0
 
 let g:ctrlp_working_path_mode='rw'
 
-" Neomake checkers
-let g:neomake_cpp_qacpp_maker = {
-      \ 'exe': 'qacpp',
-      \ 'errorformat': '%f(%l\,%c): %m',
-      \ 'cwd': '%:p:h'
-      \}
-let g:neomake_cpp_lbuild_maker = {
-      \ 'exe': 'lbuild',
-      \ 'cwd': '%:p:h',
-      \ 'errorformat':
-            \ '"%f"\, line %l: %trror: %m,'.
-            \ '"%f"\, line %l: %tarning: %m'
-      \}
-
-let g:neomake_cpp_doxy_maker = {
-      \ 'exe': 'doxy',
-      \ 'cwd': '%:p:h',
-      \ 'errorformat':
-            \ '%f:%l: %trror: %m,'.
-            \ '%f:%l: %tarning: %m'
-      \}
-
-let g:neomake_cpp_cppclean_maker = {
-      \ 'exe': 'cppclean',
-      \ 'errorformat': '%f:%l: %m',
-      \ 'cwd': '%:p:h'
-      \}
-
-let g:neomake_cpp_enabled_makers = ['cppclean']
-
 """ }}}
 """ autocommands {{{
 """

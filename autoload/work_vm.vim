@@ -334,3 +334,16 @@ function! work_vm#TranslateLocalPathToLint(localPath)
   return substitute(a:localPath, $CURRENT_WORK_PROJECT_PATH, $CURRENT_WORK_PROJECT_LINT_PATH, "")
 endfunction
 " }}}
+
+" function! work_vm#GetExtraIncluePaths() {{{
+"   Build include paths to be sent to compilers and tidyers.
+"
+" returns:
+"   A string containing the include paths to consider.
+function! work_vm#GetExtraIncluePaths()
+  let l:system_path=system("echo | clang -v -E -x c++ - 2>&1 | sed -e '1,/^#include <...> search starts here:$/d' | sed -e '/^End of search list.$/,$d' | awk '{print \"-I\"$1}'")
+  let l:local_path=system("find $CURRENT_WORK_PROJECT_PATH/ -type d -name include | awk '{print \"-I\"$0}'")
+
+  return l:system_path." ".l:local_path
+endfunction
+" }}}

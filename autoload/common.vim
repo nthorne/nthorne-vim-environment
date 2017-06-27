@@ -64,4 +64,3 @@ function! common#CleanupCppBeforeWrite()
   call cursor(l:line, l:col)
 endfunction
 " }}}
-

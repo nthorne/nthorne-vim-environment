@@ -24,6 +24,12 @@ setlocal foldmethod=syntax
 " mark lines longer than 80 characters
 match ErrorMsg '\%>80v.\+'
 
+if common#IsWorkVM()
+  let g:neomake_c_enabled_makers = ['clangtidy', 'clang', 'clangcheck']
+  let g:neomake_c_clangtidy_args = split(work_vm#GetExtraIncluePaths())
+  let g:neomake_c_clang_args = split(work_vm#GetExtraIncluePaths())
+  let g:neomake_c_clangcheck_args = split(work_vm#GetExtraIncluePaths())
+endif
 """ }}}
 
 if has('autocmd')

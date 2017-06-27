@@ -38,6 +38,21 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD", "GPU3", "TCC"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 
+" Neomake checkers
+let g:neomake_cpp_cppclean_maker = {
+      \ 'exe': 'cppclean',
+      \ 'errorformat': '%f:%l: %m',
+      \ 'cwd': '%:p:h'
+      \}
+
+if common#IsWorkVM()
+  let g:neomake_cpp_enabled_makers = ['cppclean', 'clangtidy', 'clang', 'clangcheck']
+  let g:neomake_cpp_clangtidy_args = split(work_vm#GetExtraIncluePaths())
+  let g:neomake_cpp_clang_args = split(work_vm#GetExtraIncluePaths())
+  let g:neomake_cpp_clangcheck_args = split(work_vm#GetExtraIncluePaths())
+  let g:neomake_cpp_cppclean_args = split(work_vm#GetExtraIncluePaths())
+endif
+
 """ }}}
 
 """ }}}
