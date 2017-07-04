@@ -60,7 +60,9 @@ Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
 Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'https://github.com/autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+
 Plug 'https://github.com/waiting-for-dev/vim-www'
+let g:www_engines = {'cpp': 'http://www.cplusplus.com/search.do?q='}
 
 " Deleted, but not really (aka might be good to have some time)..
 " Plug 'https://github.com/sk1418/HowMuch'
