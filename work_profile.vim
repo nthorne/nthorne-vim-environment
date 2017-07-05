@@ -56,7 +56,7 @@ if has('autocmd')
       exec 'au FileType cpp nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude="*.sql" --exclude=".git" --exclude=".direnv" --c++-kinds=+p --fields=+iaS --extra=+q -f '.g:current_work_project_path.'/.tags '.g:current_work_project_path.'<CR>'
       exec 'set tags+='.g:current_work_project_path.'/.tags'
     else
-      au FileType cpp nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='*.sql' --exclude='.git' --exclude=".direnv" --c++-kinds=+p --fields=+iaS --extra=+q . <CR>
+      au FileType cpp nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='build' --exclude='CMakeFiles' --exclude='*.sql' --exclude='.git' --exclude=".direnv" --c++-kinds=+p --fields=+iaS --extra=+q . <CR>
     endif
 
   augroup END

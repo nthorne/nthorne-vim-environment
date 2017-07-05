@@ -18,7 +18,7 @@ if common#IsWorkHost()  || common#IsWorkVM()
   call work#ConstructPath()
 endif
 
-nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='.git' --exclude=".direnv" --c-kinds=+p --fields=+iaS --extra=+q . <CR>
+nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='build' --exclude='CMakeFiles' --exclude='.git' --exclude=".direnv" --c-kinds=+p --fields=+iaS --extra=+q . <CR>
 setlocal foldmethod=syntax
 
 " mark lines longer than 80 characters

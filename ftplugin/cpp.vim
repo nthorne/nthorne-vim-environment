@@ -17,7 +17,7 @@ let b:did_ftplugin = 1
 if common#IsWorkHost() || common#IsWorkVM()
   call work#ConstructPath()
 else
- nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='.git' --exclude=".direnv" --c++-kinds=+p --fields=+iaS --extra=+q . <CR>
+ nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='build' --exclude='CMakeFiles' --exclude='.git' --exclude=".direnv" --c++-kinds=+p --fields=+iaS --extra=+q . <CR>
 endif
 
 setlocal foldmethod=syntax
