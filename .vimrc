@@ -63,6 +63,11 @@ Plug 'https://github.com/autozimu/LanguageClient-neovim', { 'do': ':UpdateRemote
 
 Plug 'https://github.com/waiting-for-dev/vim-www'
 let g:www_engines = {'cpp': 'http://www.cplusplus.com/search.do?q='}
+let g:www_default_search_engine = 'cpp'
+
+Plug 'https://github.com/eagletmt/ghcmod-vim', {'for': 'haskell'}
+Plug 'https://github.com/Shougo/vimproc', {'for': 'haskell', 'do': 'make'}
+'
 
 " Deleted, but not really (aka might be good to have some time)..
 " Plug 'https://github.com/sk1418/HowMuch'
