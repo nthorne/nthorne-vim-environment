@@ -111,3 +111,6 @@ snippet testlog
 	GPU3::log::Options logOptions("debug+", false);
 	GPU3::log::Logger::instance().configure(logOptions, "test", 0, 'A');
 	${1}
+snippet v
+	(void)${1};
+	${2}
