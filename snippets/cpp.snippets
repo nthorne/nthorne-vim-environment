@@ -132,12 +132,10 @@ snippet dbglog
 snippet todo
 	// TODO (`system("date +%Y-%m-%d")`/`system("whoami")`): ${1}
 snippet testblock
-	{ /// @test_cond {
-	  /// TEST: ${1}
+	{ /// TEST: ${1}
 	  /// EXPECTED: ${2}
-	  /// }
 
-	  CPPUNIT_ASSERT(!"Not implemented");
+	  ASSERT_TRUE(!"Not implemented.");
 	}${3}
 snippet noabrt
 	void uninstall_abrt_handler(); uninstall_abrt_handler();
@@ -224,7 +222,7 @@ snippet @m
 	 *
 	 * ${2}
 	 *
-	 * ${3:@return }
+	 * ${3:\return }
 	 */
 snippet @a
 	//!< ${1}
