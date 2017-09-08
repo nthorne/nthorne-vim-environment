@@ -342,7 +342,11 @@ endfunction
 "   A string containing the include paths to consider.
 function! work_vm#GetExtraIncluePaths()
   let l:system_path=system("echo | clang -v -E -x c++ - 2>&1 | sed -e '1,/^#include <...> search starts here:$/d' | sed -e '/^End of search list.$/,$d' | awk '{print \"-I\"$1}'")
-  let l:local_path=system("find $CURRENT_WORK_PROJECT_PATH/ -type d -name include | awk '{print \"-I\"$0}'")
+  if (!exists("$CURRENT_WORK_PROJECT_PATH"))
+    let l:local_path=""
+  else
+    let l:local_path=system("find $CURRENT_WORK_PROJECT_PATH/ -type d -name include | awk '{print \"-I\"$0}'")
+  endif
 
   return l:system_path." ".l:local_path
 endfunction
