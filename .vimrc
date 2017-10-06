@@ -67,7 +67,8 @@ let g:www_default_search_engine = 'cpp'
 
 Plug 'https://github.com/eagletmt/ghcmod-vim', {'for': 'haskell'}
 Plug 'https://github.com/Shougo/vimproc', {'for': 'haskell', 'do': 'make'}
-'
+
+Plug 'https://github.com/aklt/plantuml-syntax.git', {'for': 'markdown,plantuml'}
 
 " Deleted, but not really (aka might be good to have some time)..
 " Plug 'https://github.com/sk1418/HowMuch'
