@@ -60,6 +60,8 @@ Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/glts/vim-magnum'
 Plug 'https://github.com/glts/vim-radical'
 " </vim-radical>
+Plug 'https://github.com/mtth/scratch.vim'
+
 " Under evaluation
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
 Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
