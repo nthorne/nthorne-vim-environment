@@ -56,6 +56,10 @@ Plug 'https://github.com/xolox/vim-notes.git'
 Plug 'https://github.com/farmergreg/vim-lastplace'
 Plug 'https://github.com/wellle/visual-split.vim'
 Plug 'https://github.com/justinmk/vim-sneak'
+" <vim-radical>
+Plug 'https://github.com/glts/vim-magnum'
+Plug 'https://github.com/glts/vim-radical'
+" </vim-radical>
 " Under evaluation
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
 Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
