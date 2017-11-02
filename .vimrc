@@ -76,6 +76,8 @@ Plug 'https://github.com/Shougo/vimproc', {'for': 'haskell', 'do': 'make'}
 
 Plug 'https://github.com/aklt/plantuml-syntax.git', {'for': 'markdown,plantuml'}
 
+Plug 'https://github.com/MattesGroeger/vim-bookmarks'
+
 " Deleted, but not really (aka might be good to have some time)..
 " Plug 'https://github.com/sk1418/HowMuch'
 " Plug 'https://github.com/Shougo/neocomplcache.vim.git'
@@ -447,6 +449,20 @@ if executable("rls")
 endif
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
+
+" Setup vim-bookmark
+let g:bookmark_no_default_key_mappings = 1
+nnoremap <Leader>mm :BookmarkToggle<CR>
+nnoremap <Leader>mi :BookmarkAnnotate<CR>
+nnoremap <Leader>ma :BookmarkShowAll<CR>
+nnoremap <Leader>mj :BookmarkNext<CR>
+nnoremap <Leader>mk :BookmarkPrev<CR>
+nnoremap <Leader>mc :BookmarkClear<CR>
+nnoremap <Leader>mx :BookmarkClearAll<CR>
+nnoremap <Leader>mkk :BookmarkMoveUp<CR>
+nnoremap <Leader>mjj :BookmarkMoveDown<CR>
+nnoremap <Leader>mg :BookmarkMoveToLine<CR>
+let g:bookmark_annotation_sign="✎"
 
 """ }}}
 
