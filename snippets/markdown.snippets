@@ -3,46 +3,38 @@
 ###
 
 snippet saltodo
-	@startsalt img/${1:todo}.png
+	\`\`\`plantuml
+	@startsalt
 	{
-	[ ] ${2}
+	[ ] ${1}
 	}
 	@endsalt
-	![](img/$1.png)
+	\`\`\`
 
 snippet uml
-	@startuml img/${1:uml}.png
-	${2}
-	@enduml
-	![](img/$1.png)
+	\`\`\`plantuml
+	${1}
+	\`\`\`
 
 snippet salt
-	@startsalt img/${1:salt}.png
+	\`\`\`plantuml
+	@startsalt
 	{
-	${2}
+	${1}
 	}
 	@endsalt
-	![](img/$1.png)
+	\`\`\`
 
 snippet saltree
-	@startsalt img/${1:saltree}.png
+	\`\`\`plantuml
+	@startsalt
 	{
 	{T
 	+${2}
 	}
 	}
 	@endsalt
-	![](img/$1.png)
-
-snippet exec
-	@exec /usr/bin/env ${1:bash}
-	${2}
-	@exec
-
-snippet //
-	@comment
-	${1}
-	@comment
+	\`\`\`
 
 snippet todo
 	**TODO:** ${1}
