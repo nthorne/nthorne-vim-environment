@@ -35,7 +35,27 @@ endif
 if has('autocmd')
   augroup nthorne_ftplugin_c_augroup
     au!
-    au FileType c
-      \ au BufWritePre <buffer> call common#CleanupCppBeforeWrite()
+    au BufWritePre <buffer> call common#CleanupCppBeforeWrite()
   augroup END
 endif
+
+
+""" }}}
+""" utility functions {{{
+"""
+
+" function! SilenceUnusedArgs() {{{
+"   If executed when cursor is within parens, the entire parameter list will
+"   be yanked, pasted two lines below, and all parameters will be prepended
+"   with (void).
+function! SilenceUnusedArgs()
+  normal yi)
+  normal jo  p
+  s/[ ,] [^ ]\+/(void)/g
+  s/) /)/g
+  s/\(\w\)(/\1;(/g
+  normal A;
+endfunction
+nnoremap <buffer> <silent> <localleader>sua :call SilenceUnusedArgs()<CR>
+""" }}}
+
