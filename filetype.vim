@@ -6,6 +6,7 @@
 if exists("did_load_filetypes")
   finish
 endif
+let did_load_filetypes = 1
 
 
 """ }}}
@@ -20,7 +21,8 @@ augroup filetypedetect
 
   " work specific file types
   if common#IsWorkHost() || common#IsWorkVM()
-    " TODO: Add work specific file types here..
+    au! BufRead,BufNewFile *.hal setfiletype hal
+    au! BufRead,BufNewFile *.hal set syntax=java
   endif
 augroup END
 
