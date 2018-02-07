@@ -6,7 +6,7 @@
 if exists("did_load_filetypes")
   finish
 endif
-let did_load_filetypes = 1
+" let did_load_filetypes = 1
 
 
 """ }}}
