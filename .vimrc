@@ -78,6 +78,15 @@ Plug 'https://github.com/aklt/plantuml-syntax.git', {'for': 'markdown,plantuml'}
 
 Plug 'https://github.com/MattesGroeger/vim-bookmarks'
 
+let g:LanguageClient_serverCommands = {}
+if executable("cquery")
+  let g:LanguageClient_serverCommands.cpp = ['/home/nthorne/bin/cquery', '--log-file=/tmp/cq.log']
+  let g:LanguageClient_serverCommands.c   = ['/home/nthorne/bin/cquery', '--log-file=/tmp/cq.log']
+endif
+
+let g:LanguageClient_loadSettings = 1
+let g:LanguageClient_settingsPath = "/home/nthorne/.vim/settings.json"
+
 " Deleted, but not really (aka might be good to have some time)..
 " Plug 'https://github.com/sk1418/HowMuch'
 " Plug 'https://github.com/Shougo/neocomplcache.vim.git'
@@ -443,9 +452,7 @@ let g:deoplete#enable_at_startup = 1
 " Required for operations modifying multiple buffers like rename.
 set hidden
 if executable("rls")
-  let g:LanguageClient_serverCommands = {
-        \ 'rust': ['rls'],
-        \ }
+  let g:LanguageClient_serverCommands.rust = ['rls']
 endif
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
@@ -463,6 +470,14 @@ nnoremap <Leader>mkk :BookmarkMoveUp<CR>
 nnoremap <Leader>mjj :BookmarkMoveDown<CR>
 nnoremap <Leader>mg :BookmarkMoveToLine<CR>
 let g:bookmark_annotation_sign="✎"
+
+" Set up LanguageClient
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <localleader>lr :call LanguageClient_textDocument_rename()<CR>
+nnoremap <localleader>ld :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <localleader>lf :call LanguageClient_textDocument_references()<CR>
+nnoremap <localleader>ls :call LanguageClient_workspace_symbol()<CR>
 
 """ }}}
 
