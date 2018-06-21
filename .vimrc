@@ -413,6 +413,11 @@ let g:NERDCustomDelimiters = {
     \ 'vim': { 'left': '"'}
   \ }
 
+" Setup NERDTree
+let NERDTreeShowLineNumbers=1
+autocmd FileType nerdtree setlocal relativenumber
+
+
 " setup tasklist
 let g:tlTokenList=['666', 'TODO', 'FIXME', 'XXX']
 
