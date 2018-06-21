@@ -345,7 +345,7 @@ function! work_vm#GetExtraIncluePaths()
   if (!exists("$CURRENT_WORK_PROJECT_PATH"))
     let l:local_path=""
   else
-    let l:local_path=system("find $CURRENT_WORK_PROJECT_PATH/ -type d -name include | awk '{print \"-I\"$0}'")
+    let l:local_path=system("find $CURRENT_WORK_PROJECT_PATH/ -type d -name include -o -name config_include | awk '{print \"-I\"$0}'")
   endif
 
   return l:system_path." ".l:local_path
