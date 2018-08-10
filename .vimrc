@@ -208,6 +208,8 @@ if has('autocmd')
     " template.<extension> exists in the skel dir, it is read into the buffer
     au BufNewFile Makefile silent! 0r $HOME/.vim/skel/Makefile
     au BufNewFile CMakeLists.txt silent! 0r $HOME/.vim/skel/CMakeLists.txt
+    au BufNewFile .envrc silent! 0r $HOME/.vim/skel/.envrc
+    au BufNewFile shell.nix silent! 0r $HOME/.vim/skel/shell.nix
     au BufNewFile * silent! 0r $HOME/.vim/skel/template.%:e
 
     " Large files are > 10M
