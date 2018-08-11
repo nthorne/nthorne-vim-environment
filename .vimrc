@@ -66,6 +66,7 @@ Plug 'https://github.com/mtth/scratch.vim'
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
 Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'https://github.com/autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'https://github.com/udalov/kotlin-vim'
 
 Plug 'https://github.com/waiting-for-dev/vim-www'
 let g:www_engines = {'cpp': 'http://www.cplusplus.com/search.do?q='}
