@@ -340,6 +340,8 @@ endfunction
 "
 " returns:
 "   A string containing the include paths to consider.
+"
+" TODO: Perhaps speed things up by setting a global instead..
 function! work_vm#GetExtraIncluePaths()
   let l:system_path=system("echo | clang -v -E -x c++ - 2>&1 | sed -e '1,/^#include <...> search starts here:$/d' | sed -e '/^End of search list.$/,$d' | awk '{print \"-I\"$1}'")
   if (!exists("$CURRENT_WORK_PROJECT_PATH"))
@@ -347,7 +349,13 @@ function! work_vm#GetExtraIncluePaths()
   else
     let l:local_path=system("find $CURRENT_WORK_PROJECT_PATH/ -type d -name include -o -name config_include | awk '{print \"-I\"$0}'")
   endif
+  if (!exists("$CURRENT_WORK_PROJECT_ROOT"))
+    let l:system_includes=""
+  else
+    let l:system_includes=system("find $CURRENT_WORK_PROJECT_ROOT/system/core/lib\* -type d -name include | awk '{print \"-I\"$0}'")
+  endif
 
-  return l:system_path." ".l:local_path
+
+  return l:system_path." ".l:local_path." ".l:system_includes
 endfunction
 " }}}
