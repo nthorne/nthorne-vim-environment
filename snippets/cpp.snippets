@@ -3,78 +3,6 @@
 ###
 
 
-# Unary functor definition (work related)
-snippet unaryfun
-	/**
-	 * @justification (`system("date +%Y-%m-%d")`/nthorne) QACPP 2116: STL standard conformant predicate
-	 */
-	// PRQA S 2116 ++
-	class ${1:`Filename('$1', 'name')`} : public std::unary_function<
-										${2:int},
-										${3:bool}>
-	{
-	// PRQA S 2116 --
-	public:
-		~$1()
-		{
-		}
-
-		$3 operator()(const $2& arg) const
-		{
-			$3 l_result;
-
-			${4}
-
-			return l_result;
-		}
-	};
-# Binary functor definition (work related)
-snippet binaryfun
-	/**
-	 * @justification (`system("date +%Y-%m-%d")`/nthorne) QACPP 2116: STL standard conformant predicate
-	 */
-	// PRQA S 2116 ++
-	class ${1:`Filename('$1', 'name')`} : public std::binary_function<
-										${2:int},
-										${3:long},
-										${4:bool}>
-	{
-	// PRQA S 2116 --
-	public:
-		~$1()
-		{
-		}
-
-		$4 operator()(const $2& fst, const $3& snd) const
-		{
-			$4 l_result;
-
-			${5}
-
-			return l_result;
-		}
-	};
-# lint justifications
-snippet justify
-	/*
-	 * @justification (`system("date +%Y-%m-%d")`/nthorne) QACPP ${1:2116}: STL standard conformant predicate
-	 */
-	// PRQA S $1 ++
-	${2}// PRQA S $1 --
-snippet testheader
-	/**
-	 * @brief tests `Filename("$1.hpp")`
-	 * @defgroup `Filename()`
-	 * @{
-	 * @testfile `Filename("$1.hpp")`
-	 * @responsible nthorne `system("date +%Y-%m-%d")`
-	 * @reviewer
-	 * @review status
-	 * @reviewed file-commit ID
-	 * @codecovexp
-	 * @}
-	 */
-	${3}
 snippet inc
 	#include <${1:iostream}>${2}
 snippet Inc
@@ -88,47 +16,16 @@ snippet cl
 	class ${1:`Filename('$1', 'name')`}
 	{
 	public:
-		virtual ~$1()
-		{
-		}
+		$1(const $1&) = default;
+		$1($1&&) = default;
+		$1& operator=(const $1&) = default;
+		$1& operator=($1&&) = default;
+		virtual ~$1() = default;
 	private:
 		${2:/* data */}
 	};
-snippet xcp
-	// <ARC ${1:124}-S>
-	TCC::CyclicCrossCompare::instance().addObject(${2});
-	// </ARC $1-S>
-snippet serdec
-	///For cross compare
-	virtual GPU3::OutputMessage& serialize(
-	    GPU3::OutputMessage& r_stream) const;
-snippet serdef
-	/**
-	 * @justification (`system("date +%Y-%m-%d")`/nthorne) QACPP 4028: Common stream operator pattern.
-	 */
-	// PRQA S 4028 ++
-	OutputMessage& `Filename()`::serialize(OutputMessage& r_stream) const
-	{
-	  return r_stream << ${1};
-	}
-	// PRQA S 4028 --
-snippet serfun
-	/**
-	 * @justification (`system("date +%Y-%m-%d")`/nthorne) QACPP 4028: Common stream operator pattern.
-	 */
-	// PRQA S 4028 ++
-	GPU3::OutputMessage& operator<<(GPU3::OutputMessage& r_stream,
-	    const ${1}& value)
-	{
-	  return r_stream << ${2:static_cast<GPU3::int32_t>(value)};
-	}
-	// PRQA S 4028 --
-snippet ass
-	/// @assert_just ${1:Enforcing precondition}
-	GPU3_ASSERT(${2});
-	${3}
 snippet dbglog
-	GPU3_LOG("666", critical, "!! ${1}");
+	ALOGI("!! ${1}");
 snippet todo
 	// TODO (`system("date +%Y-%m-%d")`/`system("whoami")`): ${1}
 snippet testblock
@@ -137,9 +34,6 @@ snippet testblock
 
 	  ASSERT_TRUE(!"Not implemented.");
 	}${3}
-snippet noabrt
-	void uninstall_abrt_handler(); uninstall_abrt_handler();
-	${1}
 snippet note
 	// `system("whoami")`: ${1}
 snippet mdec
@@ -155,19 +49,13 @@ snippet mdef
 snippet incguard
 	#ifndef __INCLUDED_`Filename()`_`system("date +%Y%m%d")`__
 	#define __INCLUDED_`Filename()`_`system("date +%Y%m%d")`__${1}
-snippet list
-	GPU3::List<${1}>::type
-snippet ptr
-	GPU3::shared_ptr<${1}>
-snippet str
-	GPU3::xstring${1}
 snippet else
 	else
 	{
 	  ${1}
 	}
 snippet log
-	GPU3_LOG(${1}, ${2:debug}, "${3}");
+	ALOGI("${1}");
 snippet for
 	for (${1:int i = 0}; ${2: i < 10}; ${3: ++i})
 	{
@@ -195,14 +83,6 @@ snippet set
 	{
 	  m_${4} = ${3};
 	}
-snippet poolcr
-	GPU3::shared_ptr<${1:}> ${2:} =
-	  GPU3::ObjectPool<$1>::createObj();
-snippet poolcl
-	GPU3::shared_ptr<${1:}> ${2:} =
-	  GPU3::ObjectPool<$1>::cloneObj(${3:});
-snippet pos
-	TCC::Position ${1}
 snippet switch
 	switch (${1})
 	{
@@ -210,12 +90,8 @@ snippet switch
 	  ${3}
 	  break;
 	default:
-	  /// @assert_just Catching unexpected value
-	  GPU3_ASSERT(!"Unexpected value in switch statement");
 	  break;
 	}
-snippet ext
-	TCC::Extension ${1}
 snippet @m
 	/**
 	 * ${1}
@@ -240,12 +116,3 @@ snippet @r
 	 */
 snippet @p
 	//!< @pre ${1}
-snippet testlog
-	// Enable logging
-	GPU3::log::Options logOptions("debug+", false);
-	GPU3::log::Logger::instance().configure(logOptions, "test", 0, 'A');
-	${1}
-snippet arcs
-	// <ARC ${1:19}-S>
-snippet arce
-	// </ARC ${1:19}-S>

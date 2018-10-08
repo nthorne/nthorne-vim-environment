@@ -13,17 +13,9 @@ snippet ns
 		${2}
 	}
 snippet dbglog
-	GPU3_LOG("666", critical, "!! ${1}");
+	AE_TRACE_STR(DLT_LOG_ERROR, "!! ${1}");
 snippet todo
 	/** TODO (`system("date +%Y-%m-%d")`/`system("whoami")`): ${1} */
-snippet testblock
-	{ /** @test_cond {
-	   *  TEST: ${1}
-	   *  EXPECTED: ${2}
-	   */ }
-
-	  CPPUNIT_ASSERT(!"Not implemented");
-	}${3}
 snippet note
 	/** `system("whoami")`: ${1} */
 snippet mdec
@@ -45,7 +37,7 @@ snippet else
 	  ${1}
 	}
 snippet log
-	GPU3_LOG(${1}, ${2:debug}, "${3}");
+	AE_TRACE_STR(DLT_LOG_ERROR, "${1}");
 snippet for
 	for (${1:int i = 0}; ${2: i < 10}; ${3: ++i})
 	{
@@ -106,11 +98,6 @@ snippet @r
 	 */
 snippet @p
 	/** !< @pre ${1} */
-snippet testlog
-	// Enable logging
-	GPU3::log::Options logOptions("debug+", false);
-	GPU3::log::Logger::instance().configure(logOptions, "test", 0, 'A');
-	${1}
 snippet v
 	(void)${1};
 	${2}
