@@ -46,11 +46,14 @@ let g:neomake_cpp_cppclean_maker = {
       \}
 
 if common#IsWorkVM()
-  let g:neomake_cpp_enabled_makers = ['cppclean', 'clangtidy', 'clang', 'clangcheck']
+  let g:neomake_cpp_enabled_makers = ['cppclean', 'clangtidy', 'clang', 'cppcheck']
+  let g:neomake_cpp_cppclean_args = split(work_vm#GetExtraIncluePaths())
   let g:neomake_cpp_clangtidy_args = split(work_vm#GetExtraIncluePaths())
   let g:neomake_cpp_clang_args = split(work_vm#GetExtraIncluePaths())
   let g:neomake_cpp_clangcheck_args = split(work_vm#GetExtraIncluePaths())
-  let g:neomake_cpp_cppclean_args = split(work_vm#GetExtraIncluePaths())
+  let g:neomake_cpp_cppcheck_args = split(work_vm#GetExtraIncluePaths())
+  call add(g:neomake_cpp_cppcheck_args, "--enable=all")
+  call add(g:neomake_cpp_cppcheck_args, "--std=c++14")
 endif
 
 """ }}}
