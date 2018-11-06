@@ -192,6 +192,7 @@ set ruler           " show cursor position (overridden by statusline)
 
 set diffopt=filler,iwhite " show filler lines, and ignore whitespace changes
 
+let g:netrw_liststyle=1
 
 """ }}}
 """ autocommands {{{
