@@ -492,6 +492,10 @@ nnoremap <localleader>ld :call LanguageClient_textDocument_documentSymbol()<CR>
 nnoremap <localleader>lf :call LanguageClient_textDocument_references()<CR>
 nnoremap <localleader>ls :call LanguageClient_workspace_symbol()<CR>
 
+" Turn off snippet support, since snipmate, deoplete and LanguageClient does
+" not play nice (snippet placeholders inserted as text; really annoying).
+let g:LanguageClient_hasSnippetSupport=0
+
 """ }}}
 
 """ }}}
