@@ -21,6 +21,8 @@ setlocal foldmethod=syntax
 set shiftwidth=4    " use four spaces for each step of autoindent
 set softtabstop=4   " use four spaces for a <Tab>
 
+set textwidth=80
+
 " mark lines longer than 80 characters
 match ErrorMsg '\%>80v.\+'
 
