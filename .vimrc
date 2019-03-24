@@ -502,6 +502,7 @@ function! TransformGroceryList()
   g/^[^ ]/d
   %s/^[ ]\+\(.*\)/\1/
   %s/\(.*\) (\([0-9]\+\))/\2 \1/
+  %sort
 endfunction
 " }}}
 
