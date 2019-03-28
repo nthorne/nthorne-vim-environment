@@ -43,6 +43,9 @@ cat > ${HOME}/.config/nvim/init.vim <<Neovim_Heredoc
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
+luafile $HOME/.config/nvim/plugins.lua
 Neovim_Heredoc
+
+cp .vim/plugins.lua .config/nvim/
 
 popd
