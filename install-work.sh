@@ -46,6 +46,6 @@ source ~/.vimrc
 luafile $HOME/.config/nvim/plugins.lua
 Neovim_Heredoc
 
-cp .vim/plugins.lua .config/nvim/
+ln -s .vim/plugins.lua .config/nvim/
 
 popd

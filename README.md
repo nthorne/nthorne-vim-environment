@@ -29,4 +29,4 @@ with the following contents:
 
     luafile $HOME/.config/nvim/plugins.lua
 
-Also copy `plugins.lua` into that folder.
+Also symlink `plugins.lua` into that folder.
