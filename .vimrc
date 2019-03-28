@@ -91,6 +91,8 @@ endif
 let g:LanguageClient_loadSettings = 1
 let g:LanguageClient_settingsPath = "/home/nthorne/.vim/settings.json"
 
+Plug 'https://github.com/Vigemus/iron.nvim'
+
 " Deleted, but not really (aka might be good to have some time)..
 " Plug 'https://github.com/sk1418/HowMuch'
 " Plug 'https://github.com/Shougo/neocomplcache.vim.git'
@@ -262,7 +264,7 @@ nnoremap <silent> <F6> :prev<CR>
 nnoremap <silent> <F7> :next<CR>
 
 " <F8> is for easy window splitting
-nnoremap <silent> <F8> :split<CR>
+" nnoremap <silent> <F8> :split<CR>
 
 " <F9> is for showing the yankring
 nnoremap <silent> <F9> :YRShow<CR>
@@ -489,6 +491,17 @@ nnoremap <silent> - :lcd ..<CR>:pwd<CR>
 " Turn off snippet support, since snipmate, deoplete and LanguageClient does
 " not play nice (snippet placeholders inserted as text; really annoying).
 let g:LanguageClient_hasSnippetSupport=0
+
+" iron settings
+"let g:iron_map_defaults=0
+" <F8> is for toggling iron
+nnoremap <silent> <F8> :IronRepl<CR>
+" Map Esc to the return to normal mode key combo (there's no point in breaking
+" fingers here; we're using vim, not emacs).
+tnoremap <Esc> <C-\><C-n>
+nmap <localleader>is <Plug>(iron-send-motion)
+nmap <localleader>ir <Plug>(iron-repeat-cmd)
+nmap <localleader>if :execute 'IronSend! .L '.expand('%')<CR>
 
 """ }}}
 
