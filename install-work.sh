@@ -37,7 +37,7 @@ test -d ${HOME}/.vim || ln -s ${PWD} ${HOME}/.vim
 pushd ${HOME}
 
 ln -s .vim/.vimrc
-mkdir -p ${HOME}/.config/nvim/init.vim
+mkdir -p ${HOME}/.config/nvim/
 
 cat > ${HOME}/.config/nvim/init.vim <<Neovim_Heredoc
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
