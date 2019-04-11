@@ -495,6 +495,8 @@ let g:LanguageClient_hasSnippetSupport=0
 " iron settings
 "let g:iron_map_defaults=0
 " <F8> is for toggling iron
+let g:iron_map_defaults=0
+let g:iron_map_extended=0
 nnoremap <silent> <F8> :IronRepl<CR>
 " Map Esc to the return to normal mode key combo (there's no point in breaking
 " fingers here; we're using vim, not emacs).
