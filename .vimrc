@@ -462,6 +462,7 @@ if executable("rls")
 endif
 " Automatically start language servers.
 let g:LanguageClient_autoStart = 1
+let g:LanguageClient_useVirtualText = 0
 
 " Setup vim-bookmark
 let g:bookmark_no_default_key_mappings = 1
