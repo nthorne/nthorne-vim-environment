@@ -15,13 +15,10 @@ Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
 Plug 'https://github.com/Raimondi/delimitMate.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
-Plug 'https://github.com/derekwyatt/vim-scala.git', {'for': 'scala'}
-Plug 'https://github.com/fatih/vim-go.git', {'for': 'go'}
 Plug 'https://github.com/godlygeek/tabular.git'
 Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} | Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/kshenoy/vim-signature.git'
-Plug 'https://github.com/lambdatoast/elm.vim', {'for': 'elm'}
 Plug 'https://github.com/majutsushi/tagbar.git', {'on': 'TagbarToggle'}
 Plug 'https://github.com/michaeljsmith/vim-indent-object.git'
 Plug 'https://github.com/myusuf3/numbers.vim.git'
@@ -43,16 +40,9 @@ Plug 'https://github.com/tpope/vim-dispatch.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/tpope/vim-repeat.git'
 Plug 'https://github.com/tpope/vim-surround'
-Plug 'https://github.com/vim-scripts/Gundo.git', {'on': 'GundoToggle'}
 Plug 'https://github.com/vim-scripts/Improved-AnsiEsc.git'
 Plug 'https://github.com/vim-scripts/YankRing.vim.git'
 Plug 'https://github.com/vim-scripts/a.vim.git', {'for': 'cpp'}
-Plug 'https://github.com/vimwiki/vimwiki.git'
-" <vim-notes>
-Plug 'https://github.com/xolox/vim-misc.git'
-Plug 'https://github.com/xolox/vim-shell.git'
-Plug 'https://github.com/xolox/vim-notes.git'
-" </vim-notes>
 Plug 'https://github.com/farmergreg/vim-lastplace'
 Plug 'https://github.com/wellle/visual-split.vim'
 Plug 'https://github.com/justinmk/vim-sneak'
@@ -69,7 +59,6 @@ Plug 'https://github.com/autozimu/LanguageClient-neovim', {
   \ 'branch': 'next',
   \ 'do': 'bash install.sh'
   \}
-Plug 'https://github.com/udalov/kotlin-vim'
 
 Plug 'https://github.com/waiting-for-dev/vim-www'
 let g:www_engines = {'cpp': 'http://www.cplusplus.com/search.do?q='}
@@ -95,9 +84,23 @@ let g:LanguageClient_settingsPath = "/home/nthorne/.vim/settings.json"
 
 Plug 'https://github.com/Vigemus/iron.nvim'
 
+Plug 'https://github.com/mbbill/undotree'
+
 " Deleted, but not really (aka might be good to have some time)..
 " Plug 'https://github.com/sk1418/HowMuch'
 " Plug 'https://github.com/Shougo/neocomplcache.vim.git'
+" Plug 'https://github.com/udalov/kotlin-vim'
+" Plug 'https://github.com/derekwyatt/vim-scala.git', {'for': 'scala'}
+" Plug 'https://github.com/fatih/vim-go.git', {'for': 'go'}
+" Plug 'https://github.com/lambdatoast/elm.vim', {'for': 'elm'}
+" Plug 'https://github.com/vim-scripts/Gundo.git', {'on': 'GundoToggle'}
+" Plug 'https://github.com/vimwiki/vimwiki.git'
+" <vim-notes>
+" Plug 'https://github.com/xolox/vim-misc.git'
+" Plug 'https://github.com/xolox/vim-shell.git'
+" Plug 'https://github.com/xolox/vim-notes.git'
+" </vim-notes>
+
 call plug#end()
 
 
@@ -259,7 +262,7 @@ nnoremap <silent> <F3> :Gstatus<CR>:set nofoldenable<CR>
 nnoremap <silent> <F4> :BufExplorer<CR>
 
 " <F5> shows the Hiswin window
-nnoremap <silent> <F5> :GundoToggle<CR>
+nnoremap <silent> <F5> :UndotreeToggle<CR>
 
 " <F6> and <F7> is for navigating between files
 nnoremap <silent> <F6> :prev<CR>
