@@ -82,6 +82,8 @@ Plug 'https://github.com/aklt/plantuml-syntax.git', {'for': 'markdown,plantuml'}
 
 Plug 'https://github.com/MattesGroeger/vim-bookmarks'
 
+Plug 'https://github.com/idris-hackers/idris-vim'
+
 let g:LanguageClient_serverCommands = {}
 if executable("cquery")
   let g:LanguageClient_serverCommands.cpp = ['cquery', '--log-file=/tmp/cquery.log']
