@@ -87,7 +87,7 @@ Plug 'https://github.com/Vigemus/iron.nvim'
 Plug 'https://github.com/mbbill/undotree'
 
 " Deleted, but not really (aka might be good to have some time)..
-" Plug 'https://github.com/sk1418/HowMuch'
+Plug 'https://github.com/sk1418/HowMuch'
 " Plug 'https://github.com/Shougo/neocomplcache.vim.git'
 " Plug 'https://github.com/udalov/kotlin-vim'
 " Plug 'https://github.com/derekwyatt/vim-scala.git', {'for': 'scala'}
