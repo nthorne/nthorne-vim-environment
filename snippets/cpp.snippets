@@ -16,11 +16,11 @@ snippet cl
 	class ${1:`Filename('$1', 'name')`}
 	{
 	public:
-		$1(const $1&) = default;
-		$1($1&&) = default;
-		$1& operator=(const $1&) = default;
-		$1& operator=($1&&) = default;
-		virtual ~$1() = default;
+		$1(const $1&) =default;
+		$1($1&&) =default;
+		$1& operator=(const $1&) =default;
+		$1& operator=($1&&) =default;
+		virtual ~$1() =default;
 	private:
 		${2:/* data */}
 	};
@@ -116,3 +116,9 @@ snippet @r
 	 */
 snippet @p
 	//!< @pre ${1}
+snippet mv
+	std::move(${1})${2}
+snippet fwd
+	std::forward(${1})${2}
+snippet sc
+	static_cast<${1}>(${2})${3}
