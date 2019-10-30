@@ -21,6 +21,8 @@ endif
 nnoremap <buffer> <silent> <localleader>ud :!ctags -R --exclude='build' --exclude='CMakeFiles' --exclude='.git' --exclude=".direnv" --c-kinds=+p --fields=+iaS --extra=+q . <CR>
 setlocal foldmethod=syntax
 
+nnoremap <buffer> <silent> <C-\>d :CCTreeLoadDB<CR>
+
 " mark lines longer than 80 characters
 match ErrorMsg '\%>80v.\+'
 

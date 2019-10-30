@@ -77,7 +77,11 @@ let g:LanguageClient_serverCommands = {}
 if executable("cquery")
   let g:LanguageClient_serverCommands.cpp = ['cquery', '--log-file=/tmp/cquery.log']
   let g:LanguageClient_serverCommands.c   = ['cquery', '--log-file=/tmp/cquery.log']
+elseif executable("ccls")
+  let g:LanguageClient_serverCommands.cpp = ['ccls', '--log-file=/tmp/ccls.log']
+  let g:LanguageClient_serverCommands.c   = ['ccls', '--log-file=/tmp/ccls.log']
 endif
+
 
 let g:LanguageClient_loadSettings = 1
 let g:LanguageClient_settingsPath = "/home/nthorne/.vim/settings.json"
@@ -86,8 +90,12 @@ Plug 'https://github.com/Vigemus/iron.nvim'
 
 Plug 'https://github.com/mbbill/undotree'
 
+Plug 'https://github.com/hari-rangarajan/CCTree', {'for': 'c'}
+
+Plug 'https://github.com/apalmer1377/factorus.git', {'for': ['c', 'cpp']}
+
 " Deleted, but not really (aka might be good to have some time)..
-Plug 'https://github.com/sk1418/HowMuch'
+" Plug 'https://github.com/sk1418/HowMuch'
 " Plug 'https://github.com/Shougo/neocomplcache.vim.git'
 " Plug 'https://github.com/udalov/kotlin-vim'
 " Plug 'https://github.com/derekwyatt/vim-scala.git', {'for': 'scala'}
@@ -386,7 +394,7 @@ map q: :q
 
 if has('nvim')
   tnoremap <localleader><Esc> <C-\><C-n>:set relativenumber<CR>
-  nnoremap <localleader>s :spl<CR>:terminal<CR>
+  "nnoremap <localleader>s :spl<CR>:terminal<CR>
 endif
 
 
