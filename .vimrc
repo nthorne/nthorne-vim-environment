@@ -73,6 +73,9 @@ Plug 'https://github.com/MattesGroeger/vim-bookmarks'
 
 Plug 'https://github.com/idris-hackers/idris-vim'
 
+let g:rainbow_active = 1
+Plug 'http://github.com/frazrepo/vim-rainbow'
+
 let g:LanguageClient_serverCommands = {}
 if executable("cquery")
   let g:LanguageClient_serverCommands.cpp = ['cquery', '--log-file=/tmp/cquery.log']
