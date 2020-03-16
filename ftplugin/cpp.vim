@@ -33,7 +33,7 @@ let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
 let OmniCpp_MayCompleteDot = 0 " autocomplete after .
 let OmniCpp_MayCompleteArrow = 0 " autocomplete after ->
 let OmniCpp_MayCompleteScope = 0 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD", "GPU3", "TCC"]
+let OmniCpp_DefaultNamespaces = ["std"]
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
