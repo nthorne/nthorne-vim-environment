@@ -81,8 +81,16 @@ if executable("cquery")
   let g:LanguageClient_serverCommands.cpp = ['cquery', '--log-file=/tmp/cquery.log']
   let g:LanguageClient_serverCommands.c   = ['cquery', '--log-file=/tmp/cquery.log']
 elseif executable("ccls")
-  let g:LanguageClient_serverCommands.cpp = ['ccls', '--log-file=/tmp/ccls.log']
-  let g:LanguageClient_serverCommands.c   = ['ccls', '--log-file=/tmp/ccls.log']
+  let g:LanguageClient_serverCommands.cpp = [
+        \ 'ccls',
+        \ '--log-file=/tmp/ccls.log',
+        \ '--init={"cache":{"directory":"/tmp/.ccls-cache"}}'
+        \ ]
+  let g:LanguageClient_serverCommands.c = [
+        \ 'ccls',
+        \ '--log-file=/tmp/ccls.log',
+        \ '--init={"cache":{"directory":"/tmp/.ccls-cache"}}'
+        \]
 endif
 
 
