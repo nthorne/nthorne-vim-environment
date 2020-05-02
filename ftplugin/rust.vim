@@ -46,6 +46,9 @@ let g:neomake_rust_enabled_makers = ['rustc']
 " Setup rust-doc
 let g:rust_doc#downloaded_rust_doc_dir = '~/Documents/rust-docs'
 
+" Disable Deoplete for now, since it is acting up
+call deoplete#custom#buffer_option('auto_complete', v:false)
+
 """ }}}
 
 """ }}}
