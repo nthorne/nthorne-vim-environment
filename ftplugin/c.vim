@@ -23,8 +23,8 @@ setlocal foldmethod=syntax
 
 nnoremap <buffer> <silent> <C-\>d :CCTreeLoadDB<CR>
 
-" mark lines longer than 80 characters
-match ErrorMsg '\%>80v.\+'
+" mark lines longer than 110 characters
+match ErrorMsg '\%>110v.\+'
 
 if common#IsWorkVM()
   let g:neomake_c_enabled_makers = ['clangtidy', 'clang', 'clangcheck']

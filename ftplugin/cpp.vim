@@ -22,8 +22,8 @@ endif
 
 setlocal foldmethod=syntax
 
-" mark lines longer than 80 characters
-match ErrorMsg '\%>80v.\+'
+" mark lines longer than 110 characters
+match ErrorMsg '\%>110v.\+'
 
 " OmniCppComplete settings
 let OmniCpp_NamespaceSearch = 1
