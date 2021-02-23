@@ -103,6 +103,8 @@ Plug 'https://github.com/hari-rangarajan/CCTree', {'for': 'c'}
 
 Plug 'https://github.com/tracyone/neomake-multiprocess'
 
+Plug 'https://github.com/terryma/vim-expand-region'
+
 " Deleted, but not really (aka might be good to have some time)..
 " Plug 'https://github.com/sk1418/HowMuch'
 " Plug 'https://github.com/Shougo/neocomplcache.vim.git'
