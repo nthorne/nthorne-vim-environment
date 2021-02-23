@@ -101,6 +101,7 @@ Plug 'https://github.com/mbbill/undotree'
 
 Plug 'https://github.com/hari-rangarajan/CCTree', {'for': 'c'}
 
+Plug 'https://github.com/tracyone/neomake-multiprocess'
 
 " Deleted, but not really (aka might be good to have some time)..
 " Plug 'https://github.com/sk1418/HowMuch'
