@@ -101,7 +101,6 @@ Plug 'https://github.com/mbbill/undotree'
 
 Plug 'https://github.com/hari-rangarajan/CCTree', {'for': 'c'}
 
-Plug 'https://github.com/apalmer1377/factorus.git', {'for': ['c', 'cpp']}
 
 " Deleted, but not really (aka might be good to have some time)..
 " Plug 'https://github.com/sk1418/HowMuch'
@@ -117,6 +116,7 @@ Plug 'https://github.com/apalmer1377/factorus.git', {'for': ['c', 'cpp']}
 " Plug 'https://github.com/xolox/vim-shell.git'
 " Plug 'https://github.com/xolox/vim-notes.git'
 " </vim-notes>
+" Plug 'https://github.com/apalmer1377/factorus.git', {'for': ['c', 'cpp']}
 " Plug 'https://github.com/idris-hackers/idris-vim'
 
 call plug#end()
