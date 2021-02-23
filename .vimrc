@@ -71,8 +71,6 @@ Plug 'https://github.com/aklt/plantuml-syntax.git', {'for': 'markdown,plantuml'}
 
 Plug 'https://github.com/MattesGroeger/vim-bookmarks'
 
-Plug 'https://github.com/idris-hackers/idris-vim'
-
 let g:rainbow_active = 1
 Plug 'http://github.com/frazrepo/vim-rainbow'
 
@@ -119,6 +117,7 @@ Plug 'https://github.com/apalmer1377/factorus.git', {'for': ['c', 'cpp']}
 " Plug 'https://github.com/xolox/vim-shell.git'
 " Plug 'https://github.com/xolox/vim-notes.git'
 " </vim-notes>
+" Plug 'https://github.com/idris-hackers/idris-vim'
 
 call plug#end()
 
