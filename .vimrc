@@ -244,6 +244,7 @@ if has('autocmd')
     au BufNewFile .envrc silent! 0r $HOME/.vim/skel/.envrc
     au BufNewFile shell.nix silent! 0r $HOME/.vim/skel/shell.nix
     au BufNewFile default.nix silent! 0r $HOME/.vim/skel/default.nix
+    au BufNewFile Dockerfile silent! 0r $HOME/.vim/skel/Dockerfile
     au BufNewFile * silent! 0r $HOME/.vim/skel/template.%:e
 
     " Large files are > 10M
