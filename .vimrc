@@ -95,7 +95,9 @@ endif
 let g:LanguageClient_loadSettings = 1
 let g:LanguageClient_settingsPath = "/home/nthorne/.vim/settings.json"
 
-Plug 'https://github.com/Vigemus/iron.nvim'
+" Temporarily disabled, since it broke in an update. Also disabled
+" ~./.config/nvim/plugins.lua
+" Plug 'https://github.com/Vigemus/iron.nvim'
 
 Plug 'https://github.com/mbbill/undotree'
 

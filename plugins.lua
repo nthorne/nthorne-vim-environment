@@ -1,4 +1,4 @@
-local iron = require('iron')
+--[[ local iron = require('iron')
 
 iron.core.add_repl_definitions {
   c = {
@@ -19,3 +19,4 @@ iron.core.set_config {
     cpp = "cling",
   }
 }
+--]]
