@@ -2,6 +2,10 @@
 
 # vim: filetype=sh
 
+# Exit on error, exit on usage of unset variables, and set a pipeline failure
+# code to non-zero if any of its commands returns a non-zero exit code.
+set -euo pipefail
+
 # Set IFS explicitly to space-tab-newline to avoid tampering
 IFS=' 	
 '
