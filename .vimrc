@@ -425,6 +425,8 @@ if common#IsWorkHost()
   source $HOME/.vim/work_profile.vim
 elseif common#IsWorkVM()
   source $HOME/.vim/work_vm_profile.vim
+elseif hostname() =~ "vimes"
+  source $HOME/.vim/vimes_profile.vim
 endif
 
 
