@@ -22,7 +22,7 @@ setlocal expandtab        " use spaces rather than tabs
 setlocal smarttab
 setlocal backspace=2      " allow <BS> over autoindent, line breaks and insert start
 
-setlocal textwidth=80
+"setlocal textwidth=80
 
 setlocal nosmartindent    " turn off this one to get python indentation running
 
@@ -35,7 +35,7 @@ setlocal omnifunc=pythoncomplete#Complete
 setlocal makeprg=pylint\ --reports=n\ --output-format=parseable\ %:p
 
 " mark lines longer than 80 characters
-match ErrorMsg '\%>80v.\+'
+"match ErrorMsg '\%>80v.\+'
 
 " jedi-vim settings
 let g:jedi#goto_assignments_command = "<localleader>g"
