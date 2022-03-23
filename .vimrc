@@ -53,6 +53,7 @@ Plug 'https://github.com/glts/vim-radical'
 Plug 'https://github.com/mtth/scratch.vim'
 
 " Under evaluation
+Plug 'https://github.com/martinda/Jenkinsfile-vim-syntax'
 Plug 'https://github.com/chrisbra/unicode.vim'
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
 Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
