@@ -53,6 +53,11 @@ Plug 'https://github.com/glts/vim-radical'
 Plug 'https://github.com/mtth/scratch.vim'
 
 " Under evaluation
+" config is in ~/.config/nvim/obsidian-nvim.lua
+Plug 'https://github.com/epwalsh/obsidian.nvim'
+" Required by obsidian.nvim
+Plug 'nvim-lua/plenary.nvim'
+
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'github/copilot.vim', {'branch': 'release'}
 Plug 'https://github.com/hashivim/vim-terraform'
