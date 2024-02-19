@@ -53,6 +53,7 @@ Plug 'https://github.com/glts/vim-radical'
 Plug 'https://github.com/mtth/scratch.vim'
 
 " Under evaluation
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'github/copilot.vim', {'branch': 'release'}
 Plug 'https://github.com/hashivim/vim-terraform'
 Plug 'https://github.com/martinda/Jenkinsfile-vim-syntax'
