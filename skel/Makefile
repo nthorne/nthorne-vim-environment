@@ -3,11 +3,11 @@
 SOURCE_FILES+=$(wildcard *.cpp)
 OBJECT_FILES=$(patsubst %.cpp, %.o, $(SOURCE_FILES))
 
-CXX=CC
-CC=cc
+CXX=g++
+CC=gcc
 
-CXXFLAGS+=-g -library=stlport4_dbg
-LDFLAGS=-library=stlport4_dbg
+CXXFLAGS+=-g -std=c++17
+LDFLAGS=-lstdc++
 
 TARGET=foobar
 
