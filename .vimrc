@@ -14,7 +14,7 @@ Plug 'https://github.com/Lokaltog/vim-easymotion.git'
 Plug 'https://github.com/MarcWeber/vim-addon-mw-utils.git'
 Plug 'https://github.com/Raimondi/delimitMate.git'
 Plug 'https://github.com/airblade/vim-gitgutter.git'
-Plug 'https://github.com/altercation/vim-colors-solarized.git'
+"Plug 'https://github.com/altercation/vim-colors-solarized.git'
 Plug 'https://github.com/godlygeek/tabular.git'
 Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'} | Plug 'https://github.com/junegunn/fzf.vim'
@@ -53,10 +53,12 @@ Plug 'https://github.com/glts/vim-radical'
 Plug 'https://github.com/mtth/scratch.vim'
 
 " Under evaluation
+"Plug 'shaunsingh/solarized.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 " config is in ~/.config/nvim/obsidian-nvim.lua
-Plug 'https://github.com/epwalsh/obsidian.nvim'
+"Plug 'https://github.com/epwalsh/obsidian.nvim'
 " Required by obsidian.nvim
-Plug 'nvim-lua/plenary.nvim'
+"lug 'nvim-lua/plenary.nvim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'github/copilot.vim', {'branch': 'release'}
@@ -208,9 +210,13 @@ endif
 
 syntax on           " turn on syntax highlighting..
 "colorscheme nthorne " .. with a stylish color scheme
+"let g:solarized_disable_background = v:true
+"let g:solarized_contrast = v:true
+"let g:solarized_borders = v:true
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme gruvbox
+
 
 set number          " turn on line numbering
 
